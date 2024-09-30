@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import { GameListComponent } from './games/game-list.component';
-import { AddGameComponent } from './games/add-game.component';
+import { LoginComponent } from './login/login-form.component';
+import { SignupComponent } from './signup/signup-form.component';
 
 export const routes: Routes = [
     { path: 'games', component: GameListComponent },
-    { path: 'add-game', component: AddGameComponent },
-    { path: '', redirectTo: '/games', pathMatch: 'full' }
+    { path: 'signup', component: SignupComponent },
+    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'games', pathMatch: 'full' }
 ];

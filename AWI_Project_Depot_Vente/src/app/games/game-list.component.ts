@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     selector: 'app-game-list',
     imports: [CommonModule],
-    templateUrl: './game-list.component.html',  // Use external template
+    templateUrl: './game-list.component.html',
+    styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit {
 

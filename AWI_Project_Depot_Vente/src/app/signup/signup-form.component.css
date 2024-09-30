@@ -1,0 +1,95 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    /* Light background for contrast */
+}
+
+form {
+    background-color: #ffffff;
+    /* White background for the form */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+    padding: 20px;
+    /* Padding inside the form */
+    width: 300px;
+    /* Fixed width for the form */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    /* Space between form groups */
+}
+
+label {
+    display: block;
+    /* Make labels block elements */
+    margin-bottom: 5px;
+    /* Space below labels */
+    font-weight: bold;
+    /* Bold labels */
+    color: #333;
+    /* Dark color for labels */
+}
+
+input {
+    width: 100%;
+    /* Full width for input fields */
+    padding: 10px;
+    /* Padding inside input fields */
+    border: 1px solid #ccc;
+    /* Light gray border */
+    border-radius: 4px;
+    /* Slightly rounded corners */
+    transition: border-color 0.3s;
+    /* Smooth border color transition */
+}
+
+input:focus {
+    border-color: #007bff;
+    /* Change border color on focus */
+    outline: none;
+    /* Remove default outline */
+}
+
+small {
+    color: #d9534f;
+    /* Red color for error messages */
+    font-size: 12px;
+    /* Smaller font size for error messages */
+}
+
+button {
+    width: 100%;
+    /* Full width for the button */
+    padding: 10px;
+    /* Padding inside the button */
+    background-color: #007bff;
+    /* Primary color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Slightly rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s;
+    /* Smooth background color transition */
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+button:disabled {
+    background-color: #ccc;
+    /* Gray background for disabled button */
+    cursor: not-allowed;
+    /* Not-allowed cursor for disabled button */
+}
