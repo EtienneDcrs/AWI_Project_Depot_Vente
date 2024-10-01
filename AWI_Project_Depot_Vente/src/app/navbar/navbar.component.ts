@@ -13,7 +13,7 @@ export class NavbarComponent {
 
   // Méthode pour rediriger vers la page Products
   goToGames() {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/games']);
   }
 
   // Méthode pour rediriger vers la page Signup
