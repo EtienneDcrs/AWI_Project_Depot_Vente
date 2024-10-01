@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { CommonModule } from '@angular/common';
+import { Game } from '../../models/Game';
 
 @Component({
     standalone: true,
@@ -11,13 +12,11 @@ import { CommonModule } from '@angular/common';
 })
 export class GameListComponent implements OnInit {
 
-    games: any[] = [];
+    games: Game[] = [];
 
     constructor(private gameService: GameService) { }
 
     ngOnInit(): void {
-        this.gameService.getGames().subscribe(data => {
-            this.games = data;
-        });
+        this.games = this.gameService.getGames();
     }
 }
