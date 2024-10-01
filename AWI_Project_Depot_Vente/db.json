@@ -3,32 +3,73 @@
         {
             "id": 1,
             "name": "Settlers of Catan",
+            "editor": "Klaus Teuber",
             "price": 29.99,
-            "sellerId": 1
+            "year": 1995
         },
         {
             "id": 2,
-            "name": "Ticket to Ride",
-            "price": 39.99,
-            "sellerId": 2
+            "name": "Carcassonne",
+            "editor": "Klaus-Jürgen Wrede",
+            "price": 19.99,
+            "year": 2000
         },
         {
             "id": 3,
-            "name": "Carcassonne",
-            "price": 24.99,
-            "sellerId": 1
+            "name": "7 Wonders",
+            "editor": "Antoine Bauza",
+            "price": 39.99,
+            "year": 2010
         },
         {
             "id": 4,
             "name": "Pandemic",
-            "price": 44.99,
-            "sellerId": 3
+            "editor": "Matt Leacock",
+            "price": 34.99,
+            "year": 2008
         },
         {
             "id": 5,
-            "name": "Codenames",
-            "price": 19.99,
-            "sellerId": 2
+            "name": "Puerto Rico",
+            "editor": "Andreas Seyfarth",
+            "price": 29.99,
+            "year": null
+        },
+        {
+            "id": 6,
+            "name": "Agricola",
+            "editor": "Uwe Rosenberg",
+            "price": 45.99,
+            "year": 2007
+        },
+        {
+            "id": 7,
+            "name": "Dominion",
+            "editor": "Donald X. Vaccarino",
+            "price": 34.99,
+            "year": 2008
+        },
+        {
+            "id": 8,
+            "name": "Terraforming Mars",
+            "editor": "Jacob Fryxelius",
+            "price": 49.99,
+            "year": 2016
+        },
+        {
+            "id": 9,
+            "name": "Ticket to Ride",
+            "editor": "Alan R. Moon",
+            "price": 39.99,
+            "year": 2004
+        },
+        {
+            "id": 10,
+            "name": "Small World",
+            "editor": "Philippe Keyaerts",
+            "price": 29.99,
+            "year": 2009
         }
+
     ]
 }

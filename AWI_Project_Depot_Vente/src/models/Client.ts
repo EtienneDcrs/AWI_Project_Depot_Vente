@@ -2,13 +2,15 @@ import { Game } from "./Game";
 import { User } from "./User";
 
 export class Client extends User{
+    // this class is a subclass of User
+
     adress!: string;
     wishlist: Game[] = [];
     cart: Game[] = [];
     purchases: Game[] = [];
 
     constructor(name: string, email: string, phone: string, adress: string) {
-        super(name, email, phone);
+        super(name, email, phone); // call the constructor of the superclass
         this.adress = adress;
     }
 
@@ -25,6 +27,7 @@ export class Client extends User{
     }
 
     public removeFromWishlist(gameId: Game): void {
+        // remove the game by filtering it out
         this.wishlist = this.wishlist.filter(g => g !== gameId);
     }
 
@@ -33,6 +36,7 @@ export class Client extends User{
     }
 
     public removeFromCart(gameId: Game): void {
+        // remove the game by filtering it out
         this.cart = this.cart.filter(g => g !== gameId);
     }
 }

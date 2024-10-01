@@ -7,7 +7,7 @@ export class Seller extends User {
     turnover: number = 0;
 
     constructor(name: string, email: string, phone: string, stock: Game[]) {
-        super(name, email, phone);
+        super(name, email, phone); // Call the constructor of the superclass
         this.stock = stock;
     }
 
@@ -27,7 +27,13 @@ export class Seller extends User {
         this.stock.push(game);
     }
 
+    public removeGameFromStock(game: Game): void {
+        // Remove the game by filtering it out
+        this.stock = this.stock.filter(g => g.getId() !== game.id);
+    }
+    
     public sellGame(game: Game): void {
+        // Add the game to the sales list, remove it from the stock and update the turnover
         this.sales.push(game);
         this.turnover += game.getPrice();
         this.stock = this.stock.filter(g => g.getId() !== game.id);
