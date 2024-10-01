@@ -1,22 +1,111 @@
 /* game-list.component.css */
 
-div {
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
+/* Container for the game list */
+.game-list-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Modern font */
+    max-width: 800px;
+    /* Set a max width for the container */
+    margin: 20px auto;
+    /* Center the container */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    /* Light background for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+/* Individual game item */
+.game-item {
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center items vertically */
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f50909;
-}
-
-div:hover {
-    background-color: #faf9f9;
-}
-
-div:nth-child(odd) {
-    background-color: #f1f1f1;
-}
-
-div:nth-child(even) {
     background-color: #ffffff;
+    /* White background for game items */
+    transition: background-color 0.3s ease, transform 0.2s;
+    /* Smooth transitions */
+}
+
+/* Image styling */
+.game-image {
+    width: 120px;
+    /* Fixed width */
+    height: 160px;
+    /* Fixed height to ensure uniformity */
+    object-fit: cover;
+    /* Maintain aspect ratio, cropping if necessary */
+    margin-left: 15px;
+    /* Space between text and image */
+    border-radius: 4px;
+    /* Optional: rounded corners */
+    margin-right: 8px;
+}
+
+
+/* Hover effect for game items */
+.game-item:hover {
+    background-color: #e7f3fe;
+    /* Light blue on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+/* Style for game title */
+.game-title {
+    font-size: 1.25em;
+    /* Larger font size for the title */
+    font-weight: bold;
+    /* Bold title */
+}
+
+/* Price and editor details */
+.game-details {
+    font-size: 0.9em;
+    /* Slightly smaller font size */
+    color: #555;
+    /* Dark gray color for details */
+}
+
+/* Buy button styles */
+.buy-button {
+    margin-top: 10px;
+    /* Space above the button */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    /* Green background */
+    color: white;
+    /* White text */
+    font-size: 0.9em;
+    /* Button font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
+}
+
+/* Hover effect for buttons */
+.buy-button:hover {
+    background-color: #218838;
+    /* Darker green on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .game-list-container {
+        padding: 10px;
+        /* Less padding on small screens */
+    }
+
+    .game-item {
+        padding: 10px;
+        /* Less padding for game items */
+    }
 }

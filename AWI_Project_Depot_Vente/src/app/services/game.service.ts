@@ -9,20 +9,16 @@ import { Game } from '../../models/Game';
 export class GameService {
 
     private apiUrl = 'http://localhost:3000/games';
-    gamesList: Game[] = [];
 
     constructor(private http: HttpClient) { }
 
-    // Fetch games from the API and return them as an array of Game objects
-    getGames(): Game[] {
-        this.http.get(this.apiUrl).subscribe(data => {
-            this.gamesList = data as Game[];
-        });
-        return this.gamesList;
+    // Fetch games from the API and return them as an Observable
+    getGames(): Observable<Game[]> {
+        return this.http.get<Game[]>(this.apiUrl);
     }
 
-    // Add new game
-    addGame(game: Game): Observable<Game> {
-        return this.http.post<Game>(this.apiUrl, game);
+    buyGame(gameId: number): Observable<any> {
+        // Assuming you're using DELETE to simulate the purchase and remove the game
+        return this.http.delete(`${this.apiUrl}/${gameId}`);
     }
 }

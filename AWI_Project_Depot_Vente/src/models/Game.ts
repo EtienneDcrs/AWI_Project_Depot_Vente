@@ -5,13 +5,15 @@ export class Game {
     editor!: string;
     price!: number;
     year: number | null = null;
+    image: string;
 
-    constructor(name: string, editor: string, price: number, year: number | null) {
+    constructor(name: string, editor: string, price: number, year: number | null, image: string) {
         this.id = Game.generateUniqueId();
         this.name = name;
         this.editor = editor;
         this.price = price;
         this.year = year;
+        this.image = image;
     }
 
     private static generateUniqueId(): number {
@@ -34,7 +36,7 @@ export class Game {
         return this.editor;
     }
 
-    // return the year of release of the game if known, null otherwise
+    // Return the year of release of the game if known, null otherwise
     public getYear(): number | null {
         return this.year;
     }
