@@ -7,5 +7,5 @@ export const routes: Routes = [
     { path: 'games', component: GameListComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'login', component: LoginComponent },
-    { path: '', redirectTo: 'games', pathMatch: 'full' }
+    { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
