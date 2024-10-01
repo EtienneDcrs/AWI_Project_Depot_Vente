@@ -1,15 +1,23 @@
-/* Style général de la navbar */
+/* General navbar style */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center the items */
     align-items: center;
     background-color: #333;
     padding: 10px 20px;
 }
 
 /* Logo */
+.navbar-logo {
+    position: absolute;
+    /* Position the logo absolutely */
+    left: 20px;
+    /* Align logo to the left */
+}
+
 .navbar-logo img.logo {
-    height: 50px;
+    height: 40px;
     width: auto;
 }
 
@@ -23,6 +31,7 @@
 
 .navbar-menu li {
     margin-left: 20px;
+    /* Space between menu items */
 }
 
 .navbar-menu a {
@@ -38,7 +47,7 @@
     border-radius: 4px;
 }
 
-/* Responsivité pour mobile */
+/* Responsiveness for mobile */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -46,9 +55,12 @@
 
     .navbar-menu {
         flex-direction: column;
+        align-items: center;
+        /* Center menu items in mobile view */
     }
 
     .navbar-menu li {
         margin: 10px 0;
+        /* Space between items */
     }
 }
