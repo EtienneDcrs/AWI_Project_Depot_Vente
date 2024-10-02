@@ -1,14 +1,8 @@
 <div class="game-list-container" *ngIf="games.length > 0; else noGames">
     <div *ngFor="let game of games" class="game-item">
+        <app-game-card [game]="game"></app-game-card>
         <img [src]="game.image" alt="{{ game.name }}" class="game-image" />
-        <div class="game-info"> <!-- Wrap title, details, and button in a container -->
-            <div class="game-title">{{ game.name }}</div>
-            <div class="game-details">
-                Prix : ${{ game.price }} - Éditeur : {{ game.editor }} - Année : {{ game.year ? game.year : "Année
-                inconnue" }}
-            </div>
-            <button class="buy-button" (click)="buyGame(game.id)">Acheter</button>
-        </div>
+        <button class="buy-button" (click)="buyGame(game.id)">Acheter</button>
     </div>
 </div>
 
