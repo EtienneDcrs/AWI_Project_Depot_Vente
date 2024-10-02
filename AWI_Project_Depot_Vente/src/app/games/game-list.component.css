@@ -1,30 +1,58 @@
 /* Wrapper for both search bar and game list */
 .game-list-wrapper {
-    max-width: 1000px;
-    /* Match this width with the game-list-container */
+    max-width: 100%;
+    /* Ajusté pour qu'il prenne toute la largeur */
     margin: 20px auto;
-    /* Center the container horizontally */
+    /* Centrer le conteneur horizontalement */
     padding: 0 20px;
-    /* Add horizontal padding */
+    /* Ajouter du rembourrage horizontal */
+    display: flex;
+    /* Utiliser flexbox pour aligner les éléments */
+    flex-direction: column;
+    /* Organiser les éléments verticalement */
+    margin-left: 460px;
+}
+
+/* Filter container */
+.filter-container {
+    position: fixed;
+    /* Rend le conteneur fixe */
+    top: 60px;
+    /* Positionne le conteneur à 20px du haut de la page */
+    left: 20px;
+    /* Positionne le conteneur à 20px du bord gauche */
+    border: 1px solid #e0e0e0;
+    /* Bordure légèrement plus foncée */
+    border-radius: 8px;
+    /* Coins arrondis */
+    padding: 20px;
+    /* Augmenter le rembourrage pour plus d'espace */
+    background-color: #ffffff;
+    /* Fond blanc pour un look propre */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Ombre subtile pour la profondeur */
+    max-width: 400px;
+    /* Largeur maximale du conteneur de filtres */
+    z-index: 1000;
+    /* Assure que le conteneur soit au-dessus des autres éléments */
 }
 
 /* Container for the game list */
 .game-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
+    /* Garde la mise en page en grille pour les jeux */
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    /* Colonnes de jeux */
+    gap: 0px;
+    /* Espace entre les jeux */
+    padding: 0px;
+    /* Espace intérieur */
     border-radius: 8px;
-    background-color: #f4f4f4;
+    /* Coins arrondis */
+    background-color: #e3e3e3;
+    /* Couleur de fond pour la liste de jeux */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 600px) {
-    .game-list-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        padding: 10px;
-    }
+    /* Ombre pour profondeur */
+    max-width: calc(100% - 440px);
+    /* Ajuster la largeur pour compenser le filtre fixe */
 }

@@ -5,15 +5,19 @@ export class Game {
     editor!: string;
     price!: number;
     year: number | null = null;
+    minAge!: number;
+    players!: number;
     image: string;
 
-    constructor(name: string, editor: string, price: number, year: number | null, image: string) {
+    constructor(name: string, editor: string, price: number, year: number | null, image: string, minAge: number, players: number) {
         this.id = Game.generateUniqueId();
         this.name = name;
         this.editor = editor;
         this.price = price;
         this.year = year;
         this.image = image;
+        this.minAge = minAge;
+        this.players = players;
     }
 
     private static generateUniqueId(): number {

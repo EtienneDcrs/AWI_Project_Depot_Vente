@@ -1,0 +1,15 @@
+<div class="filter-container">
+    <h3>Filtres</h3>
+
+    <label for="price">Prix maximum:</label>
+    <input type="number" id="price" [(ngModel)]="price" placeholder="Prix max" />
+
+    <label for="minAge">Âge minimum recommandé:</label>
+    <input type="number" id="minAge" [(ngModel)]="minAge" placeholder="Âge min" />
+
+    <label for="playerCount">Nombre de joueurs:</label>
+    <input type="number" [(ngModel)]="playerCount[0]" placeholder="Min" />
+    <input type="number" [(ngModel)]="playerCount[1]" placeholder="Max" />
+
+    <button (click)="apply()">Appliquer les filtres</button>
+</div>

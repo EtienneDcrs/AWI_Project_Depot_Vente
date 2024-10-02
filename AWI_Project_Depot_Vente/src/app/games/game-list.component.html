@@ -1,6 +1,9 @@
+<app-filter class="filter-container" (applyFilters)="applyFilters($event)"></app-filter>
+
 <div class="game-list-wrapper">
+
     <!-- Search Bar -->
-    <app-search-bar (search)="handleSearch($event)"></app-search-bar> <!-- Écoute l'événement -->
+    <app-search-bar (search)="handleSearch($event)"></app-search-bar>
 
     <!-- Game List -->
     <div class="game-list-container" *ngIf="filteredGames.length > 0; else noGames">
