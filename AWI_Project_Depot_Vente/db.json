@@ -6,7 +6,12 @@
       "editor": "Klaus Teuber",
       "price": 29.99,
       "year": 1995,
-      "image": "assets/games/settlers_of_catan.avif"
+      "image": "assets/games/settlers_of_catan.avif",
+      "minAge": 10,
+      "players": [
+        3,
+        4
+      ]
     },
     {
       "id": "2",
@@ -14,7 +19,12 @@
       "editor": "Klaus-Jürgen Wrede",
       "price": 19.99,
       "year": 2000,
-      "image": "assets/games/carcassonne.webp"
+      "image": "assets/games/carcassonne.webp",
+      "minAge": 7,
+      "players": [
+        2,
+        5
+      ]
     },
     {
       "id": "3",
@@ -22,7 +32,12 @@
       "editor": "Antoine Bauza",
       "price": 39.99,
       "year": 2010,
-      "image": "assets/games/7wonders.jpg"
+      "image": "assets/games/7wonders.jpg",
+      "minAge": 13,
+      "players": [
+        3,
+        7
+      ]
     },
     {
       "id": "4",
@@ -30,7 +45,12 @@
       "editor": "Matt Leacock",
       "price": 34.99,
       "year": 2008,
-      "image": "assets/games/pandemic.webp"
+      "image": "assets/games/pandemic.webp",
+      "minAge": 8,
+      "players": [
+        2,
+        4
+      ]
     },
     {
       "id": "5",
@@ -38,7 +58,12 @@
       "editor": "Andreas Seyfarth",
       "price": 29.99,
       "year": null,
-      "image": "assets/games/puerto_rico.png"
+      "image": "assets/games/puerto_rico.png",
+      "minAge": 12,
+      "players": [
+        3,
+        5
+      ]
     },
     {
       "id": "6",
@@ -46,7 +71,12 @@
       "editor": "Uwe Rosenberg",
       "price": 45.99,
       "year": 2007,
-      "image": "assets/games/agricola.webp"
+      "image": "assets/games/agricola.webp",
+      "minAge": 12,
+      "players": [
+        1,
+        5
+      ]
     },
     {
       "id": "7",
@@ -54,7 +84,12 @@
       "editor": "Donald X. Vaccarino",
       "price": 34.99,
       "year": 2008,
-      "image": "assets/games/dominion.webp"
+      "image": "assets/games/dominion.webp",
+      "minAge": 8,
+      "players": [
+        2,
+        4
+      ]
     },
     {
       "id": "8",
@@ -62,7 +97,12 @@
       "editor": "Alan R. Moon",
       "price": 39.99,
       "year": 2004,
-      "image": "assets/games/ticket_to_ride.png"
+      "image": "assets/games/ticket_to_ride.png",
+      "minAge": 8,
+      "players": [
+        2,
+        5
+      ]
     },
     {
       "id": "9",
@@ -70,7 +110,12 @@
       "editor": "Philippe Keyaerts",
       "price": 29.99,
       "year": 2009,
-      "image": "assets/games/small_world.jpg"
+      "image": "assets/games/small_world.jpg",
+      "minAge": 8,
+      "players": [
+        2,
+        5
+      ]
     }
   ]
 }
