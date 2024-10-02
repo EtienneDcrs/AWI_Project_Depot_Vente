@@ -1,11 +1,15 @@
-<div class="game-list-container" *ngIf="games.length > 0; else noGames">
-    <div *ngFor="let game of games" class="game-item">
-        <app-game-card [game]="game"></app-game-card>
-        <img [src]="game.image" alt="{{ game.name }}" class="game-image" />
-        <button class="buy-button" (click)="buyGame(game.id)">Acheter</button>
-    </div>
-</div>
+<div class="game-list-wrapper">
+    <!-- Search Bar -->
+    <app-search-bar (search)="handleSearch($event)"></app-search-bar> <!-- Écoute l'événement -->
 
-<ng-template #noGames>
-    <p>Aucun jeu disponible pour le moment.</p>
-</ng-template>
+    <!-- Game List -->
+    <div class="game-list-container" *ngIf="filteredGames.length > 0; else noGames">
+        <div *ngFor="let game of filteredGames" class="game-item">
+            <app-game-card [game]="game" (buy)="handleBuy($event)"></app-game-card>
+        </div>
+    </div>
+
+    <ng-template #noGames>
+        <p>Aucun jeu disponible pour le moment.</p>
+    </ng-template>
+</div>

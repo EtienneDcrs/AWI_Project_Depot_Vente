@@ -58,14 +58,6 @@
     },
     {
       "id": "8",
-      "name": "Terraforming Mars",
-      "editor": "Jacob Fryxelius",
-      "price": 49.99,
-      "year": 2016,
-      "image": "assets/games/terraforming_mars.jpg"
-    },
-    {
-      "id": "9",
       "name": "Ticket to Ride",
       "editor": "Alan R. Moon",
       "price": 39.99,
@@ -73,7 +65,7 @@
       "image": "assets/games/ticket_to_ride.png"
     },
     {
-      "id": "10",
+      "id": "9",
       "name": "Small World",
       "editor": "Philippe Keyaerts",
       "price": 29.99,

@@ -12,12 +12,12 @@
 
 .game-image {
     width: 100%;
-    height: auto;
+    height: 200px;
     object-fit: cover;
 }
 
 .game-info {
-    padding: 10px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -37,4 +37,14 @@
     font-weight: bold;
     margin: 5px 0;
     color: #28a745;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
 }
