@@ -1,9 +1,9 @@
-<div class="game-card">
+<div class="game-card" (click)="goToGameDetails()">
     <img [src]="game.image" alt="{{ game.name }}" class="game-image" />
     <div class="game-info">
         <h2 class="game-title">{{ game.name }}</h2>
         <p class="game-editor">{{ game.editor }}</p>
         <p class="game-price">${{ game.price }}</p>
     </div>
-    <button class="buy-button" (click)="buyGame()">Buy</button> <!-- Call buyGame() directly -->
+    <button class="cart-button" (click)="addToCart()">add to cart</button> <!-- Call buyGame() directly -->
 </div>

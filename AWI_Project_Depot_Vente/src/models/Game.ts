@@ -3,13 +3,17 @@ export class Game {
     id!: number;
     name!: string;
     editor!: string;
+    description!: string;
     price!: number;
     year: number | null = null;
     minAge!: number;
     players!: number;
     image: string;
+    sellerId!: number;
+    sellerName!: string;
 
-    constructor(name: string, editor: string, price: number, year: number | null, image: string, minAge: number, players: number) {
+    constructor(name: string, editor: string, price: number, year: number | null, image: string, minAge: number, players: number,sellerId: number, sellerName: string) {
+
         this.id = Game.generateUniqueId();
         this.name = name;
         this.editor = editor;
@@ -18,6 +22,8 @@ export class Game {
         this.image = image;
         this.minAge = minAge;
         this.players = players;
+        this.sellerId = sellerId;
+        this.sellerName = sellerName;
     }
 
     private static generateUniqueId(): number {
@@ -43,5 +49,13 @@ export class Game {
     // Return the year of release of the game if known, null otherwise
     public getYear(): number | null {
         return this.year;
+    }
+
+    public getSellerId(): number {
+        return this.sellerId;
+    }
+
+    public getSellerName(): string {
+        return this.sellerName;
     }
 }
