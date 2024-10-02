@@ -1,8 +1,11 @@
-<div class="game-grid">
-    @for (game of games; track game.id) {
-        <div>
-            <app-game-card [game]="game"></app-game-card>
-        </div>
-    }
-  </div>
-  
+<div class="game-list-container" *ngIf="games.length > 0; else noGames">
+    <div *ngFor="let game of games" class="game-item">
+        <app-game-card [game]="game"></app-game-card>
+        <img [src]="game.image" alt="{{ game.name }}" class="game-image" />
+        <button class="buy-button" (click)="buyGame(game.id)">Acheter</button>
+    </div>
+</div>
+
+<ng-template #noGames>
+    <p>Aucun jeu disponible pour le moment.</p>
+</ng-template>
