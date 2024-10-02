@@ -1,126 +1,30 @@
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 cards per row */
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
+/* Wrapper for both search bar and game list */
+.game-list-wrapper {
+    max-width: 1000px;
+    /* Match this width with the game-list-container */
+    margin: 20px auto;
+    /* Center the container horizontally */
+    padding: 0 20px;
+    /* Add horizontal padding */
 }
-
-.game-grid div {
-    display: flex;
-    justify-content: center;
-}
-
-
-/* game-list.component.css */
 
 /* Container for the game list */
 .game-list-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Modern font */
-    max-width: 800px;
-    /* Set a max width for the container */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
     margin: 20px auto;
-    /* Center the container */
     padding: 20px;
     border-radius: 8px;
     background-color: #f4f4f4;
-    /* Light background for the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
-}
-
-/* Individual game item */
-.game-item {
-    display: flex;
-    /* Use flexbox for layout */
-    align-items: center;
-    /* Center items vertically */
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #ffffff;
-    /* White background for game items */
-    transition: background-color 0.3s ease, transform 0.2s;
-    /* Smooth transitions */
-}
-
-/* Image styling */
-.game-image {
-    width: 120px;
-    /* Fixed width */
-    height: 160px;
-    /* Fixed height to ensure uniformity */
-    object-fit: cover;
-    /* Maintain aspect ratio, cropping if necessary */
-    margin-left: 15px;
-    /* Space between text and image */
-    border-radius: 4px;
-    /* Optional: rounded corners */
-    margin-right: 8px;
-}
-
-
-/* Hover effect for game items */
-.game-item:hover {
-    background-color: #e7f3fe;
-    /* Light blue on hover */
-    transform: translateY(-2px);
-    /* Slight lift effect */
-}
-
-/* Style for game title */
-.game-title {
-    font-size: 1.25em;
-    /* Larger font size for the title */
-    font-weight: bold;
-    /* Bold title */
-}
-
-/* Price and editor details */
-.game-details {
-    font-size: 0.9em;
-    /* Slightly smaller font size */
-    color: #555;
-    /* Dark gray color for details */
-}
-
-/* Buy button styles */
-.buy-button {
-    margin-top: 10px;
-    /* Space above the button */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    /* Green background */
-    color: white;
-    /* White text */
-    font-size: 0.9em;
-    /* Button font size */
-    cursor: pointer;
-    /* Pointer cursor on hover */
-    transition: background-color 0.3s ease;
-    /* Smooth background color transition */
-}
-
-/* Hover effect for buttons */
-.buy-button:hover {
-    background-color: #218838;
-    /* Darker green on hover */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 600px) {
     .game-list-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         padding: 10px;
-        /* Less padding on small screens */
-    }
-
-    .game-item {
-        padding: 10px;
-        /* Less padding for game items */
     }
 }

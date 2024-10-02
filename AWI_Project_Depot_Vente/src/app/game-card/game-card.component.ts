@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { GameService } from '../services/game.service';
 import { Game } from '../../models/Game';
 
 @Component({
@@ -12,9 +12,12 @@ import { Game } from '../../models/Game';
 })
 export class GameCardComponent {
   @Input() game!: Game;
+  @Output() buy = new EventEmitter<number>();
+
+  games: Game[] = [];
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private gameService: GameService) { }
 
   ngOnInit(): void {
     // Récuperation de l'utilisateur
@@ -27,6 +30,21 @@ export class GameCardComponent {
     // 	console.log(this.user);
     //   }
     // })
+    this.loadGames();
+  }
+
+  // Récupérer les jeux en souscrivant à l'Observable
+  loadGames() {
+    this.gameService.getGames().subscribe((data: Game[]) => {
+      this.games = data;
+    }, (error) => {
+      console.error('Erreur lors de la récupération des jeux:', error);
+    });
+  }
+
+  // Method to handle buying a game
+  buyGame() {
+    this.buy.emit(this.game.id);
   }
 
 }
