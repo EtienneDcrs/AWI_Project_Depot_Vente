@@ -27,6 +27,7 @@ export class GameListComponent implements OnInit {
     loadGames() {
         this.gameService.getGames().subscribe((data: Game[]) => {
             this.games = data;
+            this.filteredGames = this.games;
         }, (error) => {
             console.error('Erreur lors de la récupération des jeux:', error);
         });

@@ -17,6 +17,11 @@ export class GameService {
         return this.http.get<Game[]>(this.apiUrl);
     }
 
+    // Fetch a game from the API using the gameId and return it as an Observable
+    getGame(gameId: number): Observable<Game> {
+        return this.http.get<Game>(`${this.apiUrl}/${gameId}`);
+    }
+
     buyGame(gameId: number): Observable<any> {
         // Assuming you're using DELETE to simulate the purchase and remove the game
         return this.http.delete(`${this.apiUrl}/${gameId}`);

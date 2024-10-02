@@ -25,6 +25,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/games']);
   }
 
+  goToGame(gameId: number) {
+    this.router.navigate(['/games', gameId]);
+  }
+
   goToSignup() {
     this.router.navigate(['/signup']);
   }
