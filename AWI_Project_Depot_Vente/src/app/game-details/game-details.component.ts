@@ -18,19 +18,18 @@ export class GameDetailsComponent {
     constructor(private router:Router, private route: ActivatedRoute, private gameService: GameService) { }
 
     ngOnInit(): void {
-      //Récuperation de l'utilisateur
-      this.route.paramMap.subscribe(params => {
-        const id = params.get('id')
-        console.log(id);
-        if (id) {
-      	// Récupérer l'utilisateur correspondant à l'ID
-        this.gameService.getGame(Number(id)).subscribe((data: Game) => {
-           	this.game = data;
-        });
-      	
-      	console.log(this.game);
-        }
-      })
+        //Récuperation de l'utilisateur
+        this.route.paramMap.subscribe(params => {
+            const id = params.get('id')
+            console.log(id);
+            if (id) {
+                // Récupérer l'utilisateur correspondant à l'ID
+                this.gameService.getGame(Number(id)).subscribe((data: Game) => {
+                    this.game = data;
+                    console.log("data",data);
+                });
+            }
+        })
     }
 
     

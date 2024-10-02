@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../services/game.service';
 import { Game } from '../../models/Game';
 import { Router } from '@angular/router';
+import { ClientService } from '../services/client.service';
 
 @Component({
     selector: 'app-game-card',
@@ -18,7 +19,7 @@ export class GameCardComponent {
     games: Game[] = [];
 
 
-    constructor(private router: Router,private route: ActivatedRoute, private gameService: GameService) { }
+    constructor(private router: Router,private route: ActivatedRoute, private gameService: GameService, private clientService: ClientService) { }
 
     ngOnInit(): void {
         this.loadGames();
@@ -36,6 +37,13 @@ export class GameCardComponent {
     // Method to handle buying a game
     buyGame() {
         this.buy.emit(this.game.id);
+    }
+
+    addToCart() {
+        // Method to handle adding a game to the cart
+        if (confirm('Êtes-vous sûr de vouloir ajouter ce jeu au panier ?')) {
+            this.clientService.addToCart(this.game);
+        }
     }
 
     // Method to navigate to the game details page
