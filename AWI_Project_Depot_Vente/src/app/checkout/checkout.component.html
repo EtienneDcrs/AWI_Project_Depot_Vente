@@ -24,4 +24,7 @@
 
         <button type="submit">Valider l'achat</button>
     </form>
+    @if (isCheckoutConfirmed) {
+    <app-password-prompt (transactionConfirmed)="addTransaction(checkoutForm.value)" />
+    }
 </div>

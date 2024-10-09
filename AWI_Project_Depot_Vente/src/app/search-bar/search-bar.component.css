@@ -1,6 +1,7 @@
 /* Search bar container */
 .search-container {
     margin-bottom: 20px;
+    position: fixed;
 }
 
 /* Search bar input field */

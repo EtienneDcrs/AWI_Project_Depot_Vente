@@ -17,8 +17,8 @@ export class NavbarComponent {
     this.router.navigate(['/games']);
   }
 
-  goToGame(gameId: number) {
-    this.router.navigate(['/games', gameId]);
+  goToTransaction() {
+    this.router.navigate(['/transaction']);
   }
 
 }
