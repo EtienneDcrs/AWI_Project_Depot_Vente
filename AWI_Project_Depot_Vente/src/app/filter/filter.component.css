@@ -1,21 +1,26 @@
 /* Filter container */
+/* Filter container */
 .filter-container {
+    position: fixed;
+    /* Rend le conteneur fixe */
+    top: 60px;
+    /* Positionne le conteneur à 20px du haut de la page */
+    left: 20px;
+    /* Positionne le conteneur à 20px du bord gauche */
     border: 1px solid #e0e0e0;
-    /* Slightly darker border */
+    /* Bordure légèrement plus foncée */
     border-radius: 8px;
-    /* More rounded corners */
+    /* Coins arrondis */
     padding: 20px;
-    /* Increased padding for more space */
+    /* Augmenter le rembourrage pour plus d'espace */
     background-color: #ffffff;
-    /* White background for a clean look */
+    /* Fond blanc pour un look propre */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
-    max-width: 800px;
-    /* Increase max width for the filter container */
-    flex: 1;
-    /* Allow the filter container to grow */
-    margin-right: 20px;
-    /* Space between the filter and game list */
+    /* Ombre subtile pour la profondeur */
+    width: 400px;
+    /* Largeur maximale du conteneur de filtres */
+    z-index: 1000;
+    /* Assure que le conteneur soit au-dessus des autres éléments */
 }
 
 /* Filter title */

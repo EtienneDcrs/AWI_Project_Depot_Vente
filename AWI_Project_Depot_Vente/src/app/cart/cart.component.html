@@ -1,0 +1,11 @@
+
+<div class="cart-container">
+
+    <h3>Panier</h3>
+    @for(game of cart; track game.id){
+        <div class="cart-item">
+            <p>{{ game.name }} - {{ game.price }}</p>
+        </div>
+    }
+    
+</div>

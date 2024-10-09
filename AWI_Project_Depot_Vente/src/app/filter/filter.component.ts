@@ -9,18 +9,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  @Output() applyFilters = new EventEmitter<{ price?: number; minAge?: number; playerCount?: [number, number] }>();
+  @Output() applyFilters = new EventEmitter<{ price?: number;}>();
 
   price: number | undefined = undefined;
-  minAge: number | undefined = undefined;
-  playerCount: [number, number] = [1, 10]; // Assuming a range of 1 to 10 players
 
   // Emit the filters when applied
   apply() {
     this.applyFilters.emit({
       price: this.price,
-      minAge: this.minAge,
-      playerCount: this.playerCount
     });
   }
 }

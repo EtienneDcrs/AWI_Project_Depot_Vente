@@ -1,9 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { Game } from '../../models/Game';
-import { Router } from '@angular/router';
-import { ClientService } from '../services/client.service';
 
 @Component({
     selector: 'app-game-card',
@@ -13,13 +10,12 @@ import { ClientService } from '../services/client.service';
     styleUrl: './game-card.component.css'
 })
 export class GameCardComponent {
-    @Output() buy = new EventEmitter<number>();
     @Input() game!: Game;
 
     games: Game[] = [];
 
 
-    constructor(private router: Router,private route: ActivatedRoute, private gameService: GameService, private clientService: ClientService) { }
+    constructor(private gameService: GameService) { }
 
     ngOnInit(): void {
         this.loadGames();
@@ -34,22 +30,12 @@ export class GameCardComponent {
         });
     }
 
-    // Method to handle buying a game
-    buyGame() {
-        this.buy.emit(this.game.id);
-    }
-
     addToCart() {
         // Method to handle adding a game to the cart
         if (confirm('Êtes-vous sûr de vouloir ajouter ce jeu au panier ?')) {
-            this.clientService.addToCart(this.game);
+            this.gameService.addToCart(this.game);
         }
     }
 
-    // Method to navigate to the game details page
-    goToGameDetails() {
-        const gameId = this.game.id;
-        this.router.navigate(['/games', gameId]);
-    }
 
 }

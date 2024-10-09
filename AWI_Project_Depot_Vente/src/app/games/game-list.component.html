@@ -1,18 +1,13 @@
-<app-filter class="filter-container" (applyFilters)="applyFilters($event)"></app-filter>
 
-<div class="game-list-wrapper">
-
-    <!-- Search Bar -->
-    <app-search-bar (search)="handleSearch($event)"></app-search-bar>
-
-    <!-- Game List -->
-    <div class="game-list-container" *ngIf="filteredGames.length > 0; else noGames">
-        <div *ngFor="let game of filteredGames" class="game-item">
-            <app-game-card [game]="game" (buy)="handleBuy($event)"></app-game-card>
-        </div>
+@if(gameList.length > 0){
+    <div class="game-list-container">
+        @for(game of gameList; track game.id){
+            <div class="game-item">
+                <app-game-card [game]="game"></app-game-card>
+            </div>
+        }       
     </div>
-
-    <ng-template #noGames>
+} 
+@else {
         <p>Aucun jeu disponible pour le moment.</p>
-    </ng-template>
-</div>
+}

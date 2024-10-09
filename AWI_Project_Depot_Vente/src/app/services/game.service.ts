@@ -8,6 +8,7 @@ import { Game } from '../../models/Game';
 })
 export class GameService {
 
+    cart: Game[] = [];
     private apiUrl = 'http://localhost:3000/games';
 
     constructor(private http: HttpClient) { }
@@ -22,8 +23,14 @@ export class GameService {
         return this.http.get<Game>(`${this.apiUrl}/${gameId}`);
     }
 
-    buyGame(gameId: number): Observable<any> {
-        // Assuming you're using DELETE to simulate the purchase and remove the game
-        return this.http.delete(`${this.apiUrl}/${gameId}`);
+    // Add a game to the cart
+    addToCart(game: Game) {
+        // Add the game to the cart
+        this.cart.push(game);
     }
+
+    getCart(): Game[] {
+        return this.cart;
+    }
+    
 }
