@@ -24,9 +24,9 @@ export class GameCardComponent {
     // Récupérer les jeux en souscrivant à l'Observable
     loadGames() {
         this.gameService.getGames().subscribe((data: Game[]) => {
-        this.games = data;
+            this.games = data;
         }, (error) => {
-        console.error('Erreur lors de la récupération des jeux:', error);
+            console.error('Erreur lors de la récupération des jeux:', error);
         });
     }
 
