@@ -1,13 +1,9 @@
-
-
 /* cart container */
 .cart-container {
     position: fixed;
-
     width: 400px;
-
-    height: 400px;
-    /* Rend le conteneur fixe */
+    height: 500px;
+    /* Ajustez la hauteur si nécessaire */
     top: 300px;
     /* Positionne le conteneur à 20px du haut de la page */
     left: 20px;
@@ -20,10 +16,109 @@
     /* Augmenter le rembourrage pour plus d'espace */
     background-color: #ffffff;
     /* Fond blanc pour un look propre */
-    box-shadow: 0 2px 8px r25a(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     /* Ombre subtile pour la profondeur */
     max-width: 400px;
     /* Largeur maximale du conteneur de filtres */
     z-index: 1000;
     /* Assure que le conteneur soit au-dessus des autres éléments */
+    display: flex;
+    /* Utiliser flexbox pour la mise en page */
+    flex-direction: column;
+    /* Organiser les enfants en colonne */
+}
+
+.cart-items {
+    max-height: 300px;
+    /* Ajustez cette valeur selon vos besoins */
+    overflow-y: auto;
+    /* Activer le défilement vertical */
+    margin-bottom: 10px;
+    /* Ajoute de l'espace en bas */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-button:focus {
+    outline: none;
+}
+
+.remove-button:hover {
+    color: #007bff;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.total-price {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.clear-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-button:focus {
+    outline: none;
+}
+
+.clear-button:hover {
+    color: #007bff;
+}
+
+.finalize-button {
+    background-color: #4CAF50;
+    /* Vert */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+    /* Pousse le bouton vers le bas du conteneur */
+    align-self: flex-end;
+    /* Aligne le bouton à droite */
+}
+
+.finalize-button:hover {
+    background-color: #45a049;
+    /* Vert plus foncé au survol */
+    transform: translateY(-2px);
+    /* Légère élévation au survol */
+}
+
+.finalize-button:active {
+    transform: translateY(0);
+    /* Réinitialise la position au clic */
 }

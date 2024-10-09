@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Game } from '../../models/Game';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GameService {
-
-    cart: Game[] = [];
+    private cart = new BehaviorSubject<Game[]>([]);
+    cart$ = this.cart.asObservable();
+    prixCartTotal = new BehaviorSubject<number>(0);
+    prixCartTotal$ = this.prixCartTotal.asObservable();
     private apiUrl = 'http://localhost:3000/games';
 
     constructor(private http: HttpClient) { }
@@ -25,12 +27,25 @@ export class GameService {
 
     // Add a game to the cart
     addToCart(game: Game) {
-        // Add the game to the cart
-        this.cart.push(game);
+        const currentCart = this.cart.value;
+        this.cart.next([...currentCart, game]);
+        const newTotal = this.prixCartTotal.value + game.price;
+        this.prixCartTotal.next(parseFloat(newTotal.toFixed(2)));
+    }
+
+    removeFromCart(game: Game) {
+        const currentCart = this.cart.value.filter(item => item.id !== game.id);
+        this.cart.next(currentCart);
+        const newTotal = this.prixCartTotal.value - game.price;
+        this.prixCartTotal.next(parseFloat(newTotal.toFixed(2)));
+    }
+
+    clearCart() {
+        this.cart.next([]);
+        this.prixCartTotal.next(0);
     }
 
     getCart(): Game[] {
-        return this.cart;
+        return this.cart.value;
     }
-    
 }
