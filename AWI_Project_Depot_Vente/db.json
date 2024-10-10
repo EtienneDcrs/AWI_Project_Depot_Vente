@@ -117,5 +117,17 @@
         5
       ]
     }
+  ],
+  "transactions": [
+    {
+      "id": "6947",
+      "buyer": {
+        "name": "lennon herrmann",
+        "email": "lennonherrmann@hotmail.com",
+        "phone": "0768206673",
+        "address": "213 Rue des Chênes"
+      },
+      "price": 0
+    }
   ]
 }

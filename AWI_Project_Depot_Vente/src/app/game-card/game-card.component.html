@@ -4,5 +4,7 @@
         <p class="game-editor">{{ game.editor }}</p>
         <p class="game-price">${{ game.price }}</p>
     </div>
-    <button class="cart-button" (click)="addToCart()">add to cart</button> <!-- Call buyGame() directly -->
+    <button class="cart-button" (click)="addToCart()" [disabled]="isInCart">
+        {{ isInCart ? 'In Cart' : 'Add to Cart' }}
+    </button>
 </div>

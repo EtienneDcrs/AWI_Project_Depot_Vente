@@ -1,4 +1,3 @@
-
 /* Container for the game list */
 .game-list-container {
     display: grid;
@@ -17,4 +16,5 @@
     /* Ombre pour profondeur */
     max-width: calc(100% - 440px);
     /* Ajuster la largeur pour compenser le filtre fixe */
+    margin-top: 50px;
 }

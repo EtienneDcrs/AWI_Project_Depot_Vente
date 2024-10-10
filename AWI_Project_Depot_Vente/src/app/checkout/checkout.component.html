@@ -1,0 +1,30 @@
+<div class="checkout-container">
+    <h2>Informations personnelles</h2>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Nom</label>
+            <input id="name" formControlName="name" placeholder="Votre nom">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" placeholder="Votre email">
+        </div>
+
+        <div>
+            <label for="phone">Téléphone</label>
+            <input id="phone" formControlName="phone" placeholder="Votre téléphone">
+        </div>
+
+        <div>
+            <label for="address">Adresse</label>
+            <input id="address" formControlName="address" placeholder="Votre adresse">
+        </div>
+
+        <button type="submit">Valider l'achat</button>
+    </form>
+    @if (isCheckoutConfirmed) {
+    <app-password-prompt (transactionConfirmed)="addTransaction(checkoutForm.value)" />
+    }
+</div>

@@ -9,20 +9,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   constructor(private router: Router) { }
-
-  ngOnInit() {
-    
-  }
 
   goToGames() {
     this.router.navigate(['/games']);
   }
 
-  goToGame(gameId: number) {
-    this.router.navigate(['/games', gameId]);
+  goToTransaction() {
+    this.router.navigate(['/transaction']);
   }
 
 }
