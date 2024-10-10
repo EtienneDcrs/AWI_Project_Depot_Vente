@@ -9,6 +9,7 @@ import { Game } from '../../models/Game';
 export class GameService {
 
     cart: Game[] = [];
+    totalPrice: number = 0;
     private apiUrl = 'http://localhost:3000/games';
 
     constructor(private http: HttpClient) { }
@@ -27,10 +28,18 @@ export class GameService {
     addToCart(game: Game) {
         // Add the game to the cart
         this.cart.push(game);
+        // Update the total price
+        this.totalPrice += game.price;
+        console.log(this.totalPrice);
+
     }
 
     getCart(): Game[] {
         return this.cart;
+    }
+
+    getCartPrice(): number {
+        return this.totalPrice;
     }
     
 }

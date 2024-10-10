@@ -27,3 +27,32 @@
     z-index: 1000;
     /* Assure que le conteneur soit au-dessus des autres éléments */
 }
+
+.cart-container h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    /* Larger font size */
+    color: #333;
+    /* Darker text color */
+    font-weight: bold;
+    /* Bold font for emphasis */
+}
+
+.cart-container h4 {
+    margin-top: 0;
+    font-size: 1.2em;
+    /* Larger font size */
+    color: #333;
+    /* Darker text color */
+    font-weight: bold;
+    /* Bold font for emphasis */
+}
+
+.cart-item {
+    display: flex;
+    /* Utilisez Flexbox pour aligner les éléments */
+    justify-content: space-between;
+    /* Espace entre les éléments */
+    margin-bottom: 10px;
+    /* Marge inférieure pour plus d'espace */
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Game } from '../../models/Game';
 import { GameService } from '../services/game.service';
 
@@ -7,19 +7,14 @@ import { GameService } from '../services/game.service';
   standalone: true,
   imports: [],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrls: ['./cart.component.css'] // Correction ici
 })
-export class CartComponent implements OnInit {
-    cart: Game[] = [];
+export class CartComponent {
+    cart!: Game[];
+    totalPrice!: number;
 
-    constructor(private gameService:GameService) { }
-
-    ngOnInit(): void {
-        this.loadCart();
-    }
-
-    // Load the cart from the GameService
-    loadCart() {
+    constructor(private gameService: GameService) {
         this.cart = this.gameService.getCart();
-    }
+        this.totalPrice = this.gameService.getCartPrice();
+     }
 }

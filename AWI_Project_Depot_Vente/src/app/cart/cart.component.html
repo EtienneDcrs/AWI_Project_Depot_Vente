@@ -4,8 +4,9 @@
     <h3>Panier</h3>
     @for(game of cart; track game.id){
         <div class="cart-item">
-            <p>{{ game.name }} - {{ game.price }}</p>
+            <p>{{ game.name }} </p>
+            <p>€{{ game.price }}</p>
         </div>
     }
-    
+    <h4>Prix Total - €{{ totalPrice }}</h4>
 </div>
