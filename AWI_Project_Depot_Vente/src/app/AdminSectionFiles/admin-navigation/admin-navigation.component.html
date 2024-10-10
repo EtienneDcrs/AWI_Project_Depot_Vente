@@ -1,0 +1,12 @@
+<div class="admin-menu">
+    <ul>
+        @for(item of menuItems; track item.path) {
+        <li [class.active]="isActive(item.path)">
+            <a routerLink="{{ item.path }}">
+                <mat-icon>{{ item.icon }}</mat-icon> <!-- Icône ajoutée -->
+                <strong class="label">{{ item.label }}</strong>
+            </a>
+        </li>
+        }
+    </ul>
+</div>

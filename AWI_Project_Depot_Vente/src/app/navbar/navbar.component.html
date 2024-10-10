@@ -6,6 +6,10 @@
     </div>
     <ul class="navbar-menu">
         <li><a (click)="goToGames()">Games</a></li>
-        <li><a (click)="goToAdminSection()">Admin Section</a></li>
+        <li><a (click)="openPasswordPrompt()">Admin Section</a></li>
     </ul>
 </nav>
+
+@if (showPasswordPrompt) {
+<app-password-prompt (passwordEntered)="handlePasswordEntered()"></app-password-prompt>
+}
