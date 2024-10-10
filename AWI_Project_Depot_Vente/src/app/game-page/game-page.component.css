@@ -10,4 +10,6 @@
     flex-direction: column;
     /* Organiser les éléments verticalement */
     margin-left: 460px;
+
+    margin-top: 60px;
 }

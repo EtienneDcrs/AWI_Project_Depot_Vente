@@ -17,8 +17,8 @@ export class NavbarComponent {
     this.router.navigate(['/games']);
   }
 
-  goToTransaction() {
-    this.router.navigate(['/transaction']);
+  goToAdminSection() {
+    this.router.navigate(['/admin']);
   }
 
 }

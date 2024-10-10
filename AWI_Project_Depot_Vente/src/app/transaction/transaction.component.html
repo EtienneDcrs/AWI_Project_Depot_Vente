@@ -11,13 +11,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let transaction of transactions">
-                <td>{{ transaction.gameId }}</td>
-                <td>{{ transaction.gameName }}</td>
-                <td>{{ transaction.price | currency }}</td>
-                <td>{{ transaction.buyerName }}</td>
-                <td>{{ transaction.date | date:'short' }}</td>
-            </tr>
+            @for (transaction of transactions; track transaction.id) {
+                <tr>
+                    <td>{{ transaction.gameId }}</td>
+                    <td>{{ transaction.gameName }}</td>
+                    <td>{{ transaction.price | currency }}</td>
+                    <td>{{ transaction.buyerName }}</td>
+                    <td>{{ transaction.date | date:'short' }}</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
