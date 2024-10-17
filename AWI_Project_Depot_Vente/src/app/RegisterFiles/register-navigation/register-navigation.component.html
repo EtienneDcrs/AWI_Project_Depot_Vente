@@ -1,0 +1,11 @@
+<div class="register-menu">
+    <ul>
+        @for(item of menuItems; track item.path) {
+        <li [class.active]="isActive(item.path)">
+            <a routerLink="{{ item.path }}">
+                <strong class="label">{{ item.label }}</strong>
+            </a>
+        </li>
+        }
+    </ul>
+</div>

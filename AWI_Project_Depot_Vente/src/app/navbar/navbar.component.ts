@@ -26,6 +26,10 @@ export class NavbarComponent {
     this.goToAdminSection();
   }
 
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+
   goToGames() {
     this.router.navigate(['/games']);
   }

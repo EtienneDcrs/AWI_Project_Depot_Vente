@@ -1,0 +1,51 @@
+.register-menu {
+    position: fixed;
+    top: 40px;
+    /* Taille de la navbar en haut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 40px);
+    background-color: #677DFF;
+    color: white;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.register-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.register-menu ul li {
+    margin-top: 80px;
+}
+
+.register-menu ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    padding: 0px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.register-menu ul li a:hover {
+    background-color: #b8e2ff;
+}
+
+.mat-icon {
+    font-size: 20px;
+    /* Taille de l'icône */
+    color: white;
+    /* Couleur de l'icône */
+    vertical-align: middle;
+    /* Aligner l'icône au milieu du texte */
+    margin-bottom: -2px;
+}
+
+.label {
+    color: white;
+}
