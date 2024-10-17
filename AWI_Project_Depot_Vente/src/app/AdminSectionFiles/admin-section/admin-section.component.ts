@@ -12,14 +12,4 @@ import { AdminNavigationComponent } from '../admin-navigation/admin-navigation.c
 export class AdminSectionComponent {
 
   constructor() { }
-
-  displayGames() {
-  }
-
-  displaySellers() {
-
-  }
-
-  displayBuyers() {
-  }
 }

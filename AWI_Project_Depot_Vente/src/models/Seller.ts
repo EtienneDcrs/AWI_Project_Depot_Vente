@@ -6,8 +6,8 @@ export class Seller extends User {
     sales: Game[] = [];
     turnover: number = 0;
 
-    constructor(name: string, email: string, phone: string, stock: Game[]) {
-        super(name, email, phone); // Call the constructor of the superclass
+    constructor(firstName: string, name: string, email: string, phone: string, stock: Game[]) {
+        super(firstName, name, email, phone); // Call the constructor of the superclass
         this.stock = stock;
     }
 

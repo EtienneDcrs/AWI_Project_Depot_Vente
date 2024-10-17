@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Game } from '../../../models/Game';
+import { Game } from '../../models/Game';
 
 @Injectable({
     providedIn: 'root'
@@ -21,8 +21,13 @@ export class GameService {
     }
 
     // Fetch a game from the API using the gameId and return it as an Observable
-    getGame(gameId: number): Observable<Game> {
+    getGame(gameId: string): Observable<Game> {
         return this.http.get<Game>(`${this.apiUrl}/${gameId}`);
+    }
+
+    // Déposer un jeu dans la base de données
+    addGame(game: Game): Observable<Game> {
+        return this.http.post<Game>(`${this.apiUrl}`, game);
     }
 
     // Add a game to the cart

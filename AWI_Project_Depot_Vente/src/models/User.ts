@@ -1,22 +1,25 @@
 export class User {
     private static lastId: number = 0; // Static variable to generate unique ids
-    id!: number;
+    id!: string;
+    firstName!: string;
     name!: string;
     email!: string;
     phone!: string;
 
-    constructor(name: string, email: string, phone: string) {
-        this.id = User.generateUniqueId(); // Generate a unique id
+    constructor(firstName: string, name: string, email: string, phone: string) {
+        // Generate a unique id string
+        this.id = User.generateUniqueId().toString();
+        this.firstName = firstName;
         this.name = name;
         this.email = email;
         this.phone = phone;
     }
 
     private static generateUniqueId(): number {
-        return ++User.lastId; // Increment the static variable and return it
+        return Math.floor(Math.random() * 1000000);
     }
 
-    public getUserId(): number {
+    public getUserId(): string {
         return this.id;
     }
 

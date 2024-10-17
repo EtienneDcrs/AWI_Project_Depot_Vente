@@ -1,7 +1,7 @@
 import { Game } from "./Game";
 import { User } from "./User";
 
-export class Client extends User {
+export class Buyer extends User {
     // this class is a subclass of User
 
     adress!: string;
@@ -9,8 +9,8 @@ export class Client extends User {
     cart: Game[] = [];
     purchases: Game[] = [];
 
-    constructor(name: string, email: string, phone: string, adress: string) {
-        super(name, email, phone); // call the constructor of the superclass
+    constructor(firstName: string, name: string, email: string, phone: string, adress: string) {
+        super(firstName, name, email, phone); // call the constructor of the superclass
         this.adress = adress;
     }
 

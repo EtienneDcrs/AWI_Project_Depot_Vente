@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { GameService } from '../services/game.service';
-import { TransactionService } from '../services/transaction.service';
+import { GameService } from '../../services/game.service';
+import { TransactionService } from '../../services/transaction.service';
 import { PasswordPromptComponent } from '../../password-prompt/password-prompt.component';
 import { Router } from '@angular/router';
 
@@ -35,27 +35,27 @@ export class CheckoutComponent {
     }
   }
 
-  addTransaction(transactionData: any) {
-    // Créez une nouvelle transaction avec les données du formulaire et d'autres informations
-    const transaction = {
-      gameId: transactionData.gameId,
-      buyer: {
-        name: transactionData.name,
-        email: transactionData.email,
-        phone: transactionData.phone,
-        address: transactionData.address
-      },
-      price: this.getGamePrice(transactionData.gameId) // Récupérer le prix du jeu
-    };
+  // addTransaction(transactionData: any) {
+  //   // Créez une nouvelle transaction avec les données du formulaire et d'autres informations
+  //   const transaction = {
+  //     gameId: transactionData.gameId,
+  //     buyer: {
+  //       name: transactionData.name,
+  //       email: transactionData.email,
+  //       phone: transactionData.phone,
+  //       address: transactionData.address
+  //     },
+  //     price: this.getGamePrice(transactionData.gameId) // Récupérer le prix du jeu
+  //   };
 
-    console.log('Transaction:', transaction);
+  //   console.log('Transaction:', transaction);
 
-    this.transactionService.addTransaction(transaction).subscribe(() => {
-      this.router.navigate(['/transactions']); // Redirigez vers la page des transactions
-    });
-  }
+  //   this.transactionService.addTransaction(transaction).subscribe(() => {
+  //     this.router.navigate(['/transactions']); // Redirigez vers la page des transactions
+  //   });
+  // }
 
-  private getGamePrice(gameId: number): number {
+  private getGamePrice(gameId: string): number {
     let price = 0;
     this.gameService.getGame(gameId).subscribe(game => {
       price = game.price;

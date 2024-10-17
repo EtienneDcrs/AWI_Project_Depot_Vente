@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../../models/Game';
-import { GameService } from '../services/game.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
     selector: 'app-cart',

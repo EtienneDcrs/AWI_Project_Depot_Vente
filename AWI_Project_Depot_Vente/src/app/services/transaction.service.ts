@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Game } from '../../../models/Game';
+import { Transaction } from '../../models/Transaction';
 
 @Injectable({
     providedIn: 'root'
@@ -12,11 +12,11 @@ export class TransactionService {
 
     constructor(private http: HttpClient) { }
 
-    addTransaction(transaction: any): Observable<any> {
-        return this.http.post(`${this.apiUrl}`, transaction);
+    addTransaction(transaction: Transaction): Observable<Transaction> {
+        return this.http.post<Transaction>(`${this.apiUrl}`, transaction);
     }
 
-    getTransactions(): Observable<any[]> {
-        return this.http.get<any[]>(`${this.apiUrl}`);
+    getTransactions(): Observable<Transaction[]> {
+        return this.http.get<Transaction[]>(`${this.apiUrl}`);
     }
 }

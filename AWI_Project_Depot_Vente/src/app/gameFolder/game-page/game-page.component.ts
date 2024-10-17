@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GameListComponent } from '../games/game-list.component';
 import { FilterComponent } from '../filter/filter.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
-import { GameService } from '../services/game.service';
+import { GameService } from '../../services/game.service';
 import { Game } from '../../../models/Game';
 import { CartComponent } from '../cart/cart.component';
 

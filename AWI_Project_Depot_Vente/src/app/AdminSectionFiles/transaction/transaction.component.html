@@ -8,19 +8,27 @@
                 <th>ID du Jeu</th>
                 <th>Nom du Jeu</th>
                 <th>Prix</th>
+                <th>Id du Vendeur</th>
+                <th>Nom du Vendeur</th>
+                <th>Id de l'Acheteur</th>
                 <th>Nom de l'Acheteur</th>
                 <th>Date de la Transaction</th>
             </tr>
         </thead>
         <tbody>
-            @for (transaction of transactions; track transaction.id) {
+            @for (detail of transactionDetails; track detail.transaction) {
+            @if (detail.game) {
             <tr>
-                <td>{{ transaction.gameId }}</td>
-                <td>{{ transaction.gameName }}</td>
-                <td>{{ transaction.price | currency }}</td>
-                <td>{{ transaction.buyerName }}</td>
-                <td>{{ transaction.date | date:'short' }}</td>
+                <td>{{ detail.game.id }}</td>
+                <td>{{ detail.game.name }}</td>
+                <td>{{ detail.game.price }}</td>
+                <td>{{ detail.game.sellerId }}</td>
+                <td>{{ detail.game.sellerName }}</td>
+                <td>{{ detail.transaction.buyerId }}</td>
+                <td>{{ detail.transaction.buyerName }}</td>
+                <td>{{ detail.transaction.date | date: 'short' }}</td>
             </tr>
+            }
             }
         </tbody>
     </table>

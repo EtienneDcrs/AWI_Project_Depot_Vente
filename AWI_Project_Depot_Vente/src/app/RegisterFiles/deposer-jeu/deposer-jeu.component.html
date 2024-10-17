@@ -1,1 +1,36 @@
-<p>deposer-jeu works!</p>
+<app-register-navigation />
+
+<div class="deposer-jeu-container">
+    <h1>Déposer un jeu</h1>
+
+    <form class="deposer-jeu-form" [formGroup]="jeuForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="nom">Nom du Jeu:</label>
+            <input id="nom" formControlName="nom" required>
+        </div>
+
+        <div>
+            <label for="editeur">Éditeur:</label>
+            <input id="editeur" formControlName="editeur" required>
+        </div>
+
+        <div>
+            <label for="prix">Prix:</label>
+            <input type="number" id="prix" formControlName="prix" required>
+        </div>
+
+        <div>
+            <label for="vendeur">Vendeur:</label>
+            <input id="vendeur" (input)="onSearchVendeur($event)" formControlName="vendeur">
+            @if (filteredVendeurs.length > 0) {
+            <ul>
+                @for (vendeur of filteredVendeurs; track vendeur) {
+                <li (click)="onVendeurSelect(vendeur)">{{ vendeur }}</li>
+                }
+            </ul>
+            }
+        </div>
+
+        <button type="submit">Déposer le Jeu</button>
+    </form>
+</div>
