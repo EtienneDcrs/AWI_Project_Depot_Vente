@@ -8,7 +8,7 @@ import { Game } from '../../../models/Game';
 })
 export class TransactionService {
 
-    private apiUrl = 'http://localhost:3000/transactions';
+    private apiUrl = 'http://localhost:4000/api/transactions';
 
     constructor(private http: HttpClient) { }
 

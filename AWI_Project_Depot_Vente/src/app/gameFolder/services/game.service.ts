@@ -11,7 +11,7 @@ export class GameService {
     cart$ = this.cart.asObservable();
     prixCartTotal = new BehaviorSubject<number>(0);
     prixCartTotal$ = this.prixCartTotal.asObservable();
-    private apiUrl = 'http://localhost:3000/games';
+    private apiUrl = 'http://localhost:4000/api/games';
 
     constructor(private http: HttpClient) { }
 
