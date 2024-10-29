@@ -13,11 +13,11 @@ export class AdminNavigationComponent {
   activeItem: string = '';
 
   menuItems = [
-    { path: '/admin/transactions', label: 'Transactions', icon: 'credit_card' },
-    { path: '/admin/seller-info', label: 'Infos vendeurs', icon: 'person' },
-    { path: '/admin/seller-payments', label: 'Paiements dues', icon: 'payment' },
-    { path: '/admin/game-sold', label: 'Jeux vendus', icon: 'sports_esports' },
-    { path: '/admin/general-report', label: 'Bilan générale', icon: 'bar_chart' }
+    { path: '/administration/transactions', label: 'Transactions', icon: 'credit_card' },
+    { path: '/administration/seller-info', label: 'Infos vendeurs', icon: 'person' },
+    { path: '/administration/seller-payments', label: 'Paiements dues', icon: 'payment' },
+    { path: '/administration/game-sold', label: 'Jeux vendus', icon: 'sports_esports' },
+    { path: '/administration/general-report', label: 'Bilan générale', icon: 'bar_chart' }
   ];
 
   constructor(private router: Router) {

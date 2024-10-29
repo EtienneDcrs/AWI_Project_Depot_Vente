@@ -27,15 +27,15 @@ export class NavbarComponent {
   }
 
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/enregistrement']);
   }
 
   goToGames() {
-    this.router.navigate(['/games']);
+    this.router.navigate(['/inventaire']);
   }
 
   goToAdminSection() {
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/administration']);
   }
 
 }

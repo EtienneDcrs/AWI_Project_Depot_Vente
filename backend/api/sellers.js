@@ -27,6 +27,34 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Rechercher des vendeurs par prénom ou nom
+router.get('/search', async (req, res) => {
+    const { search } = req.query;
+
+    // Vérifier si le paramètre de recherche est présent
+    if (!search) {
+        return res.status(400).json({ message: 'Search parameter is required' });
+    }
+
+    try {
+        const sellers = await Seller.find({
+            $or: [
+                { firstName: { $regex: search, $options: 'i' } },
+                { name: { $regex: search, $options: 'i' } }
+            ]
+        });
+
+        if (sellers.length === 0) {
+            return res.status(404).json({ message: 'No sellers found matching the search criteria' });
+        }
+
+        res.json(sellers);
+    } catch (error) {
+        res.status(500).json({ message: 'Error searching for sellers' });
+    }
+});
+
+
 // Add a new seller
 router.post('/', async (req, res) => {
     const newSeller = new Seller(req.body);

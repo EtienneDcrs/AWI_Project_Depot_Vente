@@ -39,6 +39,7 @@ export class PasswordPromptComponent {
     const enteredPassword = this.password.join('');
     if (enteredPassword === this.correctPassword) {
       this.passwordEntered.emit(); // Émettez un événement pour accéder à la section Admin
+      this.closeModal(); // Fermer la fenêtre modale
     } else {
       this.errorMessage = 'Incorrect password. Please try again.';
       this.triggerVibration(); // Appeler la méthode de vibration

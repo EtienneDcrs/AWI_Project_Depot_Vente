@@ -13,6 +13,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get the id of the last game in database (string) and increment + 1 
+router.get('/nextid', async (req, res) => {
+    try {
+        const lastGame = await Game.findOne().sort({ id: -1 });
+        if (lastGame) {
+            const nextId = parseInt(lastGame.id) + 1;
+            res.json(nextId.toString());
+        } else {
+            res.json('1');
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching the last game id' });
+    }
+});
+
+
 // Get a game by id
 router.get('/:id', async (req, res) => {
     try {

@@ -77,3 +77,15 @@ li {
 li:hover {
     background-color: #f1f1f1;
 }
+
+.success-message {
+    color: green;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
+}

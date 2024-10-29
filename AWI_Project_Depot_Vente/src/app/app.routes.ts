@@ -19,24 +19,24 @@ import { DeposerJeuComponent } from './RegisterFiles/deposer-jeu/deposer-jeu.com
 
 export const routes: Routes = [
 
-    { path: 'register', component: RegisterSectionComponent },
-    { path: 'games', component: GamePageComponent },
-    { path: 'admin', component: AdminSectionComponent },
+    { path: 'enregistrement', component: RegisterSectionComponent },
+    { path: 'inventaire', component: GamePageComponent },
+    { path: 'administration', component: AdminSectionComponent },
 
-    { path: 'admin/transactions', component: TransactionComponent },
-    { path: 'admin/seller-info', component: SellerInfoComponent },
-    { path: 'admin/seller-payments', component: SellerPaymentsComponent },
-    { path: 'admin/game-sold', component: GameSoldComponent },
-    { path: 'admin/general-report', component: GeneralReportComponent },
+    { path: 'administration/transactions', component: TransactionComponent },
+    { path: 'administration/seller-info', component: SellerInfoComponent },
+    { path: 'administration/seller-payments', component: SellerPaymentsComponent },
+    { path: 'administration/game-sold', component: GameSoldComponent },
+    { path: 'administration/general-report', component: GeneralReportComponent },
 
-    { path: 'register/enregistrerAchat', component: EnregistrerAchatComponent },
-    { path: 'register/deposerJeu', component: DeposerJeuComponent },
-    { path: 'register/mettreRayon', component: MettreRayonComponent },
-    { path: 'register/retirerRayon', component: RetirerRayonComponent },
-    { path: 'register/retirerStocks', component: RetirerStocksComponent },
-    { path: 'register/ajouterVendeur', component: AjouterVendeurComponent },
-    { path: 'register/ajouterClient', component: AjouterClientComponent },
+    { path: 'enregistrement/enregistrerAchat', component: EnregistrerAchatComponent },
+    { path: 'enregistrement/deposerJeu', component: DeposerJeuComponent },
+    { path: 'enregistrement/mettreRayon', component: MettreRayonComponent },
+    { path: 'enregistrement/retirerRayon', component: RetirerRayonComponent },
+    { path: 'enregistrement/retirerStocks', component: RetirerStocksComponent },
+    { path: 'enregistrement/ajouterVendeur', component: AjouterVendeurComponent },
+    { path: 'enregistrement/ajouterClient', component: AjouterClientComponent },
 
     { path: 'checkout', component: CheckoutComponent },
-    { path: '', redirectTo: 'games', pathMatch: 'full' }
+    { path: '', redirectTo: 'inventaire', pathMatch: 'full' }
 ];

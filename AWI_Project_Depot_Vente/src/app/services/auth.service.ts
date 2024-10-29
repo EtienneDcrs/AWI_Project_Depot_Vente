@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private password: string = '123456'; // Mot de passe fixe
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  verifyPassword(inputPassword: string): boolean {
-    return inputPassword === this.password;
+  // Function to check access to a specific section
+  checkAccess(password: string, section: string): Observable<any> {
+    const headers = new HttpHeaders({
+      rolePassword: password // Attach password to headers
+    });
+
+    return this.http.get(`/api/${section}`, { headers });
   }
 }

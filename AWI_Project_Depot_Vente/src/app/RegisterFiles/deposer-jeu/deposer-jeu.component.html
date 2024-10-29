@@ -1,36 +1,45 @@
-<app-register-navigation />
+<app-register-navigation></app-register-navigation>
 
 <div class="deposer-jeu-container">
     <h1>Déposer un jeu</h1>
 
+    <!-- Afficher le message de succès ou d'erreur -->
+    @if (message) {
+    <div [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+        {{ message }}
+    </div>
+    }
+
     <form class="deposer-jeu-form" [formGroup]="jeuForm" (ngSubmit)="onSubmit()">
         <div>
-            <label for="nom">Nom du Jeu:</label>
-            <input id="nom" formControlName="nom" required>
+            <label for="name">Nom du Jeu:</label>
+            <input id="name" formControlName="name" required>
         </div>
 
         <div>
-            <label for="editeur">Éditeur:</label>
-            <input id="editeur" formControlName="editeur" required>
+            <label for="editor">Éditeur:</label>
+            <input id="editor" formControlName="editor" required>
         </div>
 
         <div>
-            <label for="prix">Prix:</label>
-            <input type="number" id="prix" formControlName="prix" required>
+            <label for="price">Prix:</label>
+            <input type="number" id="price" formControlName="price" required>
         </div>
 
         <div>
-            <label for="vendeur">Vendeur:</label>
-            <input id="vendeur" (input)="onSearchVendeur($event)" formControlName="vendeur">
+            <label for="sellerName">Vendeur:</label>
+            <input id="sellerName" (input)="onSearchVendeur($event)" formControlName="sellerName">
             @if (filteredVendeurs.length > 0) {
             <ul>
-                @for (vendeur of filteredVendeurs; track vendeur) {
-                <li (click)="onVendeurSelect(vendeur)">{{ vendeur }}</li>
+                @for (vendeur of filteredVendeurs; track vendeur.id) {
+                <li (click)="onVendeurSelect(vendeur)">
+                    {{ vendeur.firstName }} {{ vendeur.name }}
+                </li>
                 }
             </ul>
             }
         </div>
 
-        <button type="submit">Déposer le Jeu</button>
+        <button type="submit" [disabled]="!jeuForm.valid || !selectedVendeur">Déposer le Jeu</button>
     </form>
 </div>

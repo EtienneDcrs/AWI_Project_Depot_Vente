@@ -13,13 +13,13 @@ export class RegisterNavigationComponent {
   activeItem: string = '';
 
   menuItems = [
-    { path: '/register/enregistrerAchat', label: 'Enregistrer un achat' },
-    { path: '/register/deposerJeu', label: 'Déposer un jeu' },
-    { path: '/register/mettreRayon', label: 'Mettre en rayon' },
-    { path: '/register/retirerRayon', label: 'Enlever du rayon' },
-    { path: '/register/retirerStocks', label: 'Retirer des stocks' },
-    { path: '/register/ajouterVendeur', label: 'Ajouter un vendeur' },
-    { path: '/register/ajouterClient', label: 'Ajouter un client' }
+    { path: '/enregistrement/enregistrerAchat', label: 'Enregistrer un achat' },
+    { path: '/enregistrement/deposerJeu', label: 'Déposer un jeu' },
+    { path: '/enregistrement/mettreRayon', label: 'Mettre en rayon' },
+    { path: '/enregistrement/retirerRayon', label: 'Enlever du rayon' },
+    { path: '/enregistrement/retirerStocks', label: 'Retirer des stocks' },
+    { path: '/enregistrement/ajouterVendeur', label: 'Ajouter un vendeur' },
+    { path: '/enregistrement/ajouterClient', label: 'Ajouter un client' }
   ];
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) {

@@ -1,27 +1,25 @@
+import { StockService } from "../app/services/stock.service";
+
 export class Game {
     private static lastId: number = 0;
-    id!: number;
+    id!: string;
     name!: string;
     editor!: string;
     price!: number;
     sellerId!: number;
     sellerName!: string;
+    status!: string;
 
-    constructor(name: string, editor: string, price: number, sellerId: number, sellerName: string) {
-
-        this.id = Game.generateUniqueId();
+    constructor(name: string, editor: string, price: number, sellerId: number, sellerName: string, status: string) {
         this.name = name;
         this.editor = editor;
         this.price = price;
         this.sellerId = sellerId;
         this.sellerName = sellerName;
+        this.status = status;
     }
 
-    private static generateUniqueId(): number {
-        return ++Game.lastId;
-    }
-
-    public getId(): number {
+    public getId(): string {
         return this.id;
     }
 

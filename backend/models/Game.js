@@ -7,6 +7,7 @@ const gameSchema = new mongoose.Schema({
     price: { type: Number, required: true },
     sellerId: { type: String, required: true },
     sellerName: { type: String, required: true },
+    status: { type: String, required: true },
 });
 
 const Game = mongoose.model('Game', gameSchema, 'Game');
