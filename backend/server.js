@@ -13,6 +13,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
+
 // // Middleware to check roles (Define this before using it)
 // function checkRole(requiredRole) {
 //     return (req, res, next) => {

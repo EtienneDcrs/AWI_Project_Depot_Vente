@@ -28,6 +28,15 @@ router.get('/nextid', async (req, res) => {
     }
 });
 
+// Get all games that have the status 'rayon'
+router.get('/rayon', async (req, res) => {
+    try {
+        const games = await Game.find({ status: 'rayon' });
+        res.json(games);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching games in rayon' });
+    }
+});
 
 // Get a game by id
 router.get('/:id', async (req, res) => {

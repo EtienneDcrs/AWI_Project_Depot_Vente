@@ -16,24 +16,4 @@ export class GameCardComponent {
 
     constructor(private gameService: GameService) { }
 
-    ngOnInit(): void {
-        this.checkIfInCart();
-        this.subscribeToCartChanges();
-    }
-
-    addToCart() {
-        // Method to handle adding a game to the cart
-        this.gameService.addToCart(this.game);
-        this.isInCart = true;
-    }
-
-    checkIfInCart() {
-        this.isInCart = this.gameService.getCart().some(cartGame => cartGame.id === this.game.id);
-    }
-
-    subscribeToCartChanges() {
-        this.gameService.cart$.subscribe(cart => {
-            this.isInCart = cart.some(cartGame => cartGame.id === this.game.id);
-        });
-    }
 }

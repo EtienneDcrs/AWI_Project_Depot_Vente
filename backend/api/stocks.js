@@ -1,5 +1,6 @@
 import express from 'express';
 import Game from '../models/Game.js';
+import Seller from '../models/Seller.js';
 
 const router = express.Router();
 
@@ -27,8 +28,22 @@ router.get('/:id', async (req, res) => {
 // Add a game to stock
 router.post('/', async (req, res) => {
     try {
+
+        console.log(req.body);
         const game = new Game({ ...req.body, status: 'stock' });
         await game.save();
+
+        const sellerId = req.body.sellerId;
+        const seller = await Seller.findOne({ id: sellerId });
+
+        if (seller) {
+            console.log('Seller found:', seller);
+            seller.stocks.push(game.id);
+            await seller.save();
+        } else {
+            console.log('Seller not found');
+        }
+
         res.status(201).json(game);
     } catch (error) {
         res.status(400).json({ message: 'Error adding game to stock' });

@@ -5,6 +5,7 @@ import { RegisterNavigationComponent } from '../register-navigation/register-nav
 import { Game } from '../../../models/Game';
 import { Seller } from '../../../models/Seller';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposer-jeu',
@@ -20,7 +21,7 @@ export class DeposerJeuComponent {
   message: string = ''; // Variable pour le message
   messageType: 'success' | 'error' | null = null; // Type de message
 
-  constructor(private fb: FormBuilder, private stockService: StockService) {
+  constructor(private fb: FormBuilder, private stockService: StockService, private router: Router) {
     this.jeuForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
@@ -95,6 +96,7 @@ export class DeposerJeuComponent {
           this.displayMessage('Erreur lors du dépôt du jeu. Veuillez réessayer.', 'error');
         }
       );
+
     } else {
       console.warn('Form is invalid or no seller selected'); // Message de mise en garde si le formulaire est invalide
       this.displayMessage('Veuillez remplir tous les champs correctement.', 'error');
@@ -110,5 +112,9 @@ export class DeposerJeuComponent {
       this.message = '';
       this.messageType = null;
     }, 3000);
+  }
+
+  navigateToAddSeller() {
+    this.router.navigate(['/enregistrement/ajouterVendeur']);
   }
 }

@@ -29,6 +29,7 @@
         <div>
             <label for="sellerName">Vendeur:</label>
             <input id="sellerName" (input)="onSearchVendeur($event)" formControlName="sellerName">
+            <button type="button" (click)="navigateToAddSeller()" class="add-seller-button">+</button>
             @if (filteredVendeurs.length > 0) {
             <ul>
                 @for (vendeur of filteredVendeurs; track vendeur.id) {

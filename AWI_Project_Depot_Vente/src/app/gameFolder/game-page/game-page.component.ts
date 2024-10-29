@@ -28,7 +28,7 @@ export class GamePageComponent {
 
     // Load the games from the GameService
     loadGames() {
-        this.gameService.getGames().subscribe((data: Game[]) => {
+        this.gameService.getRayonGames().subscribe((data: Game[]) => {
             this.games = data;
             this.filteredGames = data;
         }, (error) => {

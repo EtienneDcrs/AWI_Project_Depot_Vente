@@ -20,6 +20,11 @@ export class GameService {
         return this.http.get<Game[]>(this.apiUrl);
     }
 
+    // Fetch games from the API that have the status 'rayon' and return them as an Observable
+    getRayonGames(): Observable<Game[]> {
+        return this.http.get<Game[]>(`${this.apiUrl}/rayon`);
+    }
+
     // Fetch a game from the API using the gameId and return it as an Observable
     getGame(gameId: string): Observable<Game> {
         return this.http.get<Game>(`${this.apiUrl}/${gameId}`);
