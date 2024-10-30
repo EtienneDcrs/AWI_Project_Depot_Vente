@@ -28,6 +28,16 @@ router.get('/nextid', async (req, res) => {
     }
 });
 
+// Get all games that have the status 'stock'
+router.get('/stock', async (req, res) => {
+    try {
+        const games = await Game.find({ status: 'stock' });
+        res.json(games);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching games in stock' });
+    }
+});
+
 // Get all games that have the status 'rayon'
 router.get('/rayon', async (req, res) => {
     try {
@@ -62,12 +72,25 @@ router.post('/', async (req, res) => {
 // Update a game
 router.put('/:id', async (req, res) => {
     try {
-        const updatedGame = await Game.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedGame);
+        console.log("req", req.body);
+        const updatedGame = await Game.findOneAndUpdate(
+            { id: req.params.id }, // Cherche par `id` personnalisé au lieu de `_id`
+            req.body,
+            { new: true }
+        );
+        if (updatedGame) {
+            console.log("updatedGame", updatedGame);
+            res.json(updatedGame);
+        } else {
+            console.log("Game not found");
+            res.status(404).json({ message: 'Game not found' });
+        }
     } catch (error) {
+        console.log("Error updating game", error);
         res.status(400).json({ message: 'Error updating game' });
     }
 });
+
 
 // Delete a game
 router.delete('/:id', async (req, res) => {
