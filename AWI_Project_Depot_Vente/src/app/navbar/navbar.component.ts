@@ -27,7 +27,7 @@ export class NavbarComponent {
   }
 
   goToRegister() {
-    this.router.navigate(['/enregistrement']);
+    this.router.navigate(['/enregistrement/enregistrerAchat']);
   }
 
   goToGames() {
@@ -35,7 +35,7 @@ export class NavbarComponent {
   }
 
   goToAdminSection() {
-    this.router.navigate(['/administration']);
+    this.router.navigate(['/administration/transactions']);
   }
 
 }

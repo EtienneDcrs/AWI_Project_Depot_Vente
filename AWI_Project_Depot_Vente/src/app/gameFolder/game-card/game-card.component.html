@@ -2,6 +2,10 @@
     <div class="game-info">
         <h2 class="game-title">{{ game.name }}</h2>
         <p class="game-editor">{{ game.editor }}</p>
+        @if (showSeller) {
+        <p class="game-id">{{ game.id }}</p>
+        <p class="game-seller">{{ game.sellerName }}</p>
+        }
         <p class="game-price">${{ game.price }}</p>
     </div>
 </div>

@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GameCardComponent {
     @Input() game!: Game;
-    isInCart: boolean = false;
+    @Input() showSeller: boolean = false;
 
     constructor(private gameService: GameService) { }
 

@@ -1,3 +1,9 @@
 <div class="search-container">
-    <input type="text" placeholder="Rechercher un jeu par nom, éditeur ou id" (input)="onSearch($event)" class="search-bar" />
+    @if (showSeller) {
+    <input type="text" placeholder="Rechercher un jeu par nom, éditeur, id ou vendeur" (input)="onSearch($event)"
+        class="search-bar-avec-vendeur" />
+    } @else {
+    <input type="text" placeholder="Rechercher un jeu par nom, éditeur ou id" (input)="onSearch($event)"
+        class="search-bar" />
+    }
 </div>

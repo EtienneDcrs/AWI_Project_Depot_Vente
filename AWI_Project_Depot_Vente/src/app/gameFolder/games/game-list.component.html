@@ -1,13 +1,12 @@
-
 @if(gameList.length > 0){
-    <div class="game-list-container">
-        @for(game of gameList; track game.id){
-            <div class="game-item">
-                <app-game-card [game]="game"></app-game-card>
-            </div>
-        }       
+<div class="game-list-container">
+    @for(game of gameList; track game.id){
+    <div class="game-item">
+        <app-game-card [game]="game" [showSeller]="false"></app-game-card>
     </div>
-} 
+    }
+</div>
+}
 @else {
-        <p>Aucun jeu disponible pour le moment.</p>
+<p>Aucun jeu disponible pour le moment.</p>
 }

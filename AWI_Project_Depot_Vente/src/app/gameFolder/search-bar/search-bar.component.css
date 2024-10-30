@@ -16,6 +16,20 @@
     transition: box-shadow 0.3s ease;
 }
 
+/* Search bar input field */
+.search-bar-avec-vendeur {
+    width: 360px;
+    margin-left: 250px;
+    margin-top: 20px;
+    /* Define the width of the search bar */
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
 .search-bar:focus {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
