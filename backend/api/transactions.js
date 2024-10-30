@@ -15,14 +15,33 @@ router.get('/', async (req, res) => {
 
 // Add a new transaction
 router.post('/', async (req, res) => {
-    const newTransaction = new Transaction(req.body);
+    const gameId = req.body.id;
+
+    // Créez un objet de transaction avec les champs nécessaires
+    const transactionData = {
+        game: gameId,
+        date: new Date(),
+    };
+
+    // Ajoutez buyerId et buyerName seulement s'ils sont fournis
+    if (req.body.buyerId) {
+        transactionData.buyerId = req.body.buyerId;
+    }
+
+    if (req.body.buyerName) {
+        transactionData.buyerName = req.body.buyerName;
+    }
+
+    const transaction = new Transaction(transactionData);
+
     try {
-        await newTransaction.save();
+        const newTransaction = await transaction.save();
         res.status(201).json(newTransaction);
     } catch (error) {
-        res.status(400).json({ message: 'Error adding transaction' });
+        res.status(400).json({ message: 'Error creating transaction' });
     }
 });
+
 
 
 export default router;

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../../models/Game';
 import { CommonModule } from '@angular/common';
@@ -14,11 +14,12 @@ export class GameCardComponent {
     @Input() game!: Game;
     @Input() showSeller: boolean = false;
     @Input() showAddToCart: boolean = false;
+    @Output() addToCart = new EventEmitter<Game>();
 
     constructor(private gameService: GameService) { }
 
-    public addToCart(game: Game) {
-        this.gameService.addToCart(game);
+    public onAddToCart() {
+        this.addToCart.emit(this.game);
     }
 
 }

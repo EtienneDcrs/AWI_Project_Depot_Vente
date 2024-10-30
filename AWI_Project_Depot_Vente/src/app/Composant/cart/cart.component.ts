@@ -1,19 +1,24 @@
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { Game } from '../../../models/Game';
 import { GameService } from '../../services/game.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog.component';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
     selector: 'app-cart',
     standalone: true,
     templateUrl: './cart.component.html',
-    styleUrl: './cart.component.css'
+    styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
+    @Output() gameRemoved = new EventEmitter<Game>();
     cart: Game[] = [];
     prixCartTotal: number = 0;
 
-    constructor(private gameService: GameService, private router: Router) { }
+    constructor(private gameService: GameService, private router: Router, private dialog: MatDialog, private transactionService: TransactionService) { }
 
     ngOnInit(): void {
         this.subscribeToCart();
@@ -22,7 +27,6 @@ export class CartComponent implements OnInit {
         });
     }
 
-    // Abonnez-vous aux changements du panier
     subscribeToCart() {
         this.gameService.cart$.subscribe(cart => {
             this.cart = cart;
@@ -31,15 +35,60 @@ export class CartComponent implements OnInit {
 
     removeFromCart(game: Game) {
         this.gameService.removeFromCart(game);
+        this.gameRemoved.emit(game);
+        this.gameService.addGameBackToStock(game); // Appeler la méthode pour le remettre en stock
     }
 
-    // Redirige vers la page de paiement
+
+    // Méthode pour finaliser l'achat
     finalizePurchase() {
-        this.router.navigate(['/checkout']);
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            data: { message: 'Voulez-vous faire une facture ?' } // Passer le message
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                // L'utilisateur a confirmé, redirigez vers la page de checkout
+                this.router.navigate(['/checkout']);
+            } else {
+                // Finalisez l'achat sans redirection (si nécessaire)
+                this.finalizeTransaction();
+            }
+        });
     }
 
-    // Vider le panier
+    // Exemple de méthode pour finaliser la transaction
+    finalizeTransaction() {
+        console.log("cart", this.cart);
+        for (let game of this.cart) {
+            console.log(game);
+
+            // Créez l'objet de transaction en n'incluant que les propriétés disponibles
+            const transactionData: any = { id: game.id }; // Assurez-vous d'utiliser la bonne propriété de `game` ici
+
+            this.transactionService.addTransaction(transactionData)
+                .subscribe(response => {
+                    console.log('Transaction added:', response);
+
+                    // Mettre à jour le statut du jeu en "vendu"
+                    this.gameService.updateGameStatus(game.id, 'vendu')
+                        .subscribe(updateResponse => {
+                            console.log('Game status updated:', updateResponse);
+                        }, error => {
+                            console.error('Error updating game status:', error);
+                        });
+                }, error => {
+                    console.error('Error adding transaction:', error);
+                });
+        }
+        this.clearCart();
+    }
+
+
     clearCart() {
-        this.gameService.clearCart();
+        // Methode pour remettre les jeux dans le stock
+        for (let game of this.cart) {
+            this.removeFromCart(game);
+        }
     }
 }

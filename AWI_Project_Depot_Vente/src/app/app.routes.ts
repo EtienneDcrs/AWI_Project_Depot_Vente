@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { GamePageComponent } from './gameFolder/game-page/game-page.component';
-import { CheckoutComponent } from './gameFolder/checkout/checkout.component';
+import { CheckoutComponent } from './Composant/checkout/checkout.component';
 import { TransactionComponent } from './AdminSectionFiles/transaction/transaction.component';
 import { AdminSectionComponent } from './AdminSectionFiles/admin-section/admin-section.component';
 import { SellerInfoComponent } from './AdminSectionFiles/seller-info/seller-info.component';

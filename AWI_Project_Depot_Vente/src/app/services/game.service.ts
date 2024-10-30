@@ -9,6 +9,7 @@ import { Game } from '../../models/Game';
 export class GameService {
     private cart = new BehaviorSubject<Game[]>([]);
     cart$ = this.cart.asObservable();
+
     prixCartTotal = new BehaviorSubject<number>(0);
     prixCartTotal$ = this.prixCartTotal.asObservable();
     private apiUrl = 'http://localhost:4000/api/games';
@@ -58,11 +59,14 @@ export class GameService {
         this.cart.next(currentCart);
         const newTotal = this.prixCartTotal.value - game.price;
         this.prixCartTotal.next(parseFloat(newTotal.toFixed(2)));
+
+        this.addGameBackToStock(game);
     }
 
-    clearCart() {
-        this.cart.next([]);
-        this.prixCartTotal.next(0);
+    addGameBackToStock(game: Game) {
+        this.updateGameStatus(game.id, 'rayon').subscribe(response => {
+            console.log('Game status updated:', response);
+        });
     }
 
     getCart(): Game[] {

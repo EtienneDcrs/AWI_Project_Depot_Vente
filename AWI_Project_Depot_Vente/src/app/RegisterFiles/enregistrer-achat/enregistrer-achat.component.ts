@@ -46,7 +46,12 @@ export class EnregistrerAchatComponent implements OnInit {
     }
   }
 
-  public addToCart(game: Game) {
+  onAddToCart(game: Game) {
     this.gameService.addToCart(game);
+    this.filteredGames = this.filteredGames.filter(g => g.id !== game.id); // Retirer le jeu de la liste visible
+  }
+
+  gameRemoved(game: Game) {
+    this.filteredGames.push(game); // Ajouter le jeu à la liste visible
   }
 }

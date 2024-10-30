@@ -26,7 +26,6 @@ export class TransactionComponent implements OnInit {
   loadTransactions() {
     this.transactionService.getTransactions().subscribe((data: Transaction[]) => {
       this.transactions = data;
-      console.log('Transactions:', this.transactions);
       // Chargez les détails de chaque transaction en utilisant l'ID du jeu
       this.transactions.forEach(transaction => {
         if (transaction.game) { // Vérifiez que l'ID du jeu est défini

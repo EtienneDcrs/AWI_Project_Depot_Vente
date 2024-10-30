@@ -7,11 +7,12 @@
     <div class="game-grid">
         @for (game of filteredGames; track game.id) {
         <div class="game-item">
-            <app-game-card [game]="game" [showSeller]="showSeller" [showAddToCart]="true"></app-game-card>
+            <app-game-card [game]="game" [showSeller]="showSeller" [showAddToCart]="true"
+                (addToCart)="onAddToCart($event)"></app-game-card>
         </div>
         }
     </div>
 </div>
 
 <!-- Affichage du panier -->
-<app-cart></app-cart>
+<app-cart (gameRemoved)="gameRemoved($event)"></app-cart>

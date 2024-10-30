@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-confirm-dialog',
-    standalone: true,
-    template: `
+  selector: 'app-confirm-dialog',
+  standalone: true,
+  template: `
     <div class="dialog-content">
       <h2>Confirmation</h2>
-      <p>Êtes-vous sûr de vouloir mettre ce jeu en rayon ?</p>
+      <p>{{ data.message }}</p> <!-- Utiliser la donnée pour le message -->
       <div class="dialog-buttons">
         <button class="confirm-button" (click)="confirm()">Oui</button>
-        <button class="cancel-button" (click)="close()">Annuler</button>
+        <button class="cancel-button" (click)="close()">Non</button>
       </div>
     </div>
   `,
-    styles: [`
+  styles: [`
     .dialog-content {
       display: flex;
       flex-direction: column;
@@ -62,13 +62,16 @@ import { MatDialogRef } from '@angular/material/dialog';
   `]
 })
 export class ConfirmDialogComponent {
-    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) { }
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { message: string } // Injection des données
+  ) { }
 
-    confirm(): void {
-        this.dialogRef.close(true);  // Confirme l'action
-    }
+  confirm(): void {
+    this.dialogRef.close(true);  // Confirme l'action
+  }
 
-    close(): void {
-        this.dialogRef.close(false);  // Annule l'action
-    }
+  close(): void {
+    this.dialogRef.close(false);  // Annule l'action
+  }
 }
