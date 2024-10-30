@@ -13,7 +13,12 @@ import { CommonModule } from '@angular/common';
 export class GameCardComponent {
     @Input() game!: Game;
     @Input() showSeller: boolean = false;
+    @Input() showAddToCart: boolean = false;
 
     constructor(private gameService: GameService) { }
+
+    public addToCart(game: Game) {
+        this.gameService.addToCart(game);
+    }
 
 }
