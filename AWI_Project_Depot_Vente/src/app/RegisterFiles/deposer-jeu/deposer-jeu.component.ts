@@ -25,7 +25,7 @@ export class DeposerJeuComponent {
     this.jeuForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      editor: ['', Validators.required],
+      editor: ['', Validators.required, Validators.minLength(3)],
       price: ['', [Validators.required, Validators.min(0)]],
       sellerName: ['']
     });

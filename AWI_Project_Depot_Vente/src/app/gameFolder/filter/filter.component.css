@@ -17,7 +17,7 @@
     /* Fond blanc pour un look propre */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     /* Ombre subtile pour la profondeur */
-    width: 400px;
+    width: 200px;
     /* Largeur maximale du conteneur de filtres */
     z-index: 10;
     /* Assure que le conteneur soit au-dessus des autres éléments */

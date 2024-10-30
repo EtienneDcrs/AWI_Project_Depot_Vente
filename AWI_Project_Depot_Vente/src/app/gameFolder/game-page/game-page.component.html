@@ -1,8 +1,9 @@
-<app-filter class="filter-container" (applyFilters)="applyFilters($event)"></app-filter>
+<!-- <app-filter class="filter-container" (applyFilters)="applyFilters($event)"></app-filter> -->
+
+<!-- Search Bar -->
+<app-search-bar (search)="handleSearch($event)"></app-search-bar>
 <div class="game-list-wrapper">
 
-    <!-- Search Bar -->
-    <app-search-bar (search)="handleSearch($event)"></app-search-bar>
 
     <!-- Game List -->
     <app-game-list [gameList]="filteredGames" />

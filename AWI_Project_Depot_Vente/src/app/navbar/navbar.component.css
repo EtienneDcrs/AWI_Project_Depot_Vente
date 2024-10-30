@@ -14,6 +14,7 @@
     /* Aligne la navbar à gauche */
     width: 100%;
     /* Fait en sorte que la navbar prenne toute la largeur */
+    height: 4vh;
     z-index: 1000;
     /* Assure que la navbar est au-dessus des autres éléments */
 }

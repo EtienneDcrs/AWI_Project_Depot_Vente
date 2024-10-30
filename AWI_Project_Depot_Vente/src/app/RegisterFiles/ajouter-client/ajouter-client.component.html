@@ -1,45 +1,47 @@
 <app-register-navigation />
+<div class="page-container">
+    <div class="ajouter-client-container">
+        <h1>Ajouter un client</h1>
 
-<div class="ajouter-client-container">
-    <h1>Ajouter un client</h1>
+        @if (showSuccessMessage) {
+        <div class="success-message">
+            <p>client ajouté avec succès !</p>
+        </div>
+        }
 
-    @if (showSuccessMessage) {
-    <div class="success-message">
-        <p>client ajouté avec succès !</p>
+        @if (showErrorMessage) {
+        <div class="error-message">
+            <p>Erreur lors de l'ajout du client.</p>
+        </div>
+        }
+
+        <form class="ajouter-client-form" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Nom:</label>
+                <input id="name" formControlName="name" required>
+            </div>
+
+            <div>
+                <label for="firstName">Prénom:</label>
+                <input id="firstName" formControlName="firstName" required>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input id="email" formControlName="email" required>
+            </div>
+
+            <div>
+                <label for="phone">Téléphone:</label>
+                <input id="phone" formControlName="phone" required>
+            </div>
+
+            <div>
+                <label for="adress">Adresse:</label>
+                <input id="adress" formControlName="adress" required>
+            </div>
+
+            <button type="submit">Ajouter le client</button>
+        </form>
     </div>
-    }
-
-    @if (showErrorMessage) {
-    <div class="error-message">
-        <p>Erreur lors de l'ajout du client.</p>
-    </div>
-    }
-
-    <form class="ajouter-client-form" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="name">Nom:</label>
-            <input id="name" formControlName="name" required>
-        </div>
-
-        <div>
-            <label for="firstName">Prénom:</label>
-            <input id="firstName" formControlName="firstName" required>
-        </div>
-
-        <div>
-            <label for="email">Email:</label>
-            <input id="email" formControlName="email" required>
-        </div>
-
-        <div>
-            <label for="phone">Téléphone:</label>
-            <input id="phone" formControlName="phone" required>
-        </div>
-
-        <div>
-            <label for="adress">Adresse:</label>
-            <input id="adress" formControlName="adress" required>
-        </div>
-
-        <button type="submit">Ajouter le client</button>
-    </form>
+</div>

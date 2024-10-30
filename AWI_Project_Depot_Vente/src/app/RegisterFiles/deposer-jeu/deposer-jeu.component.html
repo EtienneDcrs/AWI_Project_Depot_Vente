@@ -1,46 +1,48 @@
 <app-register-navigation></app-register-navigation>
+<div class="page-container">
+    <div class="deposer-jeu-container">
+        <h1>Déposer un jeu</h1>
 
-<div class="deposer-jeu-container">
-    <h1>Déposer un jeu</h1>
-
-    <!-- Afficher le message de succès ou d'erreur -->
-    @if (message) {
-    <div [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
-        {{ message }}
-    </div>
-    }
-
-    <form class="deposer-jeu-form" [formGroup]="jeuForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="name">Nom du Jeu:</label>
-            <input id="name" formControlName="name" required>
+        <!-- Afficher le message de succès ou d'erreur -->
+        @if (message) {
+        <div [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}">
+            {{ message }}
         </div>
+        }
 
-        <div>
-            <label for="editor">Éditeur:</label>
-            <input id="editor" formControlName="editor" required>
-        </div>
+        <form class="deposer-jeu-form" [formGroup]="jeuForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Nom du Jeu:</label>
+                <input id="name" formControlName="name" required>
+            </div>
 
-        <div>
-            <label for="price">Prix:</label>
-            <input type="number" id="price" formControlName="price" required>
-        </div>
+            <div>
+                <label for="editor">Éditeur:</label>
+                <input id="editor" formControlName="editor" required>
+            </div>
 
-        <div>
-            <label for="sellerName">Vendeur:</label>
-            <input id="sellerName" (input)="onSearchVendeur($event)" formControlName="sellerName">
-            <button type="button" (click)="navigateToAddSeller()" class="add-seller-button">+</button>
-            @if (filteredVendeurs.length > 0) {
-            <ul>
-                @for (vendeur of filteredVendeurs; track vendeur.id) {
-                <li (click)="onVendeurSelect(vendeur)">
-                    {{ vendeur.firstName }} {{ vendeur.name }}
-                </li>
+            <div>
+                <label for="price">Prix:</label>
+                <input type="number" id="price" formControlName="price" required>
+            </div>
+
+            <div class="vendeur">
+                <label for="sellerName">Vendeur:</label>
+                <input id="sellerName" (input)="onSearchVendeur($event)" formControlName="sellerName">
+                @if (filteredVendeurs.length > 0) {
+                <ul>
+                    @for (vendeur of filteredVendeurs; track vendeur.id) {
+                    <li (click)="onVendeurSelect(vendeur)">
+                        {{ vendeur.firstName }} {{ vendeur.name }}
+                    </li>
+                    }
+                </ul>
                 }
-            </ul>
-            }
-        </div>
+                <button type="button" (click)="navigateToAddSeller()" class="add-seller-button">Vendeur non enregistré ?</button>
 
-        <button type="submit" [disabled]="!jeuForm.valid || !selectedVendeur">Déposer le Jeu</button>
-    </form>
+            </div>
+
+            <button type="submit" >Déposer le Jeu</button>
+        </form>
+    </div>
 </div>
