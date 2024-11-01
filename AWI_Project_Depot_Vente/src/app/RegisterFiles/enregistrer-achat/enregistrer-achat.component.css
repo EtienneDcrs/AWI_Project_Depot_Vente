@@ -1,7 +1,8 @@
 .enregistrer-achat-wrapper {
     position : fixed;
     margin-top: 4vh;
-    margin-left: 40%;
+    margin-left: 37%;
+    width: 57.5%;
     padding: 30px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;

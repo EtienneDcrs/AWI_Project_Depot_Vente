@@ -3,16 +3,14 @@
 <!-- Search Bar -->
 <app-search-bar (search)="handleSearch($event)" [showSeller]="showSeller"></app-search-bar>
 
+<!-- Affichage du panier -->
+<app-cart (gameRemoved)="gameRemoved($event)"></app-cart>
+
+<!-- Affichage des jeux -->
 <div class="enregistrer-achat-wrapper">
     <div class="game-grid">
         @for (game of filteredGames; track game.id) {
-        <div class="game-item">
-            <app-game-card [game]="game" [showSeller]="showSeller" [showAddToCart]="true"
-                (addToCart)="onAddToCart($event)"></app-game-card>
-        </div>
+            <app-game-card [game]="game" [showSeller]="showSeller" [showAddToCart]="true" (addToCart)="onAddToCart($event)"></app-game-card>
         }
     </div>
 </div>
-
-<!-- Affichage du panier -->
-<app-cart (gameRemoved)="gameRemoved($event)"></app-cart>

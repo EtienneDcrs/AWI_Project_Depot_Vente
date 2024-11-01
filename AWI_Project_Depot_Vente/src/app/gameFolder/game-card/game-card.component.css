@@ -12,53 +12,53 @@
 }
 
 .game-info {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     text-align: center;
 }
 
 .game-title {
     font-size: 18px;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 .game-editor {
     font-size: 14px;
     color: #666;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 .game-id {
     font-size: 14px;
     color: #666;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 .game-seller {
     font-size: 14px;
     color: #666;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 .game-price {
     font-size: 16px;
     font-weight: bold;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     color: #28a745;
 }
 
-.cart-button {
+button {
     background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    margin: 10px 0;
+    margin-bottom: 15px;
 }
 
-.cart-button:disabled {
+button:disabled {
     background-color: #ccc;
-    /* Couleur grisée */
     cursor: not-allowed;
-    /* Changement de curseur */
 }
