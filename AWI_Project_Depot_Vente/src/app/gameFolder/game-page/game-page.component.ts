@@ -4,11 +4,12 @@ import { FilterComponent } from '../filter/filter.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../../models/Game';
+import { GameCardComponent } from '../game-card/game-card.component';
 
 @Component({
     selector: 'app-game-page',
     standalone: true,
-    imports: [GameListComponent, FilterComponent, SearchBarComponent],
+    imports: [GameListComponent, FilterComponent, SearchBarComponent,GameCardComponent],
     templateUrl: './game-page.component.html',
     styleUrl: './game-page.component.css'
 })

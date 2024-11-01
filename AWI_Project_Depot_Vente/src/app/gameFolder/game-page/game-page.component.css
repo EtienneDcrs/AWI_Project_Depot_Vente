@@ -1,15 +1,30 @@
 .game-list-wrapper {
-    max-width: 100%;
-    /* Ajusté pour qu'il prenne toute la largeur */
-    margin: 20px auto;
-    /* Centrer le conteneur horizontalement */
-    padding: 0 20px;
-    /* Ajouter du rembourrage horizontal */
-    display: flex;
-    /* Utiliser flexbox pour aligner les éléments */
-    flex-direction: column;
-    /* Organiser les éléments verticalement */
-    margin-left: 460px;
+    position : fixed;
+    margin-top: 9vh;
+    margin-left: 250px;
+    width: 82.5%;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
 
-    margin-top: 60px;
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 4 colonnes, chaque colonne prend un quart de la largeur */
+    gap: 20px;
+    /* Espace entre les éléments */
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
+    padding: 10px;
+    background-color: #f9f9f9;
 }

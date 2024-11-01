@@ -3,10 +3,11 @@
 <!-- Search Bar -->
 <app-search-bar (search)="handleSearch($event)"></app-search-bar>
 <div class="game-list-wrapper">
-
-
-    <!-- Game List -->
-    <app-game-list [gameList]="filteredGames" />
-
-
+    <div class="game-grid">
+        @for (game of filteredGames; track game.id) {
+        <div class="game-item">
+            <app-game-card [game]="game" [showSeller]="true"></app-game-card>
+        </div>
+        }
+    </div>
 </div>

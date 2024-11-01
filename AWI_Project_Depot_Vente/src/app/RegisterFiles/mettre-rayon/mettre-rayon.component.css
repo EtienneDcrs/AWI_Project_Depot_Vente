@@ -1,9 +1,11 @@
 .mettre-rayon-wrapper {
-    max-width: 1600px;
-    margin: 20px auto;
-    margin-right: 10px;
-    padding: 70px 20px 20px;
+    position : fixed;
+    margin-top: 9vh;
+    margin-left: 250px;
+    width: 82.5%;
+    padding: 30px;
     background-color: #f9f9f9;
+    border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -11,7 +13,7 @@
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* 4 colonnes, chaque colonne prend un quart de la largeur */
     gap: 20px;
     /* Espace entre les éléments */
@@ -20,7 +22,6 @@
 .game-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 8px;
@@ -28,6 +29,12 @@
 }
 
 button {
-    margin-left: 10px;
-    padding: 5px 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
 }
