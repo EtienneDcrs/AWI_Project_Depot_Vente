@@ -4,14 +4,14 @@ import { User } from "./User";
 export class Buyer extends User {
     // this class is a subclass of User
 
-    adress!: string;
+    address!: string;
     wishlist: Game[] = [];
     cart: Game[] = [];
     purchases: Game[] = [];
 
-    constructor(firstName: string, name: string, email: string, phone: string, adress: string) {
+    constructor(firstName: string, name: string, email: string, phone: string, address: string) {
         super(firstName, name, email, phone); // call the constructor of the superclass
-        this.adress = adress;
+        this.address = address;
     }
 
     public getWishlist(): Game[] {

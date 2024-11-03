@@ -37,7 +37,6 @@ router.post('/', async (req, res) => {
         const seller = await Seller.findOne({ id: sellerId });
 
         if (seller) {
-            console.log('Seller found:', seller);
             seller.stocks.push(game.id);
             await seller.save();
         } else {

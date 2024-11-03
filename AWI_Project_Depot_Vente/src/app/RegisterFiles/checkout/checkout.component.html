@@ -1,7 +1,3 @@
-<!-- @if (isCheckoutConfirmed) {
-<app-password-prompt (transactionConfirmed)="addTransaction(checkoutForm.value)" class="password-container" />
-} -->
-
 <div class="checkout-container">
     <h2>Informations personnelles</h2>
 
@@ -9,6 +5,11 @@
         <div>
             <label for="name">Nom</label>
             <input id="name" formControlName="name" placeholder="Votre nom">
+        </div>
+
+        <div>
+            <label for="firstName">Prénom</label>
+            <input id="fistName" formControlName="firstName" placeholder="Votre prénom">
         </div>
 
         <div>

@@ -1,1 +1,15 @@
-<app-register-navigation />
+<app-register-navigation></app-register-navigation>
+
+<!-- Barre de recherche -->
+<app-search-bar (search)="handleSearch($event)" [showSeller]="true"></app-search-bar>
+
+<div class="retirer-stocks-wrapper">
+    <div class="game-grid">
+        @for (game of filteredGames; track game.id) {
+        <div class="game-item">
+            <app-game-card [game]="game" [showSeller]="true"></app-game-card>
+            <button (click)="retirerDuStock(game)">Retirer du Stock</button>
+        </div>
+        }
+    </div>
+</div>

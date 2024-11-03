@@ -1,7 +1,11 @@
 .checkout-container {
+    position: relative;
+    top: 15vh;
     max-width: 600px;
+    /* center the form on the page */
     margin: 0 auto;
-    padding: 20px;
+    /* add some padding around the form */
+    padding: 5vh;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

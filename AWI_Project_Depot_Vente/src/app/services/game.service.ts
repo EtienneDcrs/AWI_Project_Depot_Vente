@@ -72,4 +72,9 @@ export class GameService {
     getCart(): Game[] {
         return this.cart.value;
     }
+
+    clearCart() {
+        this.cart.next([]);
+        this.prixCartTotal.next(0);
+    }
 }

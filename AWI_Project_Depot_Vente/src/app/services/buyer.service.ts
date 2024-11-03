@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Buyer } from '../../models/Buyer';
 
 @Injectable({
@@ -17,9 +17,21 @@ export class BuyerService {
         return this.http.get<Buyer[]>(this.apiUrl);
     }
 
-
     getBuyer(buyerId: string): Observable<Buyer> {
         return this.http.get<Buyer>(`${this.apiUrl}/${buyerId}`);
+    }
+
+    getBuyerByEmail(email: string): Observable<Buyer | null> {
+        return this.http.get<Buyer | {}>(`${this.apiUrl}/email/${email}`).pipe(
+            map((data: any) => {
+                // Si l'objet est vide, retournez null pour indiquer l'absence d'acheteur
+                if (Object.keys(data).length === 0) {
+                    return null;
+                }
+                // Sinon, créez une instance de Buyer
+                return new Buyer(data.firstName, data.name, data.email, data.phone, data.address);
+            })
+        );
     }
 
     addBuyer(buyer: Buyer): Observable<Buyer> {

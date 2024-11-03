@@ -13,6 +13,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get buyer by email, if no buyer return nothing
+router.get('/email/:email', async (req, res) => {
+    try {
+        const buyer = await Buyer.findOne({ email: req.params.email });
+        if (buyer) {
+            res.json(buyer);
+        } else {
+            res.json({});
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching buyer' });
+    }
+});
+
 // Get a single buyer
 router.get('/:id', async (req, res) => {
     try {

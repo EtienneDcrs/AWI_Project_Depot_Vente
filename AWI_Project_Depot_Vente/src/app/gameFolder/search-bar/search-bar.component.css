@@ -1,13 +1,14 @@
 /* Search bar container */
 .search-container {
-    margin-bottom: 20px;
-    margin-top: 1.5vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
     position: fixed;
 }
 
-/* Search bar input field */
+/* Search bar input field dans composant inventaire */
 .search-bar {
     width: 300px;
+    margin-left: 30vh;
     /* Define the width of the search bar */
     padding: 10px;
     border-radius: 16px;

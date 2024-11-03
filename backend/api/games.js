@@ -16,17 +16,20 @@ router.get('/', async (req, res) => {
 // Get the id of the last game in database (string) and increment + 1 
 router.get('/nextid', async (req, res) => {
     try {
-        const lastGame = await Game.findOne().sort({ id: -1 });
-        if (lastGame) {
-            const nextId = parseInt(lastGame.id) + 1;
-            res.json(nextId.toString());
-        } else {
-            res.json('1');
-        }
+        // Utilise `aggregate` pour obtenir le maximum des IDs existants
+        const result = await Game.aggregate([
+            { $group: { _id: null, maxId: { $max: { $toInt: "$id" } } } }
+        ]);
+
+        const maxId = result[0]?.maxId || 0;
+        const nextId = maxId + 1;
+
+        res.json(nextId.toString());
     } catch (error) {
         res.status(500).json({ message: 'Error fetching the last game id' });
     }
 });
+
 
 // Get all games that have the status 'stock'
 router.get('/stock', async (req, res) => {
@@ -79,7 +82,6 @@ router.put('/:id', async (req, res) => {
             { new: true }
         );
         if (updatedGame) {
-            console.log("updatedGame", updatedGame);
             res.json(updatedGame);
         } else {
             console.log("Game not found");

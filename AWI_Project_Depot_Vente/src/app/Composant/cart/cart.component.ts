@@ -5,6 +5,7 @@ import { GameService } from '../../services/game.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog.component';
 import { TransactionService } from '../../services/transaction.service';
+import { Transaction } from '../../../models/Transaction';
 
 @Component({
     selector: 'app-cart',
@@ -49,7 +50,7 @@ export class CartComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 // L'utilisateur a confirmé, redirigez vers la page de checkout
-                this.router.navigate(['/checkout']);
+                this.router.navigate(['/enregistrement/checkout']);
             } else {
                 // Finalisez l'achat sans redirection (si nécessaire)
                 this.finalizeTransaction();
@@ -59,12 +60,10 @@ export class CartComponent implements OnInit {
 
     // Exemple de méthode pour finaliser la transaction
     finalizeTransaction() {
-        console.log("cart", this.cart);
         for (let game of this.cart) {
-            console.log(game);
 
             // Créez l'objet de transaction en n'incluant que les propriétés disponibles
-            const transactionData: any = { id: game.id }; // Assurez-vous d'utiliser la bonne propriété de `game` ici
+            const transactionData: Transaction = { game: game.id, date: new Date() };
 
             this.transactionService.addTransaction(transactionData)
                 .subscribe(response => {
@@ -81,9 +80,8 @@ export class CartComponent implements OnInit {
                     console.error('Error adding transaction:', error);
                 });
         }
-        this.clearCart();
+        this.gameService.clearCart();
     }
-
 
     clearCart() {
         // Methode pour remettre les jeux dans le stock

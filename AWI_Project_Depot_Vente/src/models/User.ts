@@ -1,5 +1,4 @@
 export class User {
-    private static lastId: number = 0; // Static variable to generate unique ids
     id!: string;
     firstName!: string;
     name!: string;
@@ -34,5 +33,4 @@ export class User {
     public getPhone(): string {
         return this.phone;
     }
-
 }

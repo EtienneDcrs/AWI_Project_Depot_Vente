@@ -3,7 +3,7 @@
 .filter-container {
     position: fixed;
     /* Rend le conteneur fixe */
-    top: 60px;
+    top: 120px;
     /* Positionne le conteneur à 20px du haut de la page */
     left: 20px;
     /* Positionne le conteneur à 20px du bord gauche */
