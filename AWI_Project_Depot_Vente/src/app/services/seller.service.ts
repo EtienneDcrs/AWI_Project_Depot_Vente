@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Seller } from '../../models/Seller';
+import { Game } from '../../models/Game';
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +21,10 @@ export class SellerService {
     // Fetch a seller from the API using the sellerId and return it as an Observable
     getSeller(sellerId: string): Observable<Seller> {
         return this.http.get<Seller>(`${this.apiUrl}/${sellerId}`);
+    }
+
+    getSellerStock(sellerId: string): Observable<Game[]> {
+        return this.http.get<Game[]>(`${this.apiUrl}/${sellerId}/stocks`);
     }
 
     // Add a seller to the database

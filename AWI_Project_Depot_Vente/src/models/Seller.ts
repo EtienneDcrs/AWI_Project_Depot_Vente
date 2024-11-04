@@ -1,18 +1,19 @@
+import { GameService } from "../app/services/game.service";
 import { Game } from "./Game";
 import { User } from "./User";
 
 export class Seller extends User {
-    stock!: Game[];
+    stocks!: string[];
     sales: Game[] = [];
     turnover: number = 0;
 
-    constructor(firstName: string, name: string, email: string, phone: string, stock: Game[]) {
+    constructor(firstName: string, name: string, email: string, phone: string, stocks: string[]) {
         super(firstName, name, email, phone); // Call the constructor of the superclass
-        this.stock = stock;
+        this.stocks = stocks;
     }
 
-    public getStock(): Game[] {
-        return this.stock;
+    public getStock(): string[] {
+        return this.stocks;
     }
 
     public getSales(): Game[] {
@@ -23,20 +24,20 @@ export class Seller extends User {
         return this.turnover;
     }
 
-    public addGameToStock(game: Game): void {
-        this.stock.push(game);
+    public addGameToStock(gameId: string): void {
+        this.stocks.push(gameId);
     }
 
     public removeGameFromStock(game: Game): void {
         // Remove the game by filtering it out
-        this.stock = this.stock.filter(g => g.getId() !== game.id);
+        this.stocks = this.stocks.filter(g => g !== game.id);
     }
 
     public sellGame(game: Game): void {
         // Add the game to the sales list, remove it from the stock and update the turnover
         this.sales.push(game);
         this.turnover += game.getPrice();
-        this.stock = this.stock.filter(g => g.getId() !== game.id);
+        this.stocks = this.stocks.filter(g => g !== game.id);
     }
 
 }
