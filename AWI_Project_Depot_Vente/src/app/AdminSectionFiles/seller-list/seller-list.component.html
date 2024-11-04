@@ -2,7 +2,7 @@
 
 <div class="seller-list-wrapper">
     <div class="seller-grid">
-        
+        @for (seller of filteredSellers; track seller.id) {
         <div class="seller-item">
             <div class="seller-info">
                 <h4>{{ seller.name }}</h4>
@@ -12,6 +12,6 @@
             </div>     
             <button class="see-more" (click)="goToSeller(seller)">voir plus</button>
         </div>
-        
+        }
     </div>
 </div>
