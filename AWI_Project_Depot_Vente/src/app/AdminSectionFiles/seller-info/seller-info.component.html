@@ -2,16 +2,33 @@
 
 <div class="seller-list-wrapper">
     <div class="seller-grid">
-        
-        <div class="seller-item">
-            <div class="seller-info">
-                <h4>{{ seller.name }}</h4>
-                <div class="seller-fname">
-                    <h5>{{ seller.firstName }}</h5>
-                </div>
-            </div>     
-            <button class="see-more" (click)="goToSeller(seller)">voir plus</button>
+        @if (this.seller !== undefined) {
+        <div class="infos">
+            <p>{{ this.seller.name }}</p>
+            <p>{{ this.seller.firstName }}</p>
+            <p>{{ this.seller.email }}</p>
+            <p>{{ this.sellerStock }}</p>
+            
+            
+            @if (this.sellerStock.length > 0) {
+            
+                <p>Jeux en stock :</p>
+                @for (game of this.sellerStock; track game.id) {
+                    <div class="game">
+                        <p>{{ game.name }}</p>
+                        <p>{{ game.price }}</p>
+                        <p>{{ game.editor }}</p>
+                    </div>
+                }
+            } @else {
+                <p>Ce vendeur n'a pas de jeux en stock</p>
+            }
+            
         </div>
+        }
+        @else {
+            <div class="empty-seller">Chargement des informations...</div>
+        }
         
     </div>
 </div>
