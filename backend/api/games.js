@@ -1,5 +1,6 @@
 import express from 'express';
 import Game from '../models/Game.js';
+import Seller from '../models/Seller.js';
 
 const router = express.Router();
 
@@ -82,6 +83,23 @@ router.put('/:id', async (req, res) => {
             { new: true }
         );
         if (updatedGame) {
+            if (req.body.status === 'retiré') {
+                console.log("gameId", updatedGame.id);
+                console.log("sellerId", updatedGame.sellerId);
+                const seller = await Seller.findOne({ id: updatedGame.sellerId });
+                console.log("seller", seller);
+                if (seller) {
+                    // Recherche l'id du jeu dans le tableau `stocks` du vendeur et l'enlever si trouvé   
+                    const index = seller.stocks.indexOf(updatedGame.id);
+                    if (index !== -1) {
+                        console.log("I am here");
+                        // enleve le jeu du tableau
+                        seller.stocks.splice(index, 1);
+                    }
+                    await seller.save();
+                }
+            }
+
             res.json(updatedGame);
         } else {
             console.log("Game not found");
