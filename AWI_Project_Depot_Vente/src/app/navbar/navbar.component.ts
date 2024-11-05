@@ -11,10 +11,14 @@ import { PasswordPromptComponent } from "../password-prompt/password-prompt.comp
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isMenuOpen = false;
+  showPasswordPrompt = false;
 
   constructor(private router: Router) { }
 
-  showPasswordPrompt = false;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   openPasswordPrompt() {
     this.showPasswordPrompt = true;
@@ -22,7 +26,6 @@ export class NavbarComponent {
 
   handlePasswordEntered() {
     this.showPasswordPrompt = false;
-    // Redirigez vers la section Admin ici
     this.goToAdminSection();
   }
 
@@ -37,5 +40,4 @@ export class NavbarComponent {
   goToAdminSection() {
     this.router.navigate(['/administration/transactions']);
   }
-
 }

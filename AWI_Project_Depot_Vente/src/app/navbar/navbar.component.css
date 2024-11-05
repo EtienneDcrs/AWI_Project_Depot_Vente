@@ -2,78 +2,100 @@
 .navbar {
     display: flex;
     justify-content: center;
-    /* Center the items */
     align-items: center;
     background-color: #3E3273;
-    padding: 10px 20px;
+    padding: 1vh 1vh;
     position: fixed;
-    /* Fixe la navbar en haut de la page */
     top: 0;
-    /* Positionne la navbar en haut */
     left: 0;
-    /* Aligne la navbar à gauche */
     width: 100%;
-    /* Fait en sorte que la navbar prenne toute la largeur */
     height: 4vh;
     z-index: 1000;
-    /* Assure que la navbar est au-dessus des autres éléments */
 }
 
 /* Logo */
 .navbar-logo {
     position: absolute;
-    /* Positionne le logo absolument */
-    left: 20px;
-    /* Aligne le logo à gauche */
+    left: 2vh;
 }
 
 .navbar-logo img.logo {
-    height: 36px;
+    height: 4vh;
     width: auto;
 }
 
-/* Menu items */
+/* Menu items (centered on larger screens) */
 .navbar-menu {
     display: flex;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .navbar-menu li {
-    margin-left: 20px;
-    /* Espace entre les éléments du menu */
+    margin-left: 5vh;
 }
 
 .navbar-menu a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
-    padding: 8px 16px;
+    font-size: 2vh;
+    padding: 1vh 2vh;
     transition: background-color 0.3s ease;
 }
 
 .navbar-menu a:hover {
     background-color: #555;
-    border-radius: 4px;
+    border-radius: 0.5vh;
 }
 
+/* Icone hamburger pour petits écrans */
+.navbar-toggle {
+    display: none;
+    font-size: 3vh;
+    color: white;
+    cursor: pointer;
+}
 
 /* Responsiveness for mobile */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        /* Colonne pour les écrans mobiles */
+        justify-content: center;
     }
 
+    /* Icône hamburger visible en mobile, centré horizontalement */
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 1.5vh;
+    }
+
+    /* Masque le menu par défaut */
     .navbar-menu {
+        display: none;
         flex-direction: column;
         align-items: center;
-        /* Centre les éléments du menu en mode mobile */
+        width: 100%;
+        background-color: #3E3273;
+        position: absolute;
+        top: 5vh;
+        /* Positionne le menu juste en dessous de la navbar */
+        left: 0;
+    }
+
+    /* Affiche le menu lorsqu'il est ouvert */
+    .navbar-menu.open {
+        display: flex;
+        padding-top: 2vh;
     }
 
     .navbar-menu li {
-        margin: 10px 0;
-        /* Espace entre les éléments */
+        margin: 1vh 0;
+        width: 100%;
+        text-align: center;
     }
 }

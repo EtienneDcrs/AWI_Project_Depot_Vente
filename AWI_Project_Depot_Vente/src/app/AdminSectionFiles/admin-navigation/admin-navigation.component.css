@@ -1,17 +1,17 @@
 .admin-menu {
   position: fixed;
-  top: 40px;
+  top: 4vh;
   /* Taille de la navbar en haut */
   display: flex;
   justify-content: center;
   align-items: center;
   left: 0;
-  width: 200px;
-  height: calc(100% - 40px);
+  width: 10vw;
+  height: calc(100% - 4vh);
   background-color: #677DFF;
   color: white;
-  padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 1vh;
+  box-shadow: 1vh 0 1vh rgba(0, 0, 0, 0.1);
 }
 
 .admin-menu ul {
@@ -20,15 +20,14 @@
 }
 
 .admin-menu ul li {
-  margin-top: 80px;
+  margin-top: 10vh;
 }
 
 .admin-menu ul li a {
   color: rgb(0, 0, 0);
   text-decoration: none;
   display: block;
-  padding: 0px;
-  border-radius: 4px;
+  border-radius: 0.5vh;
   transition: background 0.3s ease;
 }
 
@@ -37,15 +36,16 @@
 }
 
 .mat-icon {
-  font-size: 20px;
+  font-size: 2vh;
   /* Taille de l'icône */
   color: white;
   /* Couleur de l'icône */
   vertical-align: middle;
   /* Aligner l'icône au milieu du texte */
-  margin-bottom: -2px;
+  margin-bottom: -0.5vh;
 }
 
 .label {
   color: white;
+  font-size: 2vh;
 }

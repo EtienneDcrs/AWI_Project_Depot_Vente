@@ -18,5 +18,7 @@
             <i class="material-icons">delete</i>
         </button>
     </div>
+    @if (cart.length > 0) {
     <button class="finalize-button" (click)="finalizePurchase()">Finaliser l'achat</button>
+    }
 </div>
