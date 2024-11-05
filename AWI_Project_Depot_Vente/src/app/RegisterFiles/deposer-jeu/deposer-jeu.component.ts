@@ -50,12 +50,19 @@ export class DeposerJeuComponent {
 
     if (query.length > 2) {
       this.stockService.searchSellers(query).subscribe(
-        (sellers) => (this.filteredVendeurs = sellers),
+        (sellers) => this.filteredVendeurs = this.filterVendeurs(sellers, query),
         (error) => console.error('Error fetching sellers:', error)
       );
     } else {
       this.filteredVendeurs = [];
     }
+  }
+
+  private filterVendeurs(sellers: Seller[], query: string): Seller[] {
+    return sellers.filter(seller =>
+      seller.firstName.toLowerCase().includes(query.toLowerCase()) ||
+      seller.name.toLowerCase().includes(query.toLowerCase())
+    );
   }
 
   onVendeurSelect(vendeur: Seller) {

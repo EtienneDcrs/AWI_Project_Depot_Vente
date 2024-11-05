@@ -116,28 +116,26 @@ button[type="submit"]:hover {
 }
 
 ul {
-    position: absolute;
     list-style: none;
     padding: 0;
-    margin-top: 4.5vh;
-    /* Reste en vh */
+    margin: 0;
+    /* Retirer la marge par défaut */
     border: 0.125vw solid #ccc;
-    /* Converti 1px en vw */
     border-radius: 0.25vw;
-    /* Converti 4px en vw */
     max-height: 15vh;
-    /* Converti 150px en vh */
-    width: 21.5%;
-    /* Reste en pourcentage pour la largeur relative */
     overflow-y: auto;
+    /* Défilement vertical si nécessaire */
+    background-color: white;
+    /* Ajouter une couleur de fond pour la liste */
+    z-index: 1;
+    /* Assurer que la liste soit au-dessus d'autres éléments */
 }
 
 li {
     padding: 1.25vh;
     /* Converti 10px en vh */
-    background-color: white;
     border-bottom: 0.125vw solid #ccc;
-    /* Converti 1px en vw */
+    /* Séparation entre les éléments */
     cursor: pointer;
 }
 
@@ -149,6 +147,9 @@ li:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* S'assurer que la section prend toute la largeur disponible */
+    position: relative;
+    /* Permet de positionner la liste en rapport avec le conteneur */
 }
 
 .add-seller-button {
