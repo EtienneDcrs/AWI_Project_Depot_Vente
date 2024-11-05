@@ -4,7 +4,7 @@ import { RegisterNavigationComponent } from '../register-navigation/register-nav
 import { GameService } from '../../services/game.service';
 import { Game } from '../../../models/Game';
 import { CartComponent } from '../../Composant/cart/cart.component'; // Importez le composant Cart ici
-import { SearchBarComponent } from '../../gameFolder/search-bar/search-bar.component';
+import { SearchBarComponent } from '../../Composant/search-bar/search-bar.component';
 import { GameCardComponent } from '../../gameFolder/game-card/game-card.component';
 
 @Component({

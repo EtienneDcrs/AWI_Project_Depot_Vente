@@ -3,21 +3,21 @@
 .filter-container {
     position: fixed;
     /* Rend le conteneur fixe */
-    top: 120px;
+    top: 13vh;
     /* Positionne le conteneur à 20px du haut de la page */
-    left: 20px;
+    left: 1vw;
     /* Positionne le conteneur à 20px du bord gauche */
-    border: 1px solid #e0e0e0;
+    border: 0.1vh solid #e0e0e0;
     /* Bordure légèrement plus foncée */
-    border-radius: 8px;
+    border-radius: 0.8vh;
     /* Coins arrondis */
-    padding: 20px;
+    padding: 2vh;
     /* Augmenter le rembourrage pour plus d'espace */
     background-color: #ffffff;
     /* Fond blanc pour un look propre */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     /* Ombre subtile pour la profondeur */
-    width: 200px;
+    width: 10vw;
     /* Largeur maximale du conteneur de filtres */
     z-index: 10;
     /* Assure que le conteneur soit au-dessus des autres éléments */

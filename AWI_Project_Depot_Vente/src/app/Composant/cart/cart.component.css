@@ -1,24 +1,24 @@
 /* cart container */
 .cart-container {
     position: fixed;
-    width: 400px;
-    height: 500px;
+    width: 40vw;
+    height: 50vh;
     /* Ajustez la hauteur si nécessaire */
-    top: 130px;
+    top: 15vh;
     /* Positionne le conteneur à 20px du haut de la page */
-    left: 250px;
+    left: 13vw;
     /* Positionne le conteneur à 20px du bord gauche */
     border: 1px solid #e0e0e0;
     /* Bordure légèrement plus foncée */
     border-radius: 8px;
     /* Coins arrondis */
-    padding: 20px;
+    padding: 2vh;
     /* Augmenter le rembourrage pour plus d'espace */
     background-color: #ffffff;
     /* Fond blanc pour un look propre */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     /* Ombre subtile pour la profondeur */
-    max-width: 400px;
+    max-width: 20vw;
     /* Largeur maximale du conteneur de filtres */
     z-index: 10;
     /* Assure que le conteneur soit au-dessus des autres éléments */
@@ -29,11 +29,11 @@
 }
 
 .cart-items {
-    max-height: 300px;
+    max-height: 30vh;
     /* Ajustez cette valeur selon vos besoins */
     overflow-y: auto;
     /* Activer le défilement vertical */
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     /* Ajoute de l'espace en bas */
 }
 
@@ -41,7 +41,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 1vh 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -72,7 +72,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 1vh 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -99,7 +99,7 @@
     background-color: #4CAF50;
     /* Vert */
     color: white;
-    padding: 12px 24px;
+    padding: 1.5vh 1vw;
     border: none;
     border-radius: 4px;
     cursor: pointer;

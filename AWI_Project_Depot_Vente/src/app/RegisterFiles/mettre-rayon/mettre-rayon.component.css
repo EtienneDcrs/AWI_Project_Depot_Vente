@@ -1,42 +1,56 @@
 .mettre-rayon-wrapper {
     position: fixed;
     margin-top: 11vh;
-    margin-left: 250px;
-    width: 82.5%;
-    padding: 30px;
+    /* Reste en vh */
+    margin-left: 13vw;
+    /* Converti 250px en vw */
+    width: 82.5vw;
+    /* Reste en vw */
+    padding: 3vh;
+    /* Converti 30px en vh */
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
+    border-radius: 0.5vw;
+    /* Converti 8px en vw */
+    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.1);
+    /* Converti 4px et 12px en vh */
     font-family: 'Arial', sans-serif;
-    height: 80vh;
+    height: 78vh;
+    /* Reste en vh */
     overflow: auto;
+    /* Reste inchangé */
 }
 
 .game-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* 4 colonnes, chaque colonne prend un quart de la largeur */
-    gap: 20px;
-    /* Espace entre les éléments */
+    /* 5 colonnes, chaque colonne prend un cinquième de la largeur */
+    gap: 1.25vh;
+    /* Converti 20px en vh */
 }
 
 .game-item {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
+    border: 0.125vw solid #ddd;
+    /* Converti 1px en vw */
+    padding: 1.25vh;
+    /* Converti 10px en vh */
+    border-radius: 0.5vw;
+    /* Converti 8px en vw */
     background-color: #f9f9f9;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 1.25vh 2.5vw;
+    /* Converti 10px 20px en vh et vw */
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
     cursor: pointer;
-    margin-top: 10px;
-    /* margin-bottom: 10px; */
+    margin-top: 1.25vh;
+    /* Converti 10px en vh */
 }

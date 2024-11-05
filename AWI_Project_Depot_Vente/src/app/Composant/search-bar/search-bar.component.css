@@ -7,27 +7,27 @@
 
 /* Search bar input field dans composant inventaire */
 .search-bar {
-    width: 300px;
+    width: 16vw;
     margin-left: 30vh;
     /* Define the width of the search bar */
-    padding: 10px;
-    border-radius: 16px;
+    padding: 1vh;
+    border-radius: 2vh;
     border: 1px solid #ddd;
-    font-size: 1em;
+    font-size: 1.8vh;
     outline: none;
     transition: box-shadow 0.3s ease;
 }
 
 /* Search bar input field */
 .search-bar-avec-vendeur {
-    width: 360px;
-    margin-left: 250px;
-    margin-top: 20px;
+    width: 19vw;
+    margin-left: 13vw;
+    margin-top: 2vh;
     /* Define the width of the search bar */
-    padding: 10px;
-    border-radius: 16px;
+    padding: 1vh;
+    border-radius: 2vh;
     border: 1px solid #ddd;
-    font-size: 1em;
+    font-size: 1.8vh;
     outline: none;
     transition: box-shadow 0.3s ease;
 }

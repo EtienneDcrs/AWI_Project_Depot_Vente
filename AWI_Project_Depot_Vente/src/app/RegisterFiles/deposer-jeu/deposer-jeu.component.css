@@ -1,93 +1,112 @@
-
-
-
-/* toujours un pb de scrollbar */
-
-
 .page-container {
     display: flex;
     justify-content: center;
     height: 96vh;
-    margin-left:200px;
+    /* Reste en vh */
+    margin-left: 10vw;
+    /* Converti 200px en vw */
 }
 
 .deposer-jeu-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    width: 60%;
-    height: 70%;
-    margin: 20px;
-    margin-top: 70px;
-    padding: 20px;
+
+    width: 60vw;
+    /* Converti 60% de la largeur en vw */
+    height: 70vh;
+    /* Reste en vh */
+    margin: 2vh;
+    /* Converti 20px en vh */
+    margin-top: 10vh;
+    /* Converti 70px en vh */
+    padding: 2vh;
+    /* Converti 20px en vh */
     background-color: #f9f9f9;
-    border-radius: 8px;
-    border : 1px solid #ccc;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+    /* Converti 8px en vw */
+    border: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
+    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.1);
+    /* Converti 4px et 12px en vh */
     font-family: 'Arial', sans-serif;
 }
 
 h1 {
     font-size: 1.5em;
-    margin-bottom: 20px;
+    /* Reste en em */
+    margin-bottom: 2vh;
+    /* Converti 20px en vh */
     color: #333;
     text-align: center;
 }
 
 .deposer-jeu-form {
     height: 80%;
+    /* Reste en pourcentage pour la hauteur relative */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.875vh;
+    /* Converti 15px en vh */
 }
 
-.deposer-jeu-form div{
+.deposer-jeu-form div {
     width: 50%;
+    /* Reste en pourcentage pour la largeur relative */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 15px;
-
+    margin-bottom: 1.875vh;
+    /* Converti 15px en vh */
 }
 
 label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 0.625vh;
+    /* Converti 5px en vh */
     color: #555;
 }
 
-
-input{
+input {
     width: 80%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /* Reste en pourcentage pour la largeur relative */
+    padding: 1.25vh;
+    /* Converti 15px en vh */
+    border: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
     font-size: 1.2em;
+    /* Reste en em */
     box-sizing: border-box;
 }
-
-
 
 input:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0.625vh rgba(0, 123, 255, 0.5);
+    /* Converti 5px en vh */
 }
 
 button[type="submit"] {
     width: 30%;
-    height: 60px;
-    padding: 10px;
-    margin-top: 30px;
+    /* Reste en pourcentage pour la largeur relative */
+    height: 6vh;
+    /* Converti 60px en vh */
+    padding: 1.25vh;
+    /* Converti 10px en vh */
+    margin-top: 3vh;
+    /* Converti 30px en vh */
     background-color: #28a745;
     color: white;
     font-size: 1em;
+    /* Reste en em */
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -100,18 +119,25 @@ ul {
     position: absolute;
     list-style: none;
     padding: 0;
-    margin-top: 4.5%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    max-height: 150px;
+    margin-top: 4.5vh;
+    /* Reste en vh */
+    border: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
+    max-height: 15vh;
+    /* Converti 150px en vh */
     width: 21.5%;
+    /* Reste en pourcentage pour la largeur relative */
     overflow-y: auto;
 }
 
 li {
-    padding: 10px;
+    padding: 1.25vh;
+    /* Converti 10px en vh */
     background-color: white;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
     cursor: pointer;
 }
 
@@ -119,7 +145,7 @@ li:hover {
     background-color: #f1f1f1;
 }
 
-.vendeur{
+.vendeur {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,34 +153,37 @@ li:hover {
 
 .add-seller-button {
     background-color: #007bff;
-    /* Couleur du bouton */
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 0 8px;
-    margin-left: 5px;
-    margin-top: 15px;
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
+    padding: 0 1vw;
+    /* Converti 8px en vw */
+    margin-left: 0.5vw;
+    /* Converti 5px en vw */
+    margin-top: 1.5vh;
+    /* Converti 15px en vh */
     cursor: pointer;
     font-size: 1.1em;
-    /* Taille de la police */
+    /* Reste en em */
     line-height: 1.5;
-    /* Alignement vertical */
+    /* Reste inchangé */
 }
 
 .add-seller-button:hover {
     background-color: #0056b3;
-    /* Couleur au survol */
 }
-
 
 .success-message {
     color: green;
-    margin-bottom: 15px;
+    margin-bottom: 1.875vh;
+    /* Converti 15px en vh */
     text-align: center;
 }
 
 .error-message {
     color: red;
-    margin-bottom: 15px;
+    margin-bottom: 1.875vh;
+    /* Converti 15px en vh */
     text-align: center;
 }

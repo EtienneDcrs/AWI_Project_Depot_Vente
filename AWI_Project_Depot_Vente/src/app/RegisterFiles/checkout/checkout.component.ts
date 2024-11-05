@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TransactionService } from '../../services/transaction.service';
-import { PasswordPromptComponent } from '../../password-prompt/password-prompt.component';
+import { PasswordPromptComponent } from '../../Composant/password-prompt/password-prompt.component';
 import { Router } from '@angular/router';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../../models/Game';

@@ -5,11 +5,12 @@ import { AdminNavigationComponent } from '../admin-navigation/admin-navigation.c
 import { Game } from '../../../models/Game';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../services/game.service';
+import { GameCardComponent } from '../../gameFolder/game-card/game-card.component';
 
 @Component({
     selector: 'app-seller-info',
     standalone: true,
-    imports: [AdminNavigationComponent],
+    imports: [AdminNavigationComponent, GameCardComponent],
     templateUrl: './seller-info.component.html',
     styleUrl: './seller-info.component.css'
 })
@@ -17,8 +18,13 @@ import { GameService } from '../../services/game.service';
 export class SellerInfoComponent {
     seller: Seller | undefined;
     sellerStock: Game[] = [];
-    constructor(private sellerService: SellerService, private gameService: GameService, private route: ActivatedRoute ) { 
-        
+    visibleGames: Game[] = [];
+    private currentIndex = 0;
+    private itemsPerSlide = 4;
+    showLeftButton: boolean = false;
+    showRightButton: boolean = true;
+    constructor(private sellerService: SellerService, private gameService: GameService, private route: ActivatedRoute) {
+
     }
 
     //recupère l'id du vendeur dans l'url
@@ -26,10 +32,12 @@ export class SellerInfoComponent {
         const id = this.route.snapshot.paramMap.get('id');
         if (id) {
             this.loadSeller(id);
-            
+
         } else {
             console.error('ID du vendeur non trouvé dans l\'URL');
         }
+
+        this.updateVisibleGames();
 
     }
 
@@ -39,18 +47,6 @@ export class SellerInfoComponent {
             (data) => {
                 this.seller = data;
                 console.log(this.seller);
-
-                // for (let id of this.seller.stocks) {
-                //     this.gameService.getGame(id).subscribe(
-                //         (data) => {
-                //             this.sellerStock.push(data);
-                //             console.log(this.sellerStock);
-                //         },
-                //         (error) => {
-                //             console.error('Erreur lors de la récupération des informations du jeu:', error);
-                //         }
-                //     );
-                // }
             },
             (error) => {
                 console.error('Erreur lors de la récupération des informations du vendeur:', error);
@@ -66,6 +62,28 @@ export class SellerInfoComponent {
                 console.error('Erreur lors de la récupération des stocks du vendeur:', error);
             }
         );
-        
+
+    }
+
+
+    updateVisibleGames() {
+        this.visibleGames = this.sellerStock.slice(this.currentIndex, this.currentIndex + this.itemsPerSlide);
+        this.showLeftButton = this.currentIndex > 0;
+        this.showRightButton = this.currentIndex + this.itemsPerSlide < this.sellerStock.length;
+    }
+
+    scrollRight() {
+        if (this.currentIndex + this.itemsPerSlide < this.sellerStock.length) {
+            this.currentIndex += this.itemsPerSlide;
+            this.updateVisibleGames();
+        }
+
+    }
+
+    scrollLeft() {
+        if (this.currentIndex - this.itemsPerSlide >= 0) {
+            this.currentIndex -= this.itemsPerSlide;
+            this.updateVisibleGames();
+        }
     }
 }

@@ -1,39 +1,51 @@
 .checkout-container {
     position: relative;
     top: 15vh;
-    max-width: 600px;
-    /* center the form on the page */
+    /* Reste en vh */
+    max-width: 80vw;
+    /* Converti 600px en vw (approximativement, selon la largeur de l'écran) */
     margin: 0 auto;
-    /* add some padding around the form */
+    /* Reste inchangé pour centrer */
     padding: 5vh;
+    /* Reste en vh */
     background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+    /* Converti 8px en vw */
+    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.1);
+    /* Converti 4px et 12px en vh */
 }
 
 form div {
-    margin-bottom: 15px;
+    margin-bottom: 1.875vh;
+    /* Converti 15px en vh */
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.625vh;
+    /* Converti 5px en vh */
     font-weight: bold;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    /* Reste en pourcentage pour une largeur adaptative */
+    padding: 1.25vh;
+    /* Converti 10px en vh */
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
+    border: 0.125vw solid #ccc;
+    /* Converti 1px en vw */
 }
 
 button {
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
+    padding: 1.25vh 5vw;
+    /* Converti 10px en vh et 20px en vw */
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25vw;
+    /* Converti 4px en vw */
     cursor: pointer;
 }
 

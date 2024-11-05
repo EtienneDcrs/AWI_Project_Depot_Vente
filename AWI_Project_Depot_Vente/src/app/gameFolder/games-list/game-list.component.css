@@ -4,17 +4,7 @@
     /* Garde la mise en page en grille pour les jeux */
     grid-template-columns: repeat(3, minmax(250px, 1fr));
     /* Colonnes de jeux */
-    gap: 10px;
+    gap: 1vh;
     /* Espace entre les jeux */
-    padding: 0px;
-    /* Espace intérieur */
-    border-radius: 8px;
-    /* Coins arrondis */
-    /* background-color: #e3e3e3; */
-    /* Couleur de fond pour la liste de jeux */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    /* Ombre pour profondeur */
-    max-width: calc(100% - 440px);
-    /* Ajuster la largeur pour compenser le filtre fixe */
-    margin-top: 50px;
+    border-radius: 1vh;
 }

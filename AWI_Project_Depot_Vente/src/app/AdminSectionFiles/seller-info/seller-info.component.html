@@ -1,34 +1,50 @@
 <app-admin-navigation></app-admin-navigation>
 
 <div class="seller-list-wrapper">
-    <div class="seller-grid">
-        @if (this.seller !== undefined) {
-        <div class="infos">
+
+    @if (this.seller !== undefined) {
+    <div class="infos">
+        <div class="seller-header">
             <p>{{ this.seller.name }}</p>
             <p>{{ this.seller.firstName }}</p>
             <p>{{ this.seller.email }}</p>
-
-            
-            
-            @if (this.sellerStock.length > 0) {
-            
-                <p>Jeux en stock :</p>
-                @for (game of this.sellerStock; track game.id) {
-                    <div class="game">
-                        <p>{{ game.name }}</p>
-                        <p>{{ game.price }}</p>
-                        <p>{{ game.editor }}</p>
-                    </div>
-                }
-            } @else {
-                <p>Ce vendeur n'a pas de jeux en stock</p>
-            }
-            
         </div>
+
+
+        @if (this.sellerStock.length > 0) {
+
+        <p>Jeux en stock : {{this.sellerStock.length}}</p>
+
+
+
+
+        <div class="game-carousel-container">
+            @if (this.showLeftButton) {
+            <button class="carousel-nav left" (click)="scrollLeft()">&#10094;</button>
+            }
+            <div class="game-carousel">
+                <div class="game-carousel-track">
+                    @for (game of this.visibleGames; track game.id) {
+                    <app-game-card [game]="game"></app-game-card>
+                    }
+                </div>
+            </div>
+            @if (this.showRightButton) {
+            <button class="carousel-nav right" (click)="scrollRight()">&#10095;</button>
+            }
+        </div>
+
+
+
+
+        } @else {
+        <p>Ce vendeur n'a pas de jeux en stock</p>
         }
-        @else {
-            <div class="empty-seller">Chargement des informations...</div>
-        }
-        
+
     </div>
+    }
+    @else {
+    <div class="empty-seller">Chargement des informations...</div>
+    }
+
 </div>

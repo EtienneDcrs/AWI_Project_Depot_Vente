@@ -15,7 +15,7 @@ export class AdminNavigationComponent {
   menuItems = [
     { path: '/administration/transactions', label: 'Transactions', icon: 'credit_card' },
     { path: '/administration/seller-info', label: 'Infos vendeurs', icon: 'person' },
-    { path: '/administration/seller-payments', label: 'Paiements dues', icon: 'payment' },
+    { path: '/administration/seller-payments', label: 'Paiements dus', icon: 'payment' },
     { path: '/administration/game-sold', label: 'Jeux vendus', icon: 'sports_esports' },
     { path: '/administration/general-report', label: 'Bilan général', icon: 'bar_chart' }
   ];

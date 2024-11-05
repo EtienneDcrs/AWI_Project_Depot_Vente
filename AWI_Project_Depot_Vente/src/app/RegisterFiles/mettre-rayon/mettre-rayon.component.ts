@@ -6,7 +6,7 @@ import { GameCardComponent } from '../../gameFolder/game-card/game-card.componen
 import { ConfirmDialogComponent } from '../../Composant/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchBarComponent } from '../../gameFolder/search-bar/search-bar.component';
+import { SearchBarComponent } from '../../Composant/search-bar/search-bar.component';
 
 
 @Component({

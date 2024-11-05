@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PasswordPromptComponent } from "../password-prompt/password-prompt.component";
+import { PasswordPromptComponent } from '../password-prompt/password-prompt.component';
 
 @Component({
   selector: 'app-navbar',
