@@ -1,6 +1,6 @@
 .seller-list-wrapper {
     position: fixed;
-    margin-top: 11vh;
+    margin-top: 5vh;
     margin-left: 250px;
     width: 82.5%;
     padding: 30px;
@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width:80%;
+    width: 80%;
     padding: 10px;
 }
 
@@ -62,5 +62,10 @@ button:hover {
     background-color: #005abb;
 }
 
-h4 {margin: 0;}
-h5 {margin: 0;}
+h4 {
+    margin: 0;
+}
+
+h5 {
+    margin: 0;
+}

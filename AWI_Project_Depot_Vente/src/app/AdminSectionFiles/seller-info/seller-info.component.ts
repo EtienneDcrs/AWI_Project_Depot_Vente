@@ -47,22 +47,27 @@ export class SellerInfoComponent {
             (data) => {
                 this.seller = data;
                 console.log(this.seller);
+
+                if (this.seller?.stocks.length > 0) {
+                    this.sellerService.getSellerStock(id).subscribe(
+                        (data) => {
+                            this.sellerStock = data;
+                            console.log(this.sellerStock);
+                            this.updateVisibleGames(); // Mise à jour des jeux visibles après avoir récupéré les stocks
+                        },
+                        (error) => {
+                            console.error('Erreur lors de la récupération des stocks du vendeur:', error);
+                        }
+                    );
+                } else {
+                    this.sellerStock = [];
+                    this.updateVisibleGames(); // Mise à jour des jeux visibles même si le stock est vide
+                }
             },
             (error) => {
                 console.error('Erreur lors de la récupération des informations du vendeur:', error);
             }
         );
-
-        this.sellerService.getSellerStock(id).subscribe(
-            (data) => {
-                this.sellerStock = data;
-                console.log(this.sellerStock);
-            },
-            (error) => {
-                console.error('Erreur lors de la récupération des stocks du vendeur:', error);
-            }
-        );
-
     }
 
 

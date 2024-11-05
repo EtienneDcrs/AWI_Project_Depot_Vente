@@ -6,11 +6,11 @@ export class Game {
     name!: string;
     editor!: string;
     price!: number;
-    sellerId!: number;
+    sellerId!: string;
     sellerName!: string;
     status!: string;
 
-    constructor(name: string, editor: string, price: number, sellerId: number, sellerName: string, status: string) {
+    constructor(name: string, editor: string, price: number, sellerId: string, sellerName: string, status: string) {
         this.name = name;
         this.editor = editor;
         this.price = price;
@@ -35,7 +35,7 @@ export class Game {
         return this.editor;
     }
 
-    public getSellerId(): number {
+    public getSellerId(): string {
         return this.sellerId;
     }
 

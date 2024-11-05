@@ -100,6 +100,8 @@ export class CheckoutComponent {
           game: game.id,
           buyerId: this.buyer.id,
           buyerName: fullName,
+          sellerId: game.sellerId,
+          sellerName: game.sellerName,
           date: new Date(),
         };
         console.log('transactiondata:', transactionData);
@@ -110,7 +112,7 @@ export class CheckoutComponent {
           }),
           catchError(error => {
             console.error('Error processing transaction for game', game.id, error);
-            return EMPTY; // or handle the error as needed
+            return EMPTY;
           })
         );
       });
