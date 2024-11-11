@@ -7,6 +7,7 @@ import transactions from './api/transactions.js';
 import sellers from './api/sellers.js';
 import buyers from './api/buyers.js';
 import stocks from './api/stocks.js';
+import report from './api/report.js';
 
 dotenv.config();
 
@@ -58,6 +59,7 @@ app.use('/api/transactions', transactions);
 app.use('/api/sellers', sellers);
 app.use('/api/buyers', buyers);
 app.use('/api/stocks', stocks);
+app.use('api/report', report);
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
