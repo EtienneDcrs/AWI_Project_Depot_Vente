@@ -103,6 +103,7 @@ export class CheckoutComponent {
           sellerId: game.sellerId,
           sellerName: game.sellerName,
           date: new Date(),
+          price: game.price
         };
         console.log('transactiondata:', transactionData);
         return this.transactionService.addTransaction(transactionData).pipe(

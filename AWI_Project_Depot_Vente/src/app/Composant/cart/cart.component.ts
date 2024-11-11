@@ -63,7 +63,7 @@ export class CartComponent implements OnInit {
         for (let game of this.cart) {
 
             // Créez l'objet de transaction en n'incluant que les propriétés disponibles
-            const transactionData: Transaction = { game: game.id, sellerId: game.sellerId, sellerName: game.sellerName, date: new Date() };
+            const transactionData: Transaction = { game: game.id, sellerId: game.sellerId, sellerName: game.sellerName, date: new Date(), price: game.price };
 
             this.transactionService.addTransaction(transactionData)
                 .subscribe(response => {

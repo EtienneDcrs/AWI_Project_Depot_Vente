@@ -10,6 +10,7 @@ export class Seller extends User {
     constructor(firstName: string, name: string, email: string, phone: string, stocks: string[]) {
         super(firstName, name, email, phone); // Call the constructor of the superclass
         this.stocks = stocks;
+        this.turnover = 0;
     }
 
     public getStock(): string[] {

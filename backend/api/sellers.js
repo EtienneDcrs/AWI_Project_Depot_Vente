@@ -1,6 +1,7 @@
 import express from "express";
 import Seller from "../models/Seller.js";
 import Game from "../models/Game.js";
+import Transaction from "../models/Transaction.js";
 
 const router = express.Router();
 
@@ -44,6 +45,39 @@ router.get("/:id/stocks", async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ message: "Error fetching seller stocks" }); // Retourner un message d'erreur si une erreur se produit
+    }
+});
+
+// Get sales of a single seller
+router.get("/:id/sales", async (req, res) => {
+    try {
+        const seller = await Seller.findOne({ id: req.params.id });
+        if (seller) {
+            const games = await Game.find({ id: { $in: seller.sales } });
+            if (games.length === 0) {
+                return res.status(404).json({ message: "No games found" });
+            }
+            return res.json(games);
+        } else {
+            return res.status(404).json({ message: "Seller not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching seller sales" });
+    }
+});
+
+// Get transactions of a single seller
+router.get("/:id/transactions", async (req, res) => {
+    try {
+        const transactions = await Transaction.find({
+            sellerId: req.params.id,
+        });
+        if (transactions.length === 0) {
+            return res.status(404).json({ message: "No transactions found" });
+        }
+        return res.json(transactions);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching seller transactions" });
     }
 });
 

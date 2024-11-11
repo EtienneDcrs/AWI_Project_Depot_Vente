@@ -14,6 +14,20 @@ router.get("/", async (req, res) => {
     }
 });
 
+// Get a single transaction
+router.get("/:id", async (req, res) => {
+    try {
+        const transaction = await Transaction.findOne({ id: req.params.id });
+        if (transaction) {
+            return res.json(transaction);
+        } else {
+            return res.status(404).json({ message: "Transaction not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching transaction" });
+    }
+});
+
 // Add a new transaction
 router.post("/", async (req, res) => {
     const transaction = new Transaction({
@@ -23,6 +37,7 @@ router.post("/", async (req, res) => {
         sellerId: req.body.sellerId,
         sellerName: req.body.sellerName,
         date: req.body.date,
+        price: req.body.price,
     });
     console.log("transaction", transaction);
     try {
@@ -34,6 +49,7 @@ router.post("/", async (req, res) => {
                 (stock) => stock !== req.body.game
             );
             seller.sales.push(req.body.game);
+            seller.turnover += req.body.price;
             await seller.save();
             return res.status(201).json(newTransaction);
         } else {

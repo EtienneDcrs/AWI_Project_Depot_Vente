@@ -6,4 +6,5 @@ export interface Transaction {
     sellerId: string; // ID du vendeur
     sellerName: string; // Nom du vendeur
     date: Date; // Date de la transaction
+    price: number; // Prix du jeu
 }
