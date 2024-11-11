@@ -13,8 +13,12 @@ import { CommonModule } from '@angular/common';
 export class GameCardComponent {
     @Input() game!: Game;
     @Input() showSeller: boolean = false;
-    @Input() showAddToCart: boolean = false;
+    @Input() buttonType: string = 'none';
     @Output() addToCart = new EventEmitter<Game>();
+    @Output() addToShelf = new EventEmitter<Game>();
+    @Output() removeFromShelf = new EventEmitter<Game>();
+    @Output() removeFromStock = new EventEmitter<Game>();
+
 
     constructor(private gameService: GameService) { }
 
@@ -22,4 +26,15 @@ export class GameCardComponent {
         this.addToCart.emit(this.game);
     }
 
+    public onAddToShelf() {
+        this.addToShelf.emit(this.game);
+    }
+
+    public onRemoveFromShelf() {
+        this.removeFromShelf.emit(this.game);
+    }
+
+    public onRemoveFromStock() {
+        this.removeFromStock.emit(this.game);
+    }
 }

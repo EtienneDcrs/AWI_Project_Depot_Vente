@@ -8,7 +8,22 @@
         }
         <p class="game-price">${{ game.price }}</p>
     </div>
-    @if (showAddToCart) {
-    <button (click)="onAddToCart()">Ajouter au panier</button>
-    }
+    
+    @switch (this.buttonType) {
+        @case ("addToCart") {
+            <button (click)="onAddToCart()" class="add">Ajouter au panier</button>
+        }
+        @case ("addToShelf") {
+            <button (click)="onAddToShelf()" class="add">Mettre en rayon</button>
+        }
+        @case ("removeFromShelf") {
+            <button (click)="onRemoveFromShelf()" class="remove">Retirer du rayon</button>
+        }
+        @case ("removeFromStock") {
+            <button (click)="onRemoveFromStock()" class="remove">Retirer des stocks</button>
+        }
+        @default {
+
+        }
+      }
 </div>

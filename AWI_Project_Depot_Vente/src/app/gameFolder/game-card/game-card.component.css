@@ -43,13 +43,28 @@
 }
 
 button {
-    background-color: #007bff;
     color: white;
     border: none;
     padding: 1.25vh 2.5vh;
     border-radius: 0.4vh;
     cursor: pointer;
     margin-bottom: 1.5vh;
+}
+
+.add{
+    background-color: #007bff;
+}
+
+.add:hover{
+    background-color: #0056b3;
+}
+
+.remove{
+    background-color: #dc3545;
+}
+
+.remove:hover{
+    background-color: #c82333;
 }
 
 button:disabled {

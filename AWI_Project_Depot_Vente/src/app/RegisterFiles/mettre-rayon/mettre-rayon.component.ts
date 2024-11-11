@@ -39,7 +39,7 @@ export class MettreRayonComponent implements OnInit {
     );
   }
 
-  mettreEnRayon(game: Game) {
+  onAddToShelf(game: Game) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Etes vous sûr de vouloir le mettre en rayon ?' } // Passer le message
     });

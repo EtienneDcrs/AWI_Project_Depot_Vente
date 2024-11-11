@@ -10,7 +10,7 @@
 <div class="enregistrer-achat-wrapper">
     <div class="game-grid">
         @for (game of filteredGames; track game.id) {
-            <app-game-card [game]="game" [showSeller]="showSeller" [showAddToCart]="true" (addToCart)="onAddToCart($event)"></app-game-card>
+            <app-game-card [game]="game" [showSeller]="showSeller" [buttonType]="'addToCart'" (addToCart)="onAddToCart($event)"></app-game-card>
         }
     </div>
 </div>

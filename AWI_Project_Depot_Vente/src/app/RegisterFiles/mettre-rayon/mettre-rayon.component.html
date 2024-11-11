@@ -6,10 +6,7 @@
 <div class="mettre-rayon-wrapper">
     <div class="game-grid">
         @for (game of filteredGames; track game.id) {
-        <div class="game-item">
-            <app-game-card [game]="game" [showSeller]="true"></app-game-card>
-            <button (click)="mettreEnRayon(game)">Mettre en Rayon</button>
-        </div>
+            <app-game-card [game]="game" [showSeller]="true" [buttonType]="'addToShelf'" (addToShelf)="onAddToShelf($event)"></app-game-card>
         }
     </div>
 </div>

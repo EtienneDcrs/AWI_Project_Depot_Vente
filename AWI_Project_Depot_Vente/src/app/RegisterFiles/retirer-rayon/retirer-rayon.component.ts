@@ -37,7 +37,7 @@ export class RetirerRayonComponent implements OnInit {
     );
   }
 
-  retirerDuRayon(game: Game) {
+  onRemoveFromShelf(game: Game) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Etes-vous sûr de vouloir retirer ce jeu du rayon ?' }
     });
