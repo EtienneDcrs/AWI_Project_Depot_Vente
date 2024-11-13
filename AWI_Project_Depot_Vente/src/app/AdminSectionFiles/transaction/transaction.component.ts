@@ -28,8 +28,8 @@ export class TransactionComponent implements OnInit {
       this.transactions = data;
       // Chargez les détails de chaque transaction en utilisant l'ID du jeu
       this.transactions.forEach(transaction => {
-        if (transaction.game) { // Vérifiez que l'ID du jeu est défini
-          this.gameService.getGame(transaction.game).subscribe(game => {
+        if (transaction.gameId) { // Vérifiez que l'ID du jeu est défini
+          this.gameService.getGame(transaction.gameId).subscribe(game => {
             this.transactionDetails.push({
               transaction,
               game: game || null

@@ -14,6 +14,7 @@ export class TransactionService {
 
     // Méthode pour ajouter une transaction
     addTransaction(transaction: Transaction): Observable<Transaction> {
+        console.log('Ajouter une transaction:', transaction);
         return this.http.post<Transaction>(`${this.apiUrl}`, transaction);
     }
 

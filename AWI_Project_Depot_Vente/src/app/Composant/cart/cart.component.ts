@@ -63,14 +63,25 @@ export class CartComponent implements OnInit {
         for (let game of this.cart) {
 
             // Créez l'objet de transaction en n'incluant que les propriétés disponibles
-            const transactionData: Transaction = { game: game.id, sellerId: game.sellerId, sellerName: game.sellerName, date: new Date(), price: game.price };
+            const transactionData: Transaction = { 
+                gameId: game.id, 
+                gameName: game.name,
+                buyerId: "none",
+                buyerName: "none",
+                sellerId: game.sellerId, 
+                sellerName: game.sellerName, 
+                date: new Date(), 
+                price: game.price 
+            };
+
+            console.log('Transaction data:', transactionData); // Log des données de la transaction
 
             this.transactionService.addTransaction(transactionData)
                 .subscribe(response => {
                     console.log('Transaction added:', response);
 
                     // Mettre à jour le statut du jeu en "vendu"
-                    this.gameService.updateGameStatus(game.id, 'vendu')
+                    this.gameService.sellGame(game.id)
                         .subscribe(updateResponse => {
                             console.log('Game status updated:', updateResponse);
                         }, error => {

@@ -41,6 +41,16 @@ router.get("/stock", async (req, res) => {
     }
 });
 
+// Get all games that have the status 'vendu'
+router.get("/sold", async (req, res) => {
+    try {
+        const games = await Game.find({ status: "vendu" });
+        return res.json(games);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching games in sold" });
+    }
+});
+
 // Get all games that have the status 'rayon'
 router.get("/rayon", async (req, res) => {
     try {
@@ -93,7 +103,6 @@ router.put("/:id", async (req, res) => {
                     // Recherche l'id du jeu dans le tableau `stocks` du vendeur et l'enlever si trouvé
                     const index = seller.stocks.indexOf(updatedGame.id);
                     if (index !== -1) {
-                        console.log("I am here");
                         // enleve le jeu du tableau
                         seller.stocks.splice(index, 1);
                     }
@@ -109,6 +118,26 @@ router.put("/:id", async (req, res) => {
     } catch (error) {
         console.log("Error updating game", error);
         res.status(400).json({ message: "Error updating game" });
+    }
+});
+
+
+// Sell a game
+router.post("/:id/vendu", async (req, res) => {
+    try {
+        const soldGame = await Game.findOne({ id: req.params.id });
+            
+        if (soldGame) {
+            soldGame.status = "vendu";
+            console.log("soldGame", soldGame);
+            await soldGame.save();
+            return res.json(soldGame);
+        } else {
+            return res.status(404).json({ message: "Game not found" });
+        }
+    }
+    catch (error) {
+        res.status(400).json({ message: "Error selling game" });
     }
 });
 

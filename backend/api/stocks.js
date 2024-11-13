@@ -68,6 +68,8 @@ router.put("/:id/rayon", async (req, res) => {
 });
 
 // Update game status to 'vendu'
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// voir game.js -> /vendu
 router.put("/:id/vendu", async (req, res) => {
     try {
         const updatedGame = await Game.findByIdAndUpdate(
@@ -84,6 +86,8 @@ router.put("/:id/vendu", async (req, res) => {
         });
     }
 });
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 // Remove a game from stock
 router.delete("/:id", async (req, res) => {

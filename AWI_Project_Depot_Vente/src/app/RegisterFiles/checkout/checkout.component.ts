@@ -97,7 +97,8 @@ export class CheckoutComponent {
       const transactionObservables = this.cart.map(game => {
         const fullName = this.buyer.firstName + ' ' + this.buyer.name;
         const transactionData = {
-          game: game.id,
+          gameId: game.id,
+          gameName: game.name,
           buyerId: this.buyer.id,
           buyerName: fullName,
           sellerId: game.sellerId,
@@ -109,7 +110,7 @@ export class CheckoutComponent {
         return this.transactionService.addTransaction(transactionData).pipe(
           switchMap(response => {
             console.log('Transaction added:', response);
-            return this.gameService.updateGameStatus(game.id, 'vendu');
+            return this.gameService.sellGame(game.id);
           }),
           catchError(error => {
             console.error('Error processing transaction for game', game.id, error);

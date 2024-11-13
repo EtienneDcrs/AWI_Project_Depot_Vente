@@ -63,9 +63,9 @@
         <div class="transactions">
             <p class="transactions-title">Transactions</p>
             <div class="transactions-list">
-                @for (transaction of this.sellerTransactions ; track transaction.game) {
+                @for (transaction of this.sellerTransactions ; track transaction.gameName) {
                 <div class="transaction">
-                    <p>{{ transaction.game }}</p>
+                    <p>{{ transaction.gameName }}</p>
                     <p>{{ transaction.date | date:'HH:mm/dd/MM/yyyy' }}</p>
                     <!-- <p>{{ transaction.game.name }}</p> -->
                     <p>{{ transaction.price | currency:'EUR' }}</p>

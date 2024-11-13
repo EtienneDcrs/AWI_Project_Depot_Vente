@@ -1,6 +1,7 @@
 
 export interface Transaction {
-    game: string; // ID du jeu acheté
+    gameId: string; // ID du jeu acheté
+    gameName: string; // Nom du jeu acheté
     buyerId?: string; // ID de l'acheteur (optionnel)
     buyerName?: string; // Nom de l'acheteur (optionnel)
     sellerId: string; // ID du vendeur

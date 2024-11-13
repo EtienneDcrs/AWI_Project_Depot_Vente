@@ -31,7 +31,8 @@ router.get("/:id", async (req, res) => {
 // Add a new transaction
 router.post("/", async (req, res) => {
     const transaction = new Transaction({
-        game: req.body.game,
+        gameId: req.body.gameId,
+        gameName: req.body.gameName,
         buyerId: req.body.buyerId,
         buyerName: req.body.buyerName,
         sellerId: req.body.sellerId,
@@ -41,15 +42,23 @@ router.post("/", async (req, res) => {
     });
     console.log("transaction", transaction);
     try {
+        console.log("here");
         const newTransaction = await transaction.save();
         // Remove the game from the seller's stock
+        console.log("here");
+        
         const seller = await Seller.findOne({ id: req.body.sellerId });
+        console.log("seller", seller);
         if (seller) {
+
             seller.stocks = seller.stocks.filter(
-                (stock) => stock !== req.body.game
+                (stock) => stock !== req.body.gameId
             );
-            seller.sales.push(req.body.game);
+            console.log("seller", seller);
+            seller.sales.push(req.body.gameId);
+            console.log("seller", seller);
             seller.turnover += req.body.price;
+            console.log("seller", seller);
             await seller.save();
             return res.status(201).json(newTransaction);
         } else {

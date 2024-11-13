@@ -36,6 +36,11 @@ export class GameService {
         return this.http.put<Game>(`${this.apiUrl}/${gameId}`, { status: newStatus });
     }
 
+    sellGame(gameId: string): Observable<Game> {
+        console.log('Vendre le jeu avec l\'ID:', gameId);
+        return this.http.post<Game>(`${this.apiUrl}/${gameId}/vendu`, {});
+    }
+
     // Fetch a game from the API using the gameId and return it as an Observable
     getGame(gameId: string): Observable<Game> {
         return this.http.get<Game>(`${this.apiUrl}/${gameId}`);
