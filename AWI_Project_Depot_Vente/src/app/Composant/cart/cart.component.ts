@@ -63,15 +63,18 @@ export class CartComponent implements OnInit {
         for (let game of this.cart) {
 
             // Créez l'objet de transaction en n'incluant que les propriétés disponibles
-            const transactionData: Transaction = { 
-                gameId: game.id, 
+            const transactionData: Transaction = {
+                gameId: game.id,
                 gameName: game.name,
                 buyerId: "none",
                 buyerName: "none",
-                sellerId: game.sellerId, 
-                sellerName: game.sellerName, 
-                date: new Date(), 
-                price: game.price 
+                sellerId: game.sellerId,
+                sellerName: game.sellerName,
+                date: new Date(),
+                price: game.price,
+                depositFee: game.depositFee,
+                commission: game.commission,
+                sessionId: game.sessionId
             };
 
             console.log('Transaction data:', transactionData); // Log des données de la transaction

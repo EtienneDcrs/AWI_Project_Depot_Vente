@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
 // Add a game to stock
 router.post("/", async (req, res) => {
     try {
-        console.log(req.body);
+        console.log("req.body", req.body);
         const game = new Game({ ...req.body, status: "stock" });
         await game.save();
 

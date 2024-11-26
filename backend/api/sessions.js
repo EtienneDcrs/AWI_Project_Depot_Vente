@@ -14,6 +14,50 @@ router.post("/", async (req, res) => {
     }
 });
 
+// Get the last session id
+router.get("/lastId", async (req, res) => {
+    try {
+        // Utilise `aggregate` pour obtenir le maximum des IDs existants
+        const result = await Session.aggregate([
+            { $group: { _id: null, maxId: { $max: { $toInt: "$id" } } } },
+        ]);
+
+        const maxId = result[0]?.maxId || 0;
+
+        return res.json(maxId.toString());
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching the last game id" });
+    }
+});
+
+// Get the depositFee of a session
+router.get("/depositFee/:id", async (req, res) => {
+    try {
+        const session = await Session.findOne({ id: req.params.id });
+        if (session) {
+            return res.json(session.depositFee);
+        } else {
+            return res.status(404).json({ message: "Session not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching session" });
+    }
+});
+
+// Get the commission of a session
+router.get("/commission/:id", async (req, res) => {
+    try {
+        const session = await Session.findOne({ id: req.params.id });
+        if (session) {
+            return res.json(session.commission);
+        } else {
+            return res.status(404).json({ message: "Session not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching session" });
+    }
+});
+
 // Get a specific session
 router.get("/:id", async (req, res) => {
     try {

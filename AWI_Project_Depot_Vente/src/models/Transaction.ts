@@ -8,4 +8,7 @@ export interface Transaction {
     sellerName: string; // Nom du vendeur
     date: Date; // Date de la transaction
     price: number; // Prix du jeu
+    depositFee: number; // Frais de dépôt
+    commission: number; // Commission
+    sessionId: string; // ID de la session
 }

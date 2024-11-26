@@ -41,4 +41,16 @@ export class SessionService {
     deleteSession(id: string): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
+
+    getSessionId(): Observable<string> {
+        return this.http.get<string>(`${this.apiUrl}/lastId`);
+    }
+
+    getDepositFee(id: string): Observable<number> {
+        return this.http.get<number>(`${this.apiUrl}/depositFee/${id}`);
+    }
+
+    getCommission(id: string): Observable<number> {
+        return this.http.get<number>(`${this.apiUrl}/commission/${id}`);
+    }
 }

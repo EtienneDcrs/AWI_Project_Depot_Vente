@@ -18,6 +18,7 @@ export class StockService {
 
   // Ajoute un jeu en stock
   addGameToStock(gameData: any): Observable<any> {
+    console.log('Full gameData:', gameData);
     return this.http.post(`${this.baseUrl}/stocks`, gameData);
   }
 
