@@ -21,8 +21,8 @@ export class SessionManagementComponent implements OnInit {
     constructor(private fb: FormBuilder, private sessionService: SessionService) {
         this.sessionForm = this.fb.group({
             id: ['', Validators.required],
-            startSession: ['', Validators.required],
-            endSession: ['', Validators.required],
+            startDate: ['', Validators.required],
+            endDate: ['', Validators.required],
             endDepositGame: ['', Validators.required],
             commissionType: ['', Validators.required],
             commission: [0, [Validators.required, Validators.min(0)]],

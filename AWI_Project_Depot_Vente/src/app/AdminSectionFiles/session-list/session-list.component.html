@@ -1,0 +1,49 @@
+<app-admin-navigation></app-admin-navigation>
+
+<div class="session-list">
+    <h2>{{date}}</h2>
+    <h2>Active Sessions</h2>
+    @if (activeSessions.length > 0) {
+        <ul>
+            @for (session of activeSessions; track session.id) {
+                <li>
+                    {{ session.id }} - {{ session.startDate }} to {{ session.endDate }}
+                </li>
+            }
+        </ul>
+
+    } @else {
+        <p>No active sessions available.</p>
+    }
+
+    <h2>Upcoming Sessions</h2>
+
+    @if (upcomingSessions.length > 0) {
+        <ul>
+            @for (session of upcomingSessions; track session.id) {
+                <li>
+                    {{ session.id }} - {{ session.startDate }} to {{ session.endDate }}
+                </li>
+            }
+        </ul>
+
+    } @else {
+        <p>No upcoming sessions available.</p>
+    }
+
+    <h2>Closed Sessions</h2>
+
+    @if (closedSessions.length > 0) {
+        <ul>
+            @for (session of closedSessions; track session.id) {
+                <li>
+                    {{ session.id }} - {{ session.startDate }} to {{ session.endDate }}
+                </li>
+            }
+        </ul>
+
+    } @else {
+        <p>No closed sessions available.</p>
+    }
+
+</div>

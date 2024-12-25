@@ -10,12 +10,12 @@
             <input id="id" formControlName="id" type="text" />
         </div>
         <div>
-            <label for="startSession">Début</label>
-            <input id="startSession" formControlName="startSession" type="datetime-local" />
+            <label for="startDate">Début</label>
+            <input id="startDate" formControlName="startDate" type="datetime-local" />
         </div>
         <div>
-            <label for="endSession">Fin</label>
-            <input id="endSession" formControlName="endSession" type="datetime-local" />
+            <label for="endDate">Fin</label>
+            <input id="endDate" formControlName="endDate" type="datetime-local" />
         </div>
         <div>
             <label for="endDepositGame">Fin des dépôts</label>
@@ -52,7 +52,7 @@
         <ul>
             @for (session of sessions; track session.id) {
             <li>
-                {{ session.id }} - {{ session.startSession | date }}
+                {{ session.id }} - {{ session.startDate | date }}
                 <button (click)="editSession(session)">Modifier</button>
                 <button (click)="deleteSession(session.id)">Supprimer</button>
             </li>
