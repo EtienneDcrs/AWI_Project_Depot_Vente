@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Session {
     id: string;
@@ -18,7 +19,7 @@ export interface Session {
     providedIn: 'root',
 })
 export class SessionService {
-    private apiUrl = 'http://localhost:4000/api/sessions';
+    private apiUrl = environment.backendHostUrl + '/sessions';
 
     constructor(private http: HttpClient) { }
 
