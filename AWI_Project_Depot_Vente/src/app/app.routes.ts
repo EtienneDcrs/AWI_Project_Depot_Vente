@@ -8,6 +8,7 @@ import { SellerInfoComponent } from './AdminSectionFiles/seller-info/seller-info
 import { SellerPaymentsComponent } from './AdminSectionFiles/seller-payments/seller-payments.component';
 import { GameSoldComponent } from './AdminSectionFiles/game-sold/game-sold.component';
 import { GeneralReportComponent } from './AdminSectionFiles/general-report/general-report.component';
+import { SessionManagementComponent } from './AdminSectionFiles/session-management/session-management.component';
 import { RegisterSectionComponent } from './RegisterFiles/register-section/register-section.component';
 import { EnregistrerAchatComponent } from './RegisterFiles/enregistrer-achat/enregistrer-achat.component';
 import { RetirerStocksComponent } from './RegisterFiles/retirer-stocks/retirer-stocks.component';
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'administration/seller-payments', component: SellerPaymentsComponent },
     { path: 'administration/game-sold', component: GameSoldComponent },
     { path: 'administration/general-report', component: GeneralReportComponent },
+    { path: 'administration/session-management', component: SessionManagementComponent },
 
     { path: 'enregistrement/enregistrerAchat', component: EnregistrerAchatComponent },
     { path: 'enregistrement/deposerJeu', component: DeposerJeuComponent },

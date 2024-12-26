@@ -10,6 +10,9 @@ const transactionSchema = new mongoose.Schema({
     sellerName: { type: String, required: true },
     date: { type: Date, required: true },
     price: { type: Number, required: true },
+    depositFee: { type: Number, required: true },
+    commission: { type: Number, required: true },
+    sessionId: { type: String, required: true },
 });
 
 const Transaction = mongoose.model(
