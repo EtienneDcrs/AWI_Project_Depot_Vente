@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { StockService } from '../../services/stock.service';
+import { SessionService } from '../../services/session.service';
 import { RegisterNavigationComponent } from '../register-navigation/register-navigation.component';
 import { Game } from '../../../models/Game';
 import { Seller } from '../../../models/Seller';
@@ -21,7 +22,7 @@ export class DeposerJeuComponent {
   message: string = ''; // Variable pour le message
   messageType: 'success' | 'error' | null = null; // Type de message
 
-  constructor(private fb: FormBuilder, private stockService: StockService, private router: Router) {
+  constructor(private fb: FormBuilder, private stockService: StockService, private router: Router, private sessionService: SessionService) {
     this.jeuForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
@@ -76,13 +77,41 @@ export class DeposerJeuComponent {
     if (this.jeuForm.valid && this.selectedVendeur) {
       const currentId = this.jeuForm.value.id; // ID récupéré du formulaire
 
+      const sessionInfo = { sessionID: '', depositFee: 0, commission: 0 }; // Informations de session
+
+      // Valider la session et récupérer les données associées
+      this.sessionService.getSessionId().subscribe({
+        next: (sessionId) => {
+          if (!sessionId) {
+            throw new Error('Aucune session valide trouvée. Impossible de créer le jeu.');
+          }
+
+          sessionInfo.sessionID = sessionId;
+
+          // Récupérer les frais et commissions
+          this.sessionService.getDepositFee(sessionInfo.sessionID).subscribe((fee) => {
+            sessionInfo.depositFee = fee;
+          });
+
+          this.sessionService.getCommission(sessionInfo.sessionID).subscribe((comm) => {
+            sessionInfo.commission = comm;
+          });
+        },
+        error: (err) => {
+          throw new Error('Erreur lors de la récupération de la session : ' + err.message);
+        },
+      });
+
       const gameData: Game = new Game(
         this.jeuForm.value.name,
         this.jeuForm.value.editor,
         this.jeuForm.value.price,
         this.selectedVendeur.id,
         this.jeuForm.value.sellerName,
-        'stock'
+        'stock',
+        sessionInfo.sessionID,
+        sessionInfo.depositFee,
+        sessionInfo.commission
       );
 
       // Ajouter l'ID au nouvel objet Game

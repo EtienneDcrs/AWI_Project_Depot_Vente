@@ -1,7 +1,6 @@
-import { StockService } from "../app/services/stock.service";
+import { SessionService } from '../app/services/session.service';
 
 export class Game {
-    private static lastId: number = 0;
     id!: string;
     name!: string;
     editor!: string;
@@ -9,8 +8,24 @@ export class Game {
     sellerId!: string;
     sellerName!: string;
     status!: string;
+    depositFee!: number;
+    commission!: number;
+    sessionId!: string;
 
-    constructor(name: string, editor: string, price: number, sellerId: string, sellerName: string, status: string) {
+    constructor(
+        name: string,
+        editor: string,
+        price: number,
+        sellerId: string,
+        sellerName: string,
+        status: string,
+        sessionId: string,
+        depositFee: number,
+        commission: number
+    ) {
+
+
+        // Initialiser les propriétés restantes
         this.name = name;
         this.editor = editor;
         this.price = price;

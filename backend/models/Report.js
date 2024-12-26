@@ -9,7 +9,6 @@ const ReportSchema = new mongoose.Schema({
     totalBuyers: { type: Number, required: true },
     totalSellers: { type: Number, required: true },
     totalTransactions: { type: Number, required: true },
-    
 });
 
 const Report = mongoose.model(

@@ -8,6 +8,9 @@ const gameSchema = new mongoose.Schema({
     sellerId: { type: String, required: true },
     sellerName: { type: String, required: true },
     status: { type: String, required: true },
+    depositFee: { type: Number, required: true },
+    commission: { type: Number, required: true },
+    sessionId: { type: String, required: true },
 });
 
 const Game = mongoose.model('Game', gameSchema, 'Game');

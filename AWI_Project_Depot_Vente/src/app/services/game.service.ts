@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Game } from '../../models/Game';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class GameService {
 
     prixCartTotal = new BehaviorSubject<number>(0);
     prixCartTotal$ = this.prixCartTotal.asObservable();
-    private apiUrl = 'http://localhost:4000/api/games';
+    private apiUrl = environment.backendHostUrl + '/games';
 
     constructor(private http: HttpClient) { }
 

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Buyer } from '../../models/Buyer';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class BuyerService {
 
-    private apiUrl = 'http://localhost:4000/api/buyers';
+    private apiUrl = environment.backendHostUrl + '/buyers';
 
     constructor(private http: HttpClient) { }
 

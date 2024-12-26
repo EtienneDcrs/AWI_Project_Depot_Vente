@@ -104,7 +104,10 @@ export class CheckoutComponent {
           sellerId: game.sellerId,
           sellerName: game.sellerName,
           date: new Date(),
-          price: game.price
+          price: game.price,
+          depositFee: game.depositFee,
+          commission: game.commission,
+          sessionId: game.sessionId
         };
         console.log('transactiondata:', transactionData);
         return this.transactionService.addTransaction(transactionData).pipe(

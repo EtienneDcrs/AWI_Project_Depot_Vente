@@ -1,0 +1,32 @@
+/* src/app/session-management/session-management.component.css */
+.session-management {
+    position: fixed;
+    margin-top: 5vh;
+    margin-left: 250px;
+    width: 82.5%;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    height: 80vh;
+    overflow: auto;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+button {
+    margin-right: 1rem;
+}
+
+.session-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.session-list li {
+    margin-bottom: 0.5rem;
+}

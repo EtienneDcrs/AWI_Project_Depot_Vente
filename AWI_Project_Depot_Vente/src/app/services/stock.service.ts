@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
 
-  private baseUrl = 'http://localhost:4000/api'; // Ajustez l'URL de votre API
+  private baseUrl = environment.backendHostUrl
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,7 @@ export class StockService {
 
   // Ajoute un jeu en stock
   addGameToStock(gameData: any): Observable<any> {
+    console.log('Full gameData:', gameData);
     return this.http.post(`${this.baseUrl}/stocks`, gameData);
   }
 
