@@ -17,6 +17,7 @@ import { AjouterVendeurComponent } from './RegisterFiles/ajouter-vendeur/ajouter
 import { RetirerRayonComponent } from './RegisterFiles/retirer-rayon/retirer-rayon.component';
 import { MettreRayonComponent } from './RegisterFiles/mettre-rayon/mettre-rayon.component';
 import { DeposerJeuComponent } from './RegisterFiles/deposer-jeu/deposer-jeu.component';
+import { SessionListComponent } from './AdminSectionFiles/session-list/session-list.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,7 @@ export const routes: Routes = [
     { path: 'administration/seller-payments', component: SellerPaymentsComponent },
     { path: 'administration/game-sold', component: GameSoldComponent },
     { path: 'administration/general-report', component: GeneralReportComponent },
+    { path: 'administration/session-list', component: SessionListComponent },
     { path: 'administration/session-management', component: SessionManagementComponent },
 
     { path: 'enregistrement/enregistrerAchat', component: EnregistrerAchatComponent },

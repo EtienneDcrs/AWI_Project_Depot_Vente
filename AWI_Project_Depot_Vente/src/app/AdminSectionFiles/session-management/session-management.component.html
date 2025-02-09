@@ -10,28 +10,34 @@
             <input id="id" formControlName="id" type="text" />
         </div>
         <div>
-            <label for="startSession">Début</label>
-            <input id="startSession" formControlName="startSession" type="datetime-local" />
+            <label for="startDate">Début</label>
+            <input id="startDate" formControlName="startDate" type="datetime-local" />
         </div>
         <div>
-            <label for="endSession">Fin</label>
-            <input id="endSession" formControlName="endSession" type="datetime-local" />
+            <label for="endDate">Fin</label>
+            <input id="endDate" formControlName="endDate" type="datetime-local" />
         </div>
         <div>
             <label for="endDepositGame">Fin des dépôts</label>
             <input id="endDepositGame" formControlName="endDepositGame" type="datetime-local" />
         </div>
         <div>
-            <label for="commissionType">Type de commission</label>
-            <input id="commissionType" formControlName="commissionType" type="text" />
+            <label>Commission Type:</label>
+            <input type="radio" id="commissionTypeFixed" formControlName="commissionType" value="fixed">
+            <label for="commissionTypeFixed">Fixed</label>
+            <input type="radio" id="commissionTypeRelative" formControlName="commissionType" value="relative">
+            <label for="commissionTypeRelative">Relative</label>
         </div>
         <div>
             <label for="commission">Commission</label>
             <input id="commission" formControlName="commission" type="number" />
         </div>
         <div>
-            <label for="depositFeeType">Type de dépôt</label>
-            <input id="depositFeeType" formControlName="depositFeeType" type="text" />
+            <label>Deposit Fee Type:</label>
+            <input type="radio" id="depositFeeTypeFixed" formControlName="depositFeeType" value="fixed">
+            <label for="depositFeeTypeFixed">Fixed</label>
+            <input type="radio" id="depositFeeTypeRelative" formControlName="depositFeeType" value="relative">
+            <label for="depositFeeTypeRelative">Relative</label>
         </div>
         <div>
             <label for="depositFee">Frais de dépôt</label>
@@ -46,7 +52,7 @@
         <ul>
             @for (session of sessions; track session.id) {
             <li>
-                {{ session.id }} - {{ session.startSession | date }}
+                {{ session.id }} - {{ session.startDate | date }}
                 <button (click)="editSession(session)">Modifier</button>
                 <button (click)="deleteSession(session.id)">Supprimer</button>
             </li>

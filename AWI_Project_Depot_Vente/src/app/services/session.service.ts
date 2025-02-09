@@ -6,8 +6,8 @@ import { environment } from '../../environments/environment';
 
 export interface Session {
     id: string;
-    startSession: Date;
-    endSession: Date;
+    startDate: Date;
+    endDate: Date;
     endDepositGame: Date;
     commissionType: string;
     commission: number;

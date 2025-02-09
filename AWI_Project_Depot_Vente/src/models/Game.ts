@@ -1,4 +1,3 @@
-import { SessionService } from '../app/services/session.service';
 
 export class Game {
     id!: string;
@@ -32,6 +31,9 @@ export class Game {
         this.sellerId = sellerId;
         this.sellerName = sellerName;
         this.status = status;
+        this.sessionId = sessionId;
+        this.depositFee = depositFee;
+        this.commission = commission;
     }
 
     public getId(): string {
@@ -56,5 +58,21 @@ export class Game {
 
     public getSellerName(): string {
         return this.sellerName;
+    }
+
+    public getStatus(): string {
+        return this.status;
+    }
+
+    public getSessionId(): string {
+        return this.sessionId;
+    }
+
+    public getDepositFee(): number {
+        return this.depositFee;
+    }
+
+    public getCommission(): number {
+        return this.commission;
     }
 }
