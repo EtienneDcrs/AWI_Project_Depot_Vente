@@ -16,6 +16,8 @@
         <p>No active sessions available.</p>
     }
 
+    <button (click)="navigateToSessionManagement()">Manage Sessions</button>
+    
     <h2>Upcoming Sessions</h2>
 
     @if (upcomingSessions.length > 0) {

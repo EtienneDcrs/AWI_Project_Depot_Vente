@@ -1,5 +1,38 @@
 <app-admin-navigation></app-admin-navigation>
 
 <div class="general-report-wrapper">
-    
+    <h2>General Report</h2>
+    <div class="report-item">
+        <span>Ventes totales :</span> {{ report.totalSales }} €
+    </div>
+    <div class="report-item">
+        <span>Montant à rembourser :</span> {{ report.amountToReimburse }} €
+    </div>
+    <div class="report-item">
+        <span>Montant remboursé :</span> {{ report.amountReimbursed }} €
+    </div>
+    <div class="report-item">
+        <span>Nombre de jeux vendus :</span> {{ report.gamesSoldNumber }} jeu{{ report.gamesSoldNumber > 1 ? "x" : "" }}
+    </div>
+    <div class="report-item">
+        <span>Nombre de jeux en stock :</span> {{ report.gamesInStockNumber }} jeu{{ report.gamesInStockNumber > 1 ? "x" : "" }}
+    </div>
+    <div class="report-item">
+        <span>Ventes potentielles (CA si tous les jeux sont vendus) :</span> {{ report.potentialSales }} €
+    </div>
+    <div class="report-item">
+        <span>Bénéfices sur les commissons :</span> {{ report.commissionsEarnings }} €
+    </div>
+    <div class="report-item">
+        <span>Bénéfices sur les dépôts :</span> {{ report.depositEarnings }} €
+    </div>
+    <div class="report-item">
+        <span>Revenus totaux :</span> {{ report.totalEarnings }} €
+    </div>
+    <div class="report-item">
+        <span>Nombre d'acheteurs :</span> {{ report.totalBuyers }} personne{{ report.totalBuyers > 1 ? "s" : "" }}
+    </div>
+    <div class="report-item">
+        <span>Nombre de clients :</span> {{ report.totalSellers }} personne{{ report.totalSellers > 1 ? "s" : "" }}
+    </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Session, SessionService } from '../../services/session.service';
 import { AdminNavigationComponent } from '../admin-navigation/admin-navigation.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-list',
@@ -17,7 +18,7 @@ export class SessionListComponent {
     upcomingSessions: Session[] = [];
     date = new Date();
 
-    constructor(private sessionService: SessionService) { }
+    constructor(private sessionService: SessionService, private router: Router) { }
 
     ngOnInit(): void {
         this.loadSessions();
@@ -40,4 +41,9 @@ export class SessionListComponent {
             }
         });
     }
+
+	navigateToSessionManagement() {
+		console.log('Navigating to session management');
+		this.router.navigate(['/administration/session-management']);
+	}
 }

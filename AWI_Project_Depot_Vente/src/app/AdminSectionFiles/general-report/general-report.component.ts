@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AdminNavigationComponent } from '../admin-navigation/admin-navigation.component';
-import { TransactionService } from '../../services/transaction.service';
 import { ActivatedRoute } from '@angular/router';
 import { Transaction } from '../../../models/Transaction';
+import { ReportService } from '../../services/report.service';
+import { Report } from '../../../models/Report';
 
 @Component({
   selector: 'app-general-report',
@@ -12,22 +13,20 @@ import { Transaction } from '../../../models/Transaction';
   styleUrl: './general-report.component.css'
 })
 export class GeneralReportComponent {
-    transactions: Transaction[] = [];
+    report!: Report;
 
-
-    constructor(private transactionService: TransactionService, private route: ActivatedRoute) { }
+    constructor(private reportService: ReportService, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         console.log('General Report Component');
-        this.loadTransactions();
-
+        this.loadReport();
     }
 
-    loadTransactions() {
-        this.transactionService.getTransactions().subscribe(
+    loadReport() {
+        this.reportService.getReport().subscribe(
             (data) => {
-                this.transactions = data;
-                console.log(this.transactions);
+                this.report = data;
+                console.log(this.report);
             }
         );
     }

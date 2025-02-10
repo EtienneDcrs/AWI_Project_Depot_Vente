@@ -12,3 +12,30 @@
     height: 80vh;
     overflow: auto;
 }
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+.report-item span:first-child {
+    font-weight: bold;
+    color: #555;
+}
+
+.report-item span:last-child {
+    color: #777;
+}
+
+.report-item:last-child {
+    border-bottom: none;
+}
