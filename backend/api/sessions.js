@@ -58,6 +58,34 @@ router.get("/commission/:id", async (req, res) => {
     }
 });
 
+// Get the commission type of a session
+router.get("/commissionType/:id", async (req, res) => {
+    try {
+        const session = await Session.findOne({ id: req.params.id });
+        if (session) {
+            return res.json(session.commissionType);
+        } else {
+            return res.status(404).json({ message: "Session not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching session" });
+    }
+});
+
+// Get the depoitFee type of a session
+router.get("/depositFeeType/:id", async (req, res) => {
+    try {
+        const session = await Session.findOne({ id: req.params.id });
+        if (session) {
+            return res.json(session.depositFeeType);
+        } else {
+            return res.status(404).json({ message: "Session not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching session" });
+    }
+});
+
 // Get a specific session
 router.get("/:id", async (req, res) => {
     try {

@@ -17,6 +17,11 @@ export class StockService {
     return this.http.get(`${this.baseUrl}/sellers?search=${query}`);
   }
 
+  // Récupère les acheteurs en fonction du prénom ou du nom
+  searchBuyers(query: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/buyers?search=${query}`);
+  }
+
   // Ajoute un jeu en stock
   addGameToStock(gameData: any): Observable<any> {
     console.log('Full gameData:', gameData);

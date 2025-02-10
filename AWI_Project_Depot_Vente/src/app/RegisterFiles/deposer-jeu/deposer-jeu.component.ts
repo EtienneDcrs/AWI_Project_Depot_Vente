@@ -1,21 +1,22 @@
-    import { Component } from '@angular/core';
-    import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-    import { StockService } from '../../services/stock.service';
-    import { SessionService } from '../../services/session.service';
-    import { RegisterNavigationComponent } from '../register-navigation/register-navigation.component';
-    import { Game } from '../../../models/Game';
-    import { Seller } from '../../../models/Seller';
-    import { CommonModule } from '@angular/common';
-    import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { StockService } from '../../services/stock.service';
+import { SessionService } from '../../services/session.service';
+import { RegisterNavigationComponent } from '../register-navigation/register-navigation.component';
+import { Game } from '../../../models/Game';
+import { Seller } from '../../../models/Seller';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
-    @Component({
+@Component({
     selector: 'app-deposer-jeu',
     templateUrl: './deposer-jeu.component.html',
     standalone: true,
     imports: [ReactiveFormsModule, RegisterNavigationComponent, CommonModule],
     styleUrls: ['./deposer-jeu.component.css']
-    })
-    export class DeposerJeuComponent {
+})
+export class DeposerJeuComponent {
     jeuForm: FormGroup;
     filteredVendeurs: any[] = [];
     selectedVendeur: any | null = null;
@@ -24,11 +25,11 @@
 
     constructor(private fb: FormBuilder, private stockService: StockService, private router: Router, private sessionService: SessionService) {
         this.jeuForm = this.fb.group({
-        id: [''],
-        name: ['', Validators.required],
-        editor: ['', Validators.required],
-        price: ['', [Validators.required, Validators.min(0)]],
-        sellerName: ['']
+            id: [''],
+            name: ['', Validators.required],
+            editor: ['', Validators.required],
+            price: ['', [Validators.required, Validators.min(0)]],
+            sellerName: ['']
         });
 
         // Récupérer le dernier ID lors de l'initialisation du composant
@@ -37,11 +38,11 @@
 
     private fetchLastGameId() {
         this.stockService.getLastGameId().subscribe(
-        (lastId) => {
-            console.log('Last game ID:', lastId);
-            this.jeuForm.patchValue({ id: lastId });
-        },
-        (error) => console.error('Error fetching last game ID:', error)
+            (lastId) => {
+                console.log('Last game ID:', lastId);
+                this.jeuForm.patchValue({ id: lastId });
+            },
+            (error) => console.error('Error fetching last game ID:', error)
         );
     }
 
@@ -50,19 +51,19 @@
         const query = input.value;
 
         if (query.length > 2) {
-        this.stockService.searchSellers(query).subscribe(
-            (sellers) => this.filteredVendeurs = this.filterVendeurs(sellers, query),
-            (error) => console.error('Error fetching sellers:', error)
-        );
+            this.stockService.searchSellers(query).subscribe(
+                (sellers) => this.filteredVendeurs = this.filterVendeurs(sellers, query),
+                (error) => console.error('Error fetching sellers:', error)
+            );
         } else {
-        this.filteredVendeurs = [];
+            this.filteredVendeurs = [];
         }
     }
 
     private filterVendeurs(sellers: Seller[], query: string): Seller[] {
         return sellers.filter(seller =>
-        seller.firstName.toLowerCase().includes(query.toLowerCase()) ||
-        seller.name.toLowerCase().includes(query.toLowerCase())
+            seller.firstName.toLowerCase().includes(query.toLowerCase()) ||
+            seller.name.toLowerCase().includes(query.toLowerCase())
         );
     }
 
@@ -73,70 +74,72 @@
     }
 
     onSubmit() {
-        // Vérifier que le formulaire est valide et qu'un vendeur est sélectionné
         if (this.jeuForm.valid && this.selectedVendeur) {
-        const currentId = this.jeuForm.value.id; // ID récupéré du formulaire
+            const currentId = this.jeuForm.value.id;
+            const price = this.jeuForm.value.price;
 
-        const sessionInfo = { sessionID: '', depositFee: 0, commission: 0 }; // Informations de session
-
-        // Valider la session et récupérer les données associées
-        this.sessionService.getSessionId().subscribe({
-            next: (sessionId) => {
-                if (!sessionId || sessionId === '') {
-                    throw new Error('Aucune session valide trouvée. Impossible de créer le jeu.');
-                }
-
-                sessionInfo.sessionID = sessionId;
-
-                // Récupérer les frais et commissions
-                this.sessionService.getDepositFee(sessionInfo.sessionID).subscribe((fee) => {
-                    sessionInfo.depositFee = fee;
-                });
-                this.sessionService.getCommission(sessionInfo.sessionID).subscribe((comm) => {
-                    sessionInfo.commission = comm;
-                });
-
-                // Créer un nouvel objet Game avec les données du formulaire et les informations de session
-                // Cet objet jeu contient les informations nécessaires pour effectuer la requete POST
-                const gameData: Game = new Game(
-                    this.jeuForm.value.name,
-                    this.jeuForm.value.editor,
-                    this.jeuForm.value.price,
-                    this.selectedVendeur.id,
-                    this.jeuForm.value.sellerName,
-                    'stock',
-                    sessionInfo.sessionID,
-                    sessionInfo.depositFee,
-                    sessionInfo.commission
-                );
-                // Ajouter l'ID au nouvel objet Game
-                gameData.id = currentId;
-        
-                console.log('Game data:', gameData); // Afficher les données du jeu dans la console
-                
-                // Appel au service pour ajouter le jeu en stock
-                this.stockService.addGameToStock(gameData).subscribe(
-                    (response) => {
-                        console.log('Game added to stock:', response);
-                        this.displayMessage('Le jeu a été déposé avec succès!', 'success');
-                        this.jeuForm.reset(); // Réinitialiser le formulaire
-                        this.fetchLastGameId(); // Récupérer le nouvel ID
-                    },
-                    (error) => {
-                        console.error('Error adding game to stock:', error);
-                        this.displayMessage('Erreur lors du dépôt du jeu. Veuillez réessayer.', 'error');
+            this.sessionService.getSessionId().subscribe({
+                next: (sessionId) => {
+                    if (!sessionId) {
+                        throw new Error('Aucune session valide trouvée. Impossible de créer le jeu.');
                     }
-                );
 
-            },
-            error: (err) => {
-                throw new Error('Erreur lors de la récupération de la session : ' + err.message);
-            },
-        });
+                    console.log('Session ID:', sessionId);
 
+                    // Récupérer les valeurs des frais et des types avec forkJoin
+                    forkJoin({
+                        depositFee: this.sessionService.getDepositFee(sessionId),
+                        depositFeeType: this.sessionService.getDepositFeeType(sessionId),
+                        commission: this.sessionService.getCommission(sessionId),
+                        commissionType: this.sessionService.getCommissionType(sessionId),
+                    }).subscribe({
+                        next: ({ depositFee, depositFeeType, commission, commissionType }) => {
 
+                            // Calcul des valeurs en fonction du type
+                            const finalDepositFee = depositFeeType === 'relative' ? (price * depositFee) / 100 : depositFee;
+                            const finalCommission = commissionType === 'relative' ? (price * commission) / 100 : commission;
+
+                            // Création de l'objet Game une fois les données calculées
+                            const gameData: Game = new Game(
+                                this.jeuForm.value.name,
+                                this.jeuForm.value.editor,
+                                price,
+                                this.selectedVendeur.id,
+                                this.jeuForm.value.sellerName,
+                                'stock',
+                                sessionId,
+                                finalDepositFee,
+                                finalCommission
+                            );
+                            gameData.id = currentId;
+
+                            console.log('Game data:', gameData);
+
+                            // Ajout du jeu au stock
+                            this.stockService.addGameToStock(gameData).subscribe(
+                                (response) => {
+                                    console.log('Game added to stock:', response);
+                                    this.displayMessage('Le jeu a été déposé avec succès!', 'success');
+                                    this.jeuForm.reset();
+                                    this.fetchLastGameId();
+                                },
+                                (error) => {
+                                    console.error('Error adding game to stock:', error);
+                                    this.displayMessage('Erreur lors du dépôt du jeu. Veuillez réessayer.', 'error');
+                                }
+                            );
+                        },
+                        error: (err) => {
+                            console.error('Erreur lors de la récupération des frais et commissions:', err);
+                        },
+                    });
+                },
+                error: (err) => {
+                    console.error('Erreur lors de la récupération de la session:', err);
+                },
+            });
         } else {
-            console.warn('Form is invalid or no seller selected'); // Message de mise en garde si le formulaire est invalide
+            console.warn('Form is invalid or no seller selected');
             this.displayMessage('Veuillez remplir tous les champs correctement.', 'error');
         }
     }
@@ -147,8 +150,8 @@
 
         // Effacer le message après 3 secondes
         setTimeout(() => {
-        this.message = '';
-        this.messageType = null;
+            this.message = '';
+            this.messageType = null;
         }, 3000);
     }
 

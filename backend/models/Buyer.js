@@ -6,7 +6,7 @@ const buyerSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     name: { type: String, required: true },
     email: { type: String, required: true },
-    phoneNumber: { type: String, required: false },
+    phoneNumber: { type: String, required: true },
     address: { type: String, required: true },
 });
 

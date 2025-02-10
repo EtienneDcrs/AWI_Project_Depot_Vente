@@ -3,15 +3,15 @@ export class User {
     firstName!: string;
     name!: string;
     email!: string;
-    phone!: string;
+    phoneNumber!: string;
 
-    constructor(firstName: string, name: string, email: string, phone: string) {
+    constructor(firstName: string, name: string, email: string, phoneNumber: string) {
         // Generate a unique id string
         this.id = User.generateUniqueId().toString();
         this.firstName = firstName;
         this.name = name;
         this.email = email;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
     }
 
     private static generateUniqueId(): number {
@@ -31,6 +31,6 @@ export class User {
     }
 
     public getPhone(): string {
-        return this.phone;
+        return this.phoneNumber;
     }
 }

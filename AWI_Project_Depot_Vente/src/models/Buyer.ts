@@ -9,8 +9,8 @@ export class Buyer extends User {
     cart: Game[] = [];
     purchases: Game[] = [];
 
-    constructor(firstName: string, name: string, email: string, phone: string, address: string) {
-        super(firstName, name, email, phone); // call the constructor of the superclass
+    constructor(firstName: string, name: string, email: string, phoneNumber: string, address: string) {
+        super(firstName, name, email, phoneNumber); // call the constructor of the superclass
         this.address = address;
     }
 

@@ -1,32 +1,35 @@
 <div class="checkout-container">
-    <h2>Informations personnelles</h2>
+    <h2>Finaliser l'achat</h2>
 
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="name">Nom</label>
-            <input id="name" formControlName="name" placeholder="Votre nom">
-        </div>
+    <!-- Barre de recherche pour trouver un acheteur existant -->
+    <label for="buyerSearch">Rechercher un acheteur :</label>
+    <input type="text" id="buyerSearch" placeholder="Entrez un nom..." (input)="onSearchBuyer($event)" />
 
-        <div>
-            <label for="firstName">Prénom</label>
-            <input id="fistName" formControlName="firstName" placeholder="Votre prénom">
-        </div>
+    <!-- Liste des acheteurs filtrés -->
+    @if(filteredBuyers.length > 0){
+    <ul>
+        @for(buyer of filteredBuyers; track buyer.id){
+        <li (click)="onBuyerSelect(buyer)">
+            {{ buyer.firstName }} {{ buyer.name }} - {{ buyer.email }}
+        </li>
+        }
+    </ul>
+    }
 
-        <div>
-            <label for="email">Email</label>
-            <input id="email" formControlName="email" placeholder="Votre email">
-        </div>
+    <!-- Acheteur sélectionné -->
+    @if(selectedBuyer){
+    <div class="selected-buyer">
+        <h3>Acheteur sélectionné :</h3>
+        <p><strong>Nom :</strong> {{ selectedBuyer.firstName }} {{ selectedBuyer.name }}</p>
+        <p><strong>Email :</strong> {{ selectedBuyer.email }}</p>
+        <p><strong>Téléphone :</strong> {{ selectedBuyer.phoneNumber }}</p>
+        <p><strong>Adresse :</strong> {{ selectedBuyer.address }}</p>
+    </div>
+    }
 
-        <div>
-            <label for="phone">Téléphone</label>
-            <input id="phone" formControlName="phone" placeholder="Votre téléphone">
-        </div>
+    <!-- Bouton pour ajouter un nouvel acheteur -->
+    <button (click)="navigateToAddBuyer()">Ajouter un nouvel acheteur</button>
 
-        <div>
-            <label for="address">Adresse</label>
-            <input id="address" formControlName="address" placeholder="Votre adresse">
-        </div>
-
-        <button type="submit">Valider l'achat</button>
-    </form>
+    <!-- Bouton de validation -->
+    <button [disabled]="!selectedBuyer || cart.length === 0" (click)="onSubmit()">Valider l'achat</button>
 </div>

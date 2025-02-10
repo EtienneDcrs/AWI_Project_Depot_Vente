@@ -23,17 +23,17 @@ export class AjouterClientComponent {
       firstName: ['', Validators.required],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       address: ['', Validators.required],
     });
   }
 
   onSubmit() {
     if (this.clientForm.valid) {
-      const { firstName, name, email, phone, address } = this.clientForm.value;
+      const { firstName, name, email, phoneNumber, address } = this.clientForm.value;
 
       // Créez un nouvel objet Seller explicitement avec les valeurs du formulaire
-      this.buyer = new Buyer(firstName, name, email, phone, address);
+      this.buyer = new Buyer(firstName, name, email, phoneNumber, address);
 
       console.log('Form Submitted:', this.buyer);
       this.buyerService.addBuyer(this.buyer).subscribe(() => {

@@ -1,54 +1,116 @@
 .checkout-container {
-    position: relative;
-    top: 15vh;
-    /* Reste en vh */
-    max-width: 80vw;
-    /* Converti 600px en vw (approximativement, selon la largeur de l'écran) */
+    max-width: 600px;
     margin: 0 auto;
-    /* Reste inchangé pour centrer */
-    padding: 5vh;
-    /* Reste en vh */
-    background-color: #f9f9f9;
-    border-radius: 0.5vw;
-    /* Converti 8px en vw */
-    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.1);
-    /* Converti 4px et 12px en vh */
+    padding: 20px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-    margin-bottom: 1.875vh;
-    /* Converti 15px en vh */
+h2,
+h3 {
+    text-align: center;
+    color: #333;
 }
 
 label {
-    display: block;
-    margin-bottom: 0.625vh;
-    /* Converti 5px en vh */
     font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
 }
 
 input {
     width: 100%;
-    /* Reste en pourcentage pour une largeur adaptative */
-    padding: 1.25vh;
-    /* Converti 10px en vh */
-    border-radius: 0.25vw;
-    /* Converti 4px en vw */
-    border: 0.125vw solid #ccc;
-    /* Converti 1px en vw */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+ul li {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li:hover {
+    background: #f0f0f0;
+}
+
+.selected-buyer {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.selected-buyer p {
+    margin: 5px 0;
 }
 
 button {
-    background-color: #007bff;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
     color: white;
-    padding: 1.25vh 5vw;
-    /* Converti 10px en vh et 20px en vw */
     border: none;
-    border-radius: 0.25vw;
-    /* Converti 4px en vw */
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #0056b3;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.cart-container {
+    margin-top: 20px;
+}
+
+.cart-container ul {
+    margin-top: 10px;
+}
+
+.cart-container li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.cart-container button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #dc3545;
+}
+
+.cart-container button:hover {
+    background: #b52a37;
 }
