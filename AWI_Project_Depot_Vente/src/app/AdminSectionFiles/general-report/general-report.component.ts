@@ -6,36 +6,34 @@ import { ReportService } from '../../services/report.service';
 import { Report } from '../../../models/Report';
 
 @Component({
-  selector: 'app-general-report',
-  standalone: true,
-  imports: [AdminNavigationComponent],
-  templateUrl: './general-report.component.html',
-  styleUrl: './general-report.component.css'
+    selector: 'app-general-report',
+    standalone: true,
+    imports: [AdminNavigationComponent],
+    templateUrl: './general-report.component.html',
+    styleUrl: './general-report.component.css',
 })
 export class GeneralReportComponent {
     report!: Report;
     sessionReport!: Report;
 
-    constructor(private reportService: ReportService, private route: ActivatedRoute) { }
+    constructor(
+        private reportService: ReportService,
+        private route: ActivatedRoute
+    ) {}
 
     ngOnInit(): void {
-        console.log('General Report Component');
         this.loadReport();
+        console.log('General Report Component');
     }
 
     loadReport() {
-        this.reportService.getReport().subscribe(
-            (data) => {
-                this.report = data;
-                console.log(this.report);
-            }
-        );
-        this.reportService.getSessionReport().subscribe(
-            (data) => {
-                this.sessionReport = data;
-                console.log(this.sessionReport);
-            }
-        );
+        this.reportService.getReport().subscribe((data) => {
+            this.report = data;
+            console.log(this.report);
+        });
+        this.reportService.getSessionReport().subscribe((data) => {
+            this.sessionReport = data;
+            console.log(this.sessionReport);
+        });
     }
-
 }

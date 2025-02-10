@@ -1,6 +1,7 @@
 <app-admin-navigation></app-admin-navigation>
 
 <div class="general-report-wrapper">
+    @if (report && sessionReport) {
     <h2>General Report</h2>
     <div class="report-item">
         <span class="description"></span>
@@ -12,11 +13,7 @@
         <span class="session">{{ sessionReport.totalSales }} €</span>
         <span class="global">{{ report.totalSales }} €</span>
     </div>
-    <div class="report-item">
-        <span class="description">Valeur des stocks :</span>
-        <span class="session">{{ sessionReport.potentialSales }} €</span>
-        <span class="global">{{ report.potentialSales }} €</span>
-    </div>
+
     <div class="report-item">
         <span class="description">Montant à rembourser :</span>
         <span class="session">{{ sessionReport.amountToReimburse }} €</span>
@@ -29,13 +26,29 @@
     </div>
     <div class="report-item">
         <span class="description">Nombre de jeux vendus :</span>
-        <span class="session">{{ sessionReport.gamesSoldNumber }} jeu{{ sessionReport.gamesSoldNumber > 1 ? "x" : "" }}</span>
-        <span class="global">{{ report.gamesSoldNumber }} jeu{{ report.gamesSoldNumber > 1 ? "x" : "" }}</span>
+        <span class="session"
+            >{{ sessionReport.gamesSoldNumber }} jeu{{
+                sessionReport.gamesSoldNumber > 1 ? "x" : ""
+            }}</span
+        >
+        <span class="global"
+            >{{ report.gamesSoldNumber }} jeu{{
+                report.gamesSoldNumber > 1 ? "x" : ""
+            }}</span
+        >
     </div>
     <div class="report-item">
         <span class="description">Nombre de jeux en stock :</span>
-        <span class="session">{{ sessionReport.gamesInStockNumber }} jeu{{ sessionReport.gamesInStockNumber > 1 ? "x" : "" }}</span>
-        <span class="global">{{ report.gamesInStockNumber }} jeu{{ report.gamesInStockNumber > 1 ? "x" : "" }}</span>
+        <span class="session"
+            >{{ sessionReport.gamesInStockNumber }} jeu{{
+                sessionReport.gamesInStockNumber > 1 ? "x" : ""
+            }}</span
+        >
+        <span class="global"
+            >{{ report.gamesInStockNumber }} jeu{{
+                report.gamesInStockNumber > 1 ? "x" : ""
+            }}</span
+        >
     </div>
     <div class="report-item">
         <span class="description">Bénéfices sur les commissons :</span>
@@ -54,12 +67,31 @@
     </div>
     <div class="report-item">
         <span class="description">Nombre de clients inscrits :</span>
-        <span class="session">{{ sessionReport.totalBuyers }} personne{{ sessionReport.totalBuyers > 1 ? "s" : "" }}</span>
-        <span class="global">{{ report.totalBuyers }} personne{{ report.totalBuyers > 1 ? "s" : "" }}</span>
+        <span class="session"
+            >{{ sessionReport.totalBuyers }} personne{{
+                sessionReport.totalBuyers > 1 ? "s" : ""
+            }}</span
+        >
+        <span class="global"
+            >{{ report.totalBuyers }} personne{{
+                report.totalBuyers > 1 ? "s" : ""
+            }}</span
+        >
     </div>
     <div class="report-item">
         <span class="description">Nombre de vendeurs :</span>
-        <span class="session">{{ sessionReport.totalSellers }} personne{{ sessionReport.totalSellers > 1 ? "s" : "" }}</span>
-        <span class="global">{{ report.totalSellers }} personne{{ report.totalSellers > 1 ? "s" : "" }}</span>
+        <span class="session"
+            >{{ sessionReport.totalSellers }} personne{{
+                sessionReport.totalSellers > 1 ? "s" : ""
+            }}</span
+        >
+        <span class="global"
+            >{{ report.totalSellers }} personne{{
+                report.totalSellers > 1 ? "s" : ""
+            }}</span
+        >
     </div>
+    } @else {
+    <p>No report available.</p>
+    }
 </div>
