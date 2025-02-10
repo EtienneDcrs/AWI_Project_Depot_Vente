@@ -96,8 +96,8 @@ export class DeposerJeuComponent {
                         next: ({ depositFee, depositFeeType, commission, commissionType }) => {
 
                             // Calcul des valeurs en fonction du type
-                            const finalDepositFee = depositFeeType === 'relative' ? (price * depositFee) / 100 : depositFee;
-                            const finalCommission = commissionType === 'relative' ? (price * commission) / 100 : commission;
+                            const finalDepositFee = depositFeeType === 'relative' ? parseFloat(((price * depositFee) / 100).toFixed(2)) : parseFloat(depositFee.toFixed(2));
+                            const finalCommission = commissionType === 'relative' ? parseFloat(((price * commission) / 100).toFixed(2)) : parseFloat(commission.toFixed(2));
 
                             // Création de l'objet Game une fois les données calculées
                             const gameData: Game = new Game(
