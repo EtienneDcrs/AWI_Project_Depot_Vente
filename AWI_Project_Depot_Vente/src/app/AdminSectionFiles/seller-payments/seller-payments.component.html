@@ -1,1 +1,36 @@
 <app-admin-navigation></app-admin-navigation>
+
+<div class="payment-container">
+    <h2>Ventes et Commissions des Vendeurs</h2>
+
+    <div>
+        @if (sellerPayments.length === 0) {
+        <p>Aucune vente n'a été effectuée.</p>
+        }
+    </div>
+
+    @if (sellerPayments.length > 0) {
+    <table>
+        <thead>
+            <tr>
+                <th>ID du Vendeur</th>
+                <th>Nom du Vendeur</th>
+                <th>Total des Ventes (Prix)</th>
+                <th>Commission Totale</th>
+                <th>Total à Rendre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (payment of sellerPayments; track payment.sellerId) {
+            <tr>
+                <td>{{ payment.sellerId }}</td>
+                <td>{{ payment.sellerName }}</td>
+                <td>{{ payment.totalSales | currency }}</td>
+                <td>{{ payment.totalCommission | currency }}</td>
+                <td>{{ payment.totalToGive | currency }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

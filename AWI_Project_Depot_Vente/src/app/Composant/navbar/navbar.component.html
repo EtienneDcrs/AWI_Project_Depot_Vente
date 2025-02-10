@@ -17,7 +17,3 @@
         <li><a (click)="goToAdminSection()">Administration</a></li>
     </ul>
 </nav>
-
-@if (showPasswordPrompt) {
-<app-password-prompt (passwordEntered)="handlePasswordEntered()"></app-password-prompt>
-}
