@@ -5,11 +5,17 @@
     @if (this.seller !== undefined) {
     <div class="infos">
         <div class="seller-header">
-            <p>{{ this.seller.name }}</p>
-            <p>{{ this.seller.firstName }}</p>
-            <p>{{ this.seller.email }}</p>
+            <h3>Informations vendeur</h3>
+            <div class="seller-information">
+                <p> {{ this.seller.name }} {{ this.seller.firstName }}</p>
+                <p>{{ this.seller.email }}</p>
+                <p class="turnover">Chiffre d'affaires : {{ this.seller.turnover | currency:'EUR' }}</p>
+                <p> Jeux vendus : {{this.sellerSales.length}}</p>
+                <p> Jeux en stock : {{this.sellerStock.length}}</p>
+            </div>
         </div>
 
+        <h3>Jeux disponibles</h3>
 
         @if (this.sellerStock.length > 0) {
 
@@ -31,12 +37,14 @@
                 }
             </div>
         } @else {
-            <p>Ce vendeur n'a pas de jeux en stock</p>
+            <div class="empty-message">
+                <p>Ce vendeur n'a pas de jeux en stock</p>
+            </div>
         }
 
+        <h3>Jeux vendus</h3>
         @if (this.sellerSales.length > 0) {
             <!-- carousel des SALES -->
-            <p class="carousel-title">Jeux vendus : {{this.sellerSales.length}}</p>
             <div class="sales-carousel-container">
                 @if (this.showLeftSalesButton) {
                 <button class="carousel-nav left" (click)="scrollLeftSales()">&#10094;</button>
@@ -53,23 +61,21 @@
                 }
             </div>
         } @else {
-            <p>Ce vendeur n'a pas vendu de jeux</p>
+            <div class="empty-message">
+                <p>Ce vendeur n'a pas vendu de jeux</p>
+            </div>
         }
 
-        <p class="turnover">Chiffre d'affaires : {{ this.seller.turnover | currency:'EUR' }}</p>
         
 
         <!-- liste des transactions par date -->
         <div class="transactions">
-            <p class="transactions-title">Transactions</p>
+            <h3 class="transactions-title">Transactions</h3>
             <div class="transactions-list">
                 @for (transaction of this.sellerTransactions ; track transaction.gameName) {
-                <div class="transaction">
-                    <p>{{ transaction.gameName }}</p>
-                    <p>{{ transaction.date | date:'HH:mm/dd/MM/yyyy' }}</p>
-                    <!-- <p>{{ transaction.game.name }}</p> -->
-                    <p>{{ transaction.price | currency:'EUR' }}</p>
-                </div>
+                <ul class="transaction">
+                    <li>{{ transaction.gameName }} - {{ transaction.date | date:'le dd/MM/yyyy à HH:mm' }} - {{ transaction.price | currency:'EUR' }}</li>
+                </ul>
                 }
             </div>
         </div>
