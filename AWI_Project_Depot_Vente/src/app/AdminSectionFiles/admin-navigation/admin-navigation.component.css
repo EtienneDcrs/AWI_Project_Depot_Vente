@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 0;
+  left: 0px;
   width: 10vw;
   height: calc(100% - 4vh);
   background-color: #677DFF;
@@ -16,7 +16,7 @@
 
 .admin-menu ul {
   list-style-type: none;
-  padding: 0;
+  padding: 20px;
 }
 
 .admin-menu ul li {

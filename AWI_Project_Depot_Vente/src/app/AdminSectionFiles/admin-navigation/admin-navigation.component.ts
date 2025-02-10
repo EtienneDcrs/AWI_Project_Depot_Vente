@@ -16,9 +16,8 @@ export class AdminNavigationComponent {
     { path: '/administration/transactions', label: 'Transactions', icon: 'credit_card' },
     { path: '/administration/seller-info', label: 'Infos vendeurs', icon: 'person' },
     { path: '/administration/seller-payments', label: 'Paiements dus', icon: 'payment' },
-    { path: '/administration/game-sold', label: 'Jeux vendus', icon: 'sports_esports' },
     { path: '/administration/general-report', label: 'Bilan général', icon: 'bar_chart' },
-    { path: '/administration/session-list', label: 'Session management', icon: 'manage_accounts' }
+    { path: '/administration/session-management', label: 'Session management', icon: 'manage_accounts' }
   ];
 
   constructor(private router: Router) {

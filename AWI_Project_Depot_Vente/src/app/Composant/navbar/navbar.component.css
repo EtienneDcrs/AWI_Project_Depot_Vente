@@ -16,11 +16,11 @@
 /* Logo */
 .navbar-logo {
     position: absolute;
-    left: 2vh;
+    left: 5vh;
 }
 
 .navbar-logo img.logo {
-    height: 4vh;
+    height: 7vh;
     width: auto;
 }
 

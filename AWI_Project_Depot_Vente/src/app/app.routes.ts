@@ -6,7 +6,6 @@ import { AdminSectionComponent } from './AdminSectionFiles/admin-section/admin-s
 import { SellerListComponent } from './AdminSectionFiles/seller-list/seller-list.component';
 import { SellerInfoComponent } from './AdminSectionFiles/seller-info/seller-info.component';
 import { SellerPaymentsComponent } from './AdminSectionFiles/seller-payments/seller-payments.component';
-import { GameSoldComponent } from './AdminSectionFiles/game-sold/game-sold.component';
 import { GeneralReportComponent } from './AdminSectionFiles/general-report/general-report.component';
 import { SessionManagementComponent } from './AdminSectionFiles/session-management/session-management.component';
 import { RegisterSectionComponent } from './RegisterFiles/register-section/register-section.component';
@@ -30,7 +29,6 @@ export const routes: Routes = [
     { path: 'administration/seller-info', component: SellerListComponent },
     { path: 'administration/seller-info/:id', component: SellerInfoComponent },
     { path: 'administration/seller-payments', component: SellerPaymentsComponent },
-    { path: 'administration/game-sold', component: GameSoldComponent },
     { path: 'administration/general-report', component: GeneralReportComponent },
     { path: 'administration/session-list', component: SessionListComponent },
     { path: 'administration/session-management', component: SessionManagementComponent },
