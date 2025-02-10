@@ -56,7 +56,7 @@ Le gérant peut gérer sa trésorerie grâce à cette application.
    ```
 
 ## Déploiement
-Le projet est déployé sur un serveur. Il est accessible à l'url : 
+Le projet est déployé sur un serveur. Il est accessible à l'url : https://depot-vente.losherrmannos.duckdns.org
 
 ## Auteurs
 - **Auteurs** : Ducros Etienne & Herrmann Lennon

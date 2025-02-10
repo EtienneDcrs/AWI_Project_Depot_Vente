@@ -1,7 +1,7 @@
 services:
   web:
     build:
-      context: /AWI_Project_Depot_Vente
+      context: ./frontend/
       dockerfile: Dockerfile
     ports:
       - "8080:4200"
@@ -10,5 +10,5 @@ services:
 
   backend:
     build:
-      context: /backend
+      context: ./backend/
       dockerfile: Dockerfile
