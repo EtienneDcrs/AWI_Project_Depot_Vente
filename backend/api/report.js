@@ -25,11 +25,14 @@ router.get("/", async (req, res) => {
                 sum + (game.price - game.depositFee - game.commission),
             0
         );
-        const gamesInStock = await Game.find({ status: "stock" });
+        const gamesInStock = await Game.find({
+            status: { $in: ["stock", "rayon"] },
+        });
         const gamesInStockNumber = gamesInStock.length;
-        const potentialSales =
-            totalSales +
-            gamesInStock.reduce((sum, game) => sum + game.price, 0);
+        const potentialSales = gamesInStock.reduce(
+            (sum, game) => sum + game.price,
+            0
+        );
         const commissionsEarnings = gamesSold.reduce(
             (sum, game) => sum + game.commission,
             0
