@@ -31,19 +31,18 @@ h2 {
     flex: 1;
     text-align: left;
     font-weight: bold;
-    color: #555;
 }
 
 .report-item .session {
     flex: 1;
     text-align: right;
-    color: #777;
+    color: #666;
 }
 
 .report-item .global {
     flex: 1;
     text-align: right;
-    color: #777;
+    color: #666;
 }
 
 .report-item:last-child {
