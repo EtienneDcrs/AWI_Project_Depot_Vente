@@ -1,27 +1,63 @@
-# AWIProjectDepotVente
+# Gestion de dépôt-vente de jeux de société
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+## Description du projet
+Ce projet vise à développer une application web permettant de gérer un système de dépôt-vente de jeux de société, principalement utilisé lors d'événements tels que des festivals de jeux. 
+L'application permettra au gérant de mettre en vente des jeux déposés par des vendeurs, d'enregistrer l'achat d'un jeu et d'avoir un historique des ventes par vendeur.
+Le gérant peut gérer sa trésorerie grâce à cette application.
 
-## Development server
+## Fonctionnalités principales
+### 1. Dépôt d'un jeu
+- Les vendeurs peuvent déposer des jeux.
+- Chaque jeu reçoit un identifiant unique sous forme d'étiquette.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 2. Vente d'un jeu
+- Gestion des transactions avec mise à jour automatique des stocks.
+- Calcul des commissions et mise à jour du bilan financier du vendeur.
+- Historique des ventes disponible.
 
-## Code scaffolding
+### 3. Gestion des stocks
+- Consultation des jeux encore disponibles et des jeux déjà vendus.
+- Suivi des stocks par vendeur.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 4. Transactions et bilans financiers
+- Bilan général des transactions, commissions et frais encaissés.
+- Bilan individuel pour chaque vendeur avec ses gains, ses jeux vendus.
 
-## Build
+### 5. Gestion des utilisateurs
+- Enregistrement des vendeurs avec informations de contact.
+- Possibilité pour les acheteurs de demander une facture et d'être enregistrés.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies utilisées
+- **Front-end** : Angular
+- **Back-end** : Node.js / Express
+- **Base de données** : MongoDB
 
-## Running unit tests
+## Installation et exécution en local
+1. **Cloner le projet** :
+   ```sh
+   git clone https://github.com/EtienneDcrs/AWI_Project_Depot_Vente.git
+   cd AWI_Project_Depot_Vente
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Installation des dépendances** :
+   ```sh
+   npm install 
+   ```
 
-## Running end-to-end tests
+3. **Configuration des variables d'environnement** :
+   - Copier le fichier `.env.example` en `.env` et renseigner les variables nécessaires.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Démarrage de l'application** :
+   ```sh
+   cd backend
+   npm start  # Pour le back-end
+   cd frontend
+   ng serve  # Pour le front-end
+   ```
 
-## Further help
+## Déploiement
+Le projet est déployé sur un serveur. Il est accessible à l'url : 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Auteurs
+- **Auteurs** : Ducros Etienne & Herrmann Lennon
+- **Organisation** : Polytech Montpellier
