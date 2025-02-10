@@ -3,13 +3,6 @@
 <div class="payment-container">
     <h2>Ventes et Commissions des Vendeurs</h2>
 
-    <div>
-        @if (sellerPayments.length === 0) {
-        <p>Aucune vente n'a été effectuée.</p>
-        }
-    </div>
-
-    @if (sellerPayments.length > 0) {
     <table>
         <thead>
             <tr>
@@ -18,6 +11,7 @@
                 <th>Total des Ventes (Prix)</th>
                 <th>Commission Totale</th>
                 <th>Total à Rendre</th>
+                <th>Rembourser le vendeur</th>
             </tr>
         </thead>
         <tbody>
@@ -28,9 +22,16 @@
                 <td>{{ payment.totalSales | currency }}</td>
                 <td>{{ payment.totalCommission | currency }}</td>
                 <td>{{ payment.totalToGive | currency }}</td>
+                <td>
+                    <button
+                        class="refund-button"
+                        (click)="refundSeller(payment.sellerId)"
+                    >
+                        Rembourser
+                    </button>
+                </td>
             </tr>
             }
         </tbody>
     </table>
-    }
 </div>
