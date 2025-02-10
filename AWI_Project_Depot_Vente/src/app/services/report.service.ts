@@ -16,4 +16,9 @@ export class ReportService {
         return this.http.get<Report>(this.apiUrl);
     }
 
+    // Fetch the session report from the API and return it as an Observable
+    getSessionReport(): Observable<Report> {
+        return this.http.get<Report>(this.apiUrl + '/session');
+    }
+
 }

@@ -14,6 +14,7 @@ import { Report } from '../../../models/Report';
 })
 export class GeneralReportComponent {
     report!: Report;
+    sessionReport!: Report;
 
     constructor(private reportService: ReportService, private route: ActivatedRoute) { }
 
@@ -27,6 +28,12 @@ export class GeneralReportComponent {
             (data) => {
                 this.report = data;
                 console.log(this.report);
+            }
+        );
+        this.reportService.getSessionReport().subscribe(
+            (data) => {
+                this.sessionReport = data;
+                console.log(this.sessionReport);
             }
         );
     }

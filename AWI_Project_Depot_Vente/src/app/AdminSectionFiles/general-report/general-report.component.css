@@ -15,24 +15,34 @@
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: #333;
 }
 
 .report-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 10px 20px;
     border-bottom: 1px solid #eee;
-    font-size: 16px;
+    font-size: 20px;
 }
 
-.report-item span:first-child {
+.report-item .description {
+    flex: 1;
+    text-align: left;
     font-weight: bold;
     color: #555;
 }
 
-.report-item span:last-child {
+.report-item .session {
+    flex: 1;
+    text-align: right;
+    color: #777;
+}
+
+.report-item .global {
+    flex: 1;
+    text-align: right;
     color: #777;
 }
 
