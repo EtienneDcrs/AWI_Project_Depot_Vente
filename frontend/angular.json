@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AWI_Project_Depot_Vente": {
+    "frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AWI_Project_Depot_Vente:build:production"
+              "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "AWI_Project_Depot_Vente:build:development"
+              "buildTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
