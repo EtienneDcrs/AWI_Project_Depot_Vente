@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { GamePageComponent } from './gameFolder/game-page/game-page.component';
 import { CheckoutComponent } from './RegisterFiles/checkout/checkout.component';
 import { TransactionComponent } from './AdminSectionFiles/transaction/transaction.component';
@@ -17,30 +17,54 @@ import { RetirerRayonComponent } from './RegisterFiles/retirer-rayon/retirer-ray
 import { MettreRayonComponent } from './RegisterFiles/mettre-rayon/mettre-rayon.component';
 import { DeposerJeuComponent } from './RegisterFiles/deposer-jeu/deposer-jeu.component';
 import { SessionListComponent } from './AdminSectionFiles/session-list/session-list.component';
+import { LoginComponent } from './Composant/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
+import { NgModule } from '@angular/core';
 
 
 export const routes: Routes = [
 
-    { path: 'enregistrement', component: RegisterSectionComponent },
     { path: 'inventaire', component: GamePageComponent },
-    { path: 'administration', component: AdminSectionComponent },
+    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'inventaire', pathMatch: 'full' },
 
-    { path: 'administration/transactions', component: TransactionComponent },
-    { path: 'administration/seller-info', component: SellerListComponent },
-    { path: 'administration/seller-info/:id', component: SellerInfoComponent },
-    { path: 'administration/seller-payments', component: SellerPaymentsComponent },
-    { path: 'administration/general-report', component: GeneralReportComponent },
-    { path: 'administration/session-list', component: SessionListComponent },
-    { path: 'administration/session-management', component: SessionManagementComponent },
-
-    { path: 'enregistrement/enregistrerAchat', component: EnregistrerAchatComponent },
-    { path: 'enregistrement/deposerJeu', component: DeposerJeuComponent },
-    { path: 'enregistrement/mettreRayon', component: MettreRayonComponent },
-    { path: 'enregistrement/retirerRayon', component: RetirerRayonComponent },
-    { path: 'enregistrement/retirerStocks', component: RetirerStocksComponent },
-    { path: 'enregistrement/ajouterVendeur', component: AjouterVendeurComponent },
-    { path: 'enregistrement/ajouterClient', component: AjouterClientComponent },
-
-    { path: 'enregistrement/checkout', component: CheckoutComponent },
-    { path: '', redirectTo: 'inventaire', pathMatch: 'full' }
+    {
+        path: 'enregistrement',
+        component: RegisterSectionComponent,
+        canActivate: [AuthGuard, RoleGuard],
+        data: { role: ['admin', 'gerant'] },
+        children: [
+            { path: 'enregistrerAchat', component: EnregistrerAchatComponent },
+            { path: 'deposerJeu', component: DeposerJeuComponent },
+            { path: 'mettreRayon', component: MettreRayonComponent },
+            { path: 'retirerRayon', component: RetirerRayonComponent },
+            { path: 'retirerStocks', component: RetirerStocksComponent },
+            { path: 'ajouterVendeur', component: AjouterVendeurComponent },
+            { path: 'ajouterClient', component: AjouterClientComponent },
+            { path: 'checkout', component: CheckoutComponent },
+        ]
+    },
+    {
+        path: 'administration',
+        component: AdminSectionComponent,
+        canActivate: [AuthGuard, RoleGuard],
+        data: { role: ['admin'] },
+        children: [
+            { path: 'transactions', component: TransactionComponent },
+            { path: 'seller-info', component: SellerListComponent },
+            { path: 'seller-info/:id', component: SellerInfoComponent },
+            { path: 'seller-payments', component: SellerPaymentsComponent },
+            { path: 'general-report', component: GeneralReportComponent },
+            { path: 'session-list', component: SessionListComponent },
+            { path: 'session-management', component: SessionManagementComponent },
+        ]
+    },
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+
+export class AppRoutingModule { }

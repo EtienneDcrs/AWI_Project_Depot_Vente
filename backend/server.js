@@ -9,37 +9,13 @@ import buyers from "./api/buyers.js";
 import stocks from "./api/stocks.js";
 import report from "./api/report.js";
 import sessions from "./api/sessions.js";
+import workers from "./api/workers.js";
+import auth from "./api/auth.js";
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-
-// // Middleware to check roles (Define this before using it)
-// function checkRole(requiredRole) {
-//     return (req, res, next) => {
-//         const { rolePassword } = req.headers;
-
-//         if (!rolePassword) {
-//             return res.status(401).json({ message: 'Access denied: password missing.' });
-//         }
-
-//         // Define role passwords
-//         const roles = {
-//             admin: '123456',       // Replace with the actual admin password
-//             manager: '654321'      // Replace with the actual manager password
-//         };
-
-//         // Check if the user has the required role
-//         if (requiredRole === 'admin' && rolePassword === roles.admin) {
-//             next();  // Admin access
-//         } else if (requiredRole === 'manager' && (rolePassword === roles.manager || rolePassword === roles.admin)) {
-//             next();  // Manager access (also admin)
-//         } else {
-//             return res.status(403).json({ message: 'Access denied: insufficient rights.' });
-//         }
-//     };
-// }
 
 // Middleware
 app.use(express.json());
@@ -55,6 +31,9 @@ mongoose
         console.error("Error connecting to MongoDB:", err);
     });
 
+// Add authentication routes
+app.use("/api/auth", auth);
+
 app.use("/api/games", games);
 app.use("/api/transactions", transactions);
 app.use("/api/sellers", sellers);
@@ -62,6 +41,7 @@ app.use("/api/buyers", buyers);
 app.use("/api/stocks", stocks);
 app.use("/api/report", report);
 app.use("/api/sessions", sessions);
+app.use("/api/workers", workers);
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

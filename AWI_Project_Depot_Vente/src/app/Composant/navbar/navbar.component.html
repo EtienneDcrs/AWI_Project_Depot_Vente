@@ -5,15 +5,27 @@
         </a>
     </div>
 
-    <!-- Icone de menu hamburger, centrée en mode mobile -->
+    <!-- Icône de menu hamburger, centrée en mode mobile -->
     <div class="navbar-toggle" (click)="toggleMenu()">
-        &#9776; <!-- Icône hamburger -->
+        &#9776;
     </div>
 
-    <!-- Menu de la navbar, contrôlé par 'isMenuOpen' -->
+    <!-- Menu de la navbar -->
     <ul class="navbar-menu" [class.open]="isMenuOpen">
         <li><a (click)="goToRegister()">Enregistrement</a></li>
         <li><a (click)="goToGames()">Inventaire</a></li>
         <li><a (click)="goToAdminSection()">Administration</a></li>
+
+        <!-- Bouton Connexion/Déconnexion -->
+        @if(!authService.isLoggedIn()) {
+        <li>
+            <a (click)="goToLogin()">Connexion</a>
+        </li>
+        }
+        @if(authService.isLoggedIn()) {
+        <li>
+            <a (click)="logout()">Déconnexion</a>
+        </li>
+        }
     </ul>
 </nav>

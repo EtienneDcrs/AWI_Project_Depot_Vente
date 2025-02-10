@@ -32,10 +32,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-.navbar-menu li {
-    margin-left: 5vh;
+    cursor: default !important;
 }
 
 .navbar-menu a {
@@ -44,6 +41,12 @@
     font-size: 2vh;
     padding: 1vh 2vh;
     transition: background-color 0.3s ease;
+    cursor: pointer !important;
+}
+
+.navbar-menu li {
+    margin-left: 5vh;
+    cursor: pointer !important;
 }
 
 .navbar-menu a:hover {
